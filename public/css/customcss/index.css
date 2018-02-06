@@ -1,5 +1,13 @@
 @charset "UTF-8";
-body {
+html,body {
+}
+
+#headerDiv{
+	
+}
+
+#centerDiv{
+	
 }
 
 /* header */
@@ -7,12 +15,14 @@ body {
 .border-bottom { border-bottom: 1px solid #e5e5e5; }
 .box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
 
+
 /* login */
 .form-signin {
   width: 100%;
   width: 330px;
   padding: 15px;
   margin: 0 auto;
+  margin-top:7%;
 }
 .form-signin .form-control {
   position: relative;

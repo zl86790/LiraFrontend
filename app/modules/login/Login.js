@@ -27,10 +27,13 @@ var HeaderDiv = React.createClass({
 var LoginDiv = React.createClass({
 	login: function(event) {
 		alert(123);
+		this.serverRequest = $.get("192.168.1.2:8081"+"/login.do", function (result) {
+			alert(result);
+		}.bind(this));
 	},
 	render: function() {
 		return (
-
+			
 			<form className="form-signin">
 				<img src={'/public/imgs/Lira.jpg'} alt="" width="72" height="72"/>
 				<h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
