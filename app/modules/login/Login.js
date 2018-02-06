@@ -1,10 +1,3 @@
-/**
- * 
- */
-import React from 'react';
-import ReactDOM from 'react-dom';
-
-
 var HeaderDiv = React.createClass({
 	render: function() {
 		return (
