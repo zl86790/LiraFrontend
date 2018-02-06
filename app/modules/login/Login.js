@@ -27,7 +27,7 @@ var HeaderDiv = React.createClass({
 var LoginDiv = React.createClass({
 	login: function(event) {
 		alert(123);
-		this.serverRequest = $.get("192.168.1.2:8081"+"/login.do", function (result) {
+		this.serverRequest = $.get("http://192.168.1.2:8081/login.do", function (result) {
 			alert(result);
 		}.bind(this));
 	},
