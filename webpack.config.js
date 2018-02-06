@@ -1,6 +1,8 @@
 var webpack = require('webpack');
 module.exports = {
-  entry: './app/index.js',
+  entry:  {
+	    login: './app/modules/login/login.js'
+  },
   output: {
       path: __dirname + '/build',
       filename: "Lira.js"
