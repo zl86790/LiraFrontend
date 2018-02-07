@@ -126,14 +126,10 @@ var LoginDiv = React.createClass({
 	displayName: "LoginDiv",
 
 	login: function login(event) {
-		alert(123);
-		//		this.serverRequest = $.("http://192.168.1.2:8081/login", function (result) {
-		//			alert(result);
-		//		}.bind(this));
 		var user = { username: "admin", password: "admin" };
 		$.ajax({
 			type: "POST",
-			url: "http://192.168.1.2:8081/login",
+			url: "http://192.168.1.2:8081/api/prelogin/login",
 			data: (0, _stringify2.default)(user),
 			dataType: 'json',
 			contentType: 'application/json',
