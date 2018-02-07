@@ -20,10 +20,15 @@ var HeaderDiv = React.createClass({
 
 var LoginDiv = React.createClass({
 	login: function(event) {
-		alert(123);
-		this.serverRequest = $.get("http://192.168.1.2:8081/login.do", function (result) {
-			alert(result);
-		}.bind(this));
+		var user = {username:"admin",password:"admin"}
+		$.ajax({
+		    type: "POST", 
+		    url: "http://192.168.1.2:8081/login",
+		    data: JSON.stringify(user), 
+		    dataType: 'json',
+		    contentType: 'application/json',
+		    success: function(data){ console.log(data); }
+		});
 	},
 	render: function() {
 		return (

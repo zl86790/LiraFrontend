@@ -70,6 +70,12 @@
 "use strict";
 
 
+var _stringify = __webpack_require__(1);
+
+var _stringify2 = _interopRequireDefault(_stringify);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var HeaderDiv = React.createClass({
 	displayName: "HeaderDiv",
 
@@ -121,9 +127,20 @@ var LoginDiv = React.createClass({
 
 	login: function login(event) {
 		alert(123);
-		this.serverRequest = $.get("http://192.168.1.2:8081/login.do", function (result) {
-			alert(result);
-		}.bind(this));
+		//		this.serverRequest = $.("http://192.168.1.2:8081/login", function (result) {
+		//			alert(result);
+		//		}.bind(this));
+		var user = { username: "admin", password: "admin" };
+		$.ajax({
+			type: "POST",
+			url: "http://192.168.1.2:8081/login",
+			data: (0, _stringify2.default)(user),
+			dataType: 'json',
+			contentType: 'application/json',
+			success: function success(data) {
+				console.log(data);
+			}
+		});
 	},
 	render: function render() {
 		return React.createElement(
@@ -162,6 +179,31 @@ var LoginDiv = React.createClass({
 });
 ReactDOM.render(React.createElement(HeaderDiv, null), document.getElementById('headerDiv'));
 ReactDOM.render(React.createElement(LoginDiv, null), document.getElementById('centerDiv'));
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = { "default": __webpack_require__(2), __esModule: true };
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var core = __webpack_require__(3);
+var $JSON = core.JSON || (core.JSON = { stringify: JSON.stringify });
+module.exports = function stringify(it) { // eslint-disable-line no-unused-vars
+  return $JSON.stringify.apply($JSON, arguments);
+};
+
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+var core = module.exports = { version: '2.5.3' };
+if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
+
 
 /***/ })
 /******/ ]);
