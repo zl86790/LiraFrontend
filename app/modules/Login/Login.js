@@ -1,3 +1,5 @@
+import './Login.css';
+
 var LoginDiv = React.createClass({
 	login: function(event) {
 		var user = {username:"admin",password:"admin"}

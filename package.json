@@ -22,8 +22,10 @@
     "babel-polyfill": "^6.26.0",
     "babel-runtime": "^6.26.0",
     "babel-standalone": "^6.22.1",
+    "css-loader": "^0.28.9",
     "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react-dom": "^15.4.2",
+    "style-loader": "^0.20.1"
   },
   "devDependencies": {
     "babel-core": "^6.22.1",
