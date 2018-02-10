@@ -76,52 +76,6 @@ var _stringify2 = _interopRequireDefault(_stringify);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var HeaderDiv = React.createClass({
-	displayName: "HeaderDiv",
-
-	render: function render() {
-		return React.createElement(
-			"div",
-			{ className: "d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow" },
-			React.createElement(
-				"h5",
-				{ className: "my-0 mr-md-auto font-weight-normal" },
-				"Lira"
-			),
-			React.createElement(
-				"nav",
-				{ className: "my-2 my-md-0 mr-md-3" },
-				React.createElement(
-					"a",
-					{ className: "p-2 text-dark", href: "#" },
-					"Features"
-				),
-				React.createElement(
-					"a",
-					{ className: "p-2 text-dark", href: "#" },
-					"Enterprise"
-				),
-				React.createElement(
-					"a",
-					{ className: "p-2 text-dark", href: "#" },
-					"Support"
-				),
-				React.createElement(
-					"a",
-					{ className: "p-2 text-dark", href: "#" },
-					"Pricing"
-				)
-			),
-			React.createElement(
-				"a",
-				{ className: "btn btn-outline-primary", href: "#" },
-				"Sign up"
-			)
-		);
-	}
-
-});
-
 var LoginDiv = React.createClass({
 	displayName: "LoginDiv",
 
@@ -173,7 +127,7 @@ var LoginDiv = React.createClass({
 		);
 	}
 });
-ReactDOM.render(React.createElement(HeaderDiv, null), document.getElementById('headerDiv'));
+
 ReactDOM.render(React.createElement(LoginDiv, null), document.getElementById('centerDiv'));
 
 /***/ }),

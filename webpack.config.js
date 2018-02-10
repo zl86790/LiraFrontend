@@ -1,11 +1,12 @@
 var webpack = require('webpack');
 module.exports = {
   entry:  {
-	    login: './app/modules/login/login.js'
+	    Login: './app/modules/Login/Login.js',
+	    Header: './app/modules/Header/Header.js',
   },
   output: {
       path: __dirname + '/build',
-      filename: "Lira.js"
+      filename: '[name].js'
   },
   module: {
       rules: [{
