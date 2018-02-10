@@ -1,16 +1,25 @@
 import './Login.css';
 
+import DashboardDiv from '../Dashboard/Dashboard.js';
+
 var LoginDiv = React.createClass({
 	login: function(event) {
-		var user = {username:"admin",password:"admin"}
+		var user = {userName:"admin",passWord:"admin"}
 		$.ajax({
 		    type: "POST", 
 		    url: "http://192.168.1.2:8081/api/prelogin/login",
 		    data: JSON.stringify(user), 
 		    dataType: 'json',
 		    contentType: 'application/json',
-		    success: function(data){ console.log(data); }
+		    success: function(data){ 
+		    	alert(data);
+		    	ReactDOM.render(
+	    			<DashboardDiv />,
+	    			document.getElementById('centerDiv')
+	    		);
+		    }
 		});
+		
 	},
 	render: function() {
 		return (
@@ -34,3 +43,5 @@ ReactDOM.render(
 	<LoginDiv />,
 	document.getElementById('centerDiv')
 );
+
+	

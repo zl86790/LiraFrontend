@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -629,19 +629,125 @@ module.exports = function (css) {
 "use strict";
 
 
-var _stringify = __webpack_require__(4);
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+__webpack_require__(4);
+
+var DashboardDiv = React.createClass({
+	displayName: "DashboardDiv",
+
+	render: function render() {
+		return React.createElement(
+			"div",
+			{ id: "dashboardDiv" },
+			React.createElement(
+				"div",
+				{ id: "dashboardLeftMenuDiv" },
+				"menu"
+			),
+			React.createElement(
+				"div",
+				{ id: "dashboardCenterDiv" },
+				"content"
+			)
+		);
+	}
+}); /**
+     * 
+     */
+
+exports.default = DashboardDiv;
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(5);
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(1)(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {
+	module.hot.accept("!!../../../node_modules/css-loader/index.js!./Dashboard.css", function() {
+		var newContent = require("!!../../../node_modules/css-loader/index.js!./Dashboard.css");
+
+		if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+
+		var locals = (function(a, b) {
+			var key, idx = 0;
+
+			for(key in a) {
+				if(!b || a[key] !== b[key]) return false;
+				idx++;
+			}
+
+			for(key in b) idx--;
+
+			return idx === 0;
+		}(content.locals, newContent.locals));
+
+		if(!locals) throw new Error('Aborting CSS HMR due to changed css-modules locals.');
+
+		update(newContent);
+	});
+
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)(false);
+// imports
+
+
+// module
+exports.push([module.i, "@charset \"UTF-8\";\r\n\r\n#dashboardDiv{\r\n\t\r\n}\r\n\r\n#dashboardLeftMenuDiv{\r\n\tfloat:left;\r\n\twidth:20%;\r\n\tborder-right: 1px solid #e5e5e5;\r\n\theight:500px;\r\n}\r\n\r\n#dashboardCenterDiv{\r\n\tfloat:left;\r\n\twidth:80%;\r\n}\r\n\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _stringify = __webpack_require__(7);
 
 var _stringify2 = _interopRequireDefault(_stringify);
 
-__webpack_require__(7);
+__webpack_require__(10);
+
+var _Dashboard = __webpack_require__(3);
+
+var _Dashboard2 = _interopRequireDefault(_Dashboard);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var LoginDiv = React.createClass({
-	displayName: "LoginDiv",
+	displayName: 'LoginDiv',
 
 	login: function login(event) {
-		var user = { username: "admin", password: "admin" };
+		var user = { userName: "admin", passWord: "admin" };
 		$.ajax({
 			type: "POST",
 			url: "http://192.168.1.2:8081/api/prelogin/login",
@@ -649,41 +755,42 @@ var LoginDiv = React.createClass({
 			dataType: 'json',
 			contentType: 'application/json',
 			success: function success(data) {
-				console.log(data);
+				alert(data);
+				ReactDOM.render(React.createElement(_Dashboard2.default, null), document.getElementById('centerDiv'));
 			}
 		});
 	},
 	render: function render() {
 		return React.createElement(
-			"form",
-			{ className: "form-signin" },
-			React.createElement("img", { src: '/public/imgs/Lira.jpg', alt: "", width: "72", height: "72" }),
+			'form',
+			{ className: 'form-signin' },
+			React.createElement('img', { src: '/public/imgs/Lira.jpg', alt: '', width: '72', height: '72' }),
 			React.createElement(
-				"h1",
-				{ className: "h3 mb-3 font-weight-normal" },
-				"Please sign in"
+				'h1',
+				{ className: 'h3 mb-3 font-weight-normal' },
+				'Please sign in'
 			),
 			React.createElement(
-				"label",
-				{ htmlFor: "inputEmail", className: "sr-only" },
-				"Email address"
+				'label',
+				{ htmlFor: 'inputEmail', className: 'sr-only' },
+				'Email address'
 			),
-			React.createElement("input", { type: "text", id: "inputUserName", className: "form-control", placeholder: "User Name", required: true, autoFocus: true }),
+			React.createElement('input', { type: 'text', id: 'inputUserName', className: 'form-control', placeholder: 'User Name', required: true, autoFocus: true }),
 			React.createElement(
-				"label",
-				{ htmlFor: "inputPassword", className: "sr-only" },
-				"Password"
+				'label',
+				{ htmlFor: 'inputPassword', className: 'sr-only' },
+				'Password'
 			),
-			React.createElement("input", { type: "password", id: "inputPassword", className: "form-control", placeholder: "Password", required: true }),
+			React.createElement('input', { type: 'password', id: 'inputPassword', className: 'form-control', placeholder: 'Password', required: true }),
 			React.createElement(
-				"button",
-				{ id: "subButton", className: "btn btn-lg btn-primary btn-block", type: "button", onClick: this.login },
-				"Sign in"
+				'button',
+				{ id: 'subButton', className: 'btn btn-lg btn-primary btn-block', type: 'button', onClick: this.login },
+				'Sign in'
 			),
 			React.createElement(
-				"p",
-				{ className: "mt-5 mb-3 text-muted" },
-				"\xA9 2017-2018"
+				'p',
+				{ className: 'mt-5 mb-3 text-muted' },
+				'\xA9 2017-2018'
 			)
 		);
 	}
@@ -692,16 +799,16 @@ var LoginDiv = React.createClass({
 ReactDOM.render(React.createElement(LoginDiv, null), document.getElementById('centerDiv'));
 
 /***/ }),
-/* 4 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(5), __esModule: true };
+module.exports = { "default": __webpack_require__(8), __esModule: true };
 
 /***/ }),
-/* 5 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var core = __webpack_require__(6);
+var core = __webpack_require__(9);
 var $JSON = core.JSON || (core.JSON = { stringify: JSON.stringify });
 module.exports = function stringify(it) { // eslint-disable-line no-unused-vars
   return $JSON.stringify.apply($JSON, arguments);
@@ -709,7 +816,7 @@ module.exports = function stringify(it) { // eslint-disable-line no-unused-vars
 
 
 /***/ }),
-/* 6 */
+/* 9 */
 /***/ (function(module, exports) {
 
 var core = module.exports = { version: '2.5.3' };
@@ -717,11 +824,11 @@ if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
 
 
 /***/ }),
-/* 7 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(8);
+var content = __webpack_require__(11);
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -767,7 +874,7 @@ if(false) {
 }
 
 /***/ }),
-/* 8 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(0)(false);

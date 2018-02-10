@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 12);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -623,80 +623,49 @@ module.exports = function (css) {
 
 
 /***/ }),
-/* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */,
-/* 11 */,
-/* 12 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(13);
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
 
-var HeaderDiv = React.createClass({
-	displayName: "HeaderDiv",
+__webpack_require__(4);
+
+var DashboardDiv = React.createClass({
+	displayName: "DashboardDiv",
 
 	render: function render() {
-
 		return React.createElement(
 			"div",
-			{ className: "d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow" },
+			{ id: "dashboardDiv" },
 			React.createElement(
-				"h5",
-				{ className: "my-0 mr-md-auto font-weight-normal" },
-				"Lira"
+				"div",
+				{ id: "dashboardLeftMenuDiv" },
+				"menu"
 			),
 			React.createElement(
-				"nav",
-				{ className: "my-2 my-md-0 mr-md-3" },
-				React.createElement(
-					"a",
-					{ className: "p-2 text-dark", href: "#" },
-					"Features"
-				),
-				React.createElement(
-					"a",
-					{ className: "p-2 text-dark", href: "#" },
-					"Enterprise"
-				),
-				React.createElement(
-					"a",
-					{ className: "p-2 text-dark", href: "#" },
-					"Support"
-				),
-				React.createElement(
-					"a",
-					{ className: "p-2 text-dark", href: "#" },
-					"Pricing"
-				)
-			),
-			React.createElement(
-				"a",
-				{ className: "btn btn-outline-primary", href: "#" },
-				"Sign up"
+				"div",
+				{ id: "dashboardCenterDiv" },
+				"content"
 			)
 		);
 	}
-
 }); /**
      * 
      */
 
-ReactDOM.render(React.createElement(HeaderDiv, null), document.getElementById('headerDiv'));
+exports.default = DashboardDiv;
 
 /***/ }),
-/* 13 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(14);
+var content = __webpack_require__(5);
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -715,8 +684,8 @@ var update = __webpack_require__(1)(content, options);
 if(content.locals) module.exports = content.locals;
 
 if(false) {
-	module.hot.accept("!!../../../node_modules/css-loader/index.js!./Header.css", function() {
-		var newContent = require("!!../../../node_modules/css-loader/index.js!./Header.css");
+	module.hot.accept("!!../../../node_modules/css-loader/index.js!./Dashboard.css", function() {
+		var newContent = require("!!../../../node_modules/css-loader/index.js!./Dashboard.css");
 
 		if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 
@@ -742,7 +711,7 @@ if(false) {
 }
 
 /***/ }),
-/* 14 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(0)(false);
@@ -750,7 +719,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "/* header */\r\n.border-top { border-top: 1px solid #e5e5e5; }\r\n.border-bottom { border-bottom: 1px solid #e5e5e5; }\r\n.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\r\n\r\n#dashboardDiv{\r\n\t\r\n}\r\n\r\n#dashboardLeftMenuDiv{\r\n\tfloat:left;\r\n\twidth:20%;\r\n\tborder-right: 1px solid #e5e5e5;\r\n\theight:500px;\r\n}\r\n\r\n#dashboardCenterDiv{\r\n\tfloat:left;\r\n\twidth:80%;\r\n}\r\n\r\n", ""]);
 
 // exports
 
