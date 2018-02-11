@@ -7,16 +7,19 @@ var LoginDiv = React.createClass({
 		var user = {userName:"admin",passWord:"admin"}
 		$.ajax({
 		    type: "POST", 
-		    url: "http://192.168.1.2:8081/api/prelogin/login",
+		    url: "http://localhost:8081/api/prelogin/login",
 		    data: JSON.stringify(user), 
 		    dataType: 'json',
 		    contentType: 'application/json',
 		    success: function(data){ 
-		    	alert(data);
+		    	alert("login success");
 		    	ReactDOM.render(
 	    			<DashboardDiv />,
 	    			document.getElementById('centerDiv')
 	    		);
+		    },
+			error: function(data){ 
+		    	alert("login error");
 		    }
 		});
 		
@@ -39,9 +42,13 @@ var LoginDiv = React.createClass({
 	}
 });
 
-ReactDOM.render(
-	<LoginDiv />,
-	document.getElementById('centerDiv')
-);
+$(document).ready(function(){
+	ReactDOM.render(
+		<LoginDiv />,
+		document.getElementById('centerDiv')
+	);
+});
+
+
 
 	

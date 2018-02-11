@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 12);
+/******/ 	return __webpack_require__(__webpack_require__.s = 15);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -632,13 +632,16 @@ module.exports = function (css) {
 /* 9 */,
 /* 10 */,
 /* 11 */,
-/* 12 */
+/* 12 */,
+/* 13 */,
+/* 14 */,
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(13);
+__webpack_require__(16);
 
 var HeaderDiv = React.createClass({
 	displayName: "HeaderDiv",
@@ -659,22 +662,22 @@ var HeaderDiv = React.createClass({
 				React.createElement(
 					"a",
 					{ className: "p-2 text-dark", href: "#" },
-					"Features"
+					"Dashboard"
 				),
 				React.createElement(
 					"a",
 					{ className: "p-2 text-dark", href: "#" },
-					"Enterprise"
+					"Projects"
 				),
 				React.createElement(
 					"a",
 					{ className: "p-2 text-dark", href: "#" },
-					"Support"
+					"Issues"
 				),
 				React.createElement(
 					"a",
 					{ className: "p-2 text-dark", href: "#" },
-					"Pricing"
+					"Boards"
 				)
 			),
 			React.createElement(
@@ -689,14 +692,16 @@ var HeaderDiv = React.createClass({
      * 
      */
 
-ReactDOM.render(React.createElement(HeaderDiv, null), document.getElementById('headerDiv'));
+$(document).ready(function () {
+	ReactDOM.render(React.createElement(HeaderDiv, null), document.getElementById('headerDiv'));
+});
 
 /***/ }),
-/* 13 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(14);
+var content = __webpack_require__(17);
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -742,7 +747,7 @@ if(false) {
 }
 
 /***/ }),
-/* 14 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(0)(false);

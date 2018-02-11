@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -755,116 +755,6 @@ exports = module.exports = __webpack_require__(0)(false);
 
 // module
 exports.push([module.i, ".asstm-title{\r\n\tcolor: #fff;\r\n\tbackground: transparent;\r\n    font-size: 12px;\r\n    font-weight: bold;\r\n    line-height: 1.666666666667;\r\n    margin: 0;\r\n    padding: 4px 64px 4px 10px;\r\n    text-align:left;\r\n}\r\n\r\n.asstm-nav{\r\n\tbackground-color: #3b73af;\r\n}\r\n\r\n.asstm-nav-bg{\r\n\tbackground: #eee;\r\n    -moz-border-radius-topleft: 3px;\r\n    border-top-left-radius: 3px;\r\n    -moz-border-radius-topright: 3px;\r\n    border-top-right-radius: 3px;\r\n    border: 1px solid #ddd;\r\n    border-bottom: 0;\r\n    margin: 0;\r\n    min-height: 24px;\r\n    padding: 0;\r\n    position: relative;\r\n}\r\n\r\n.asstm-issue-table{\r\n    background-color: #fff;\r\n    border-collapse: collapse;\r\n    margin: 8px 0;\r\n    width: 100%;\r\n    text-align:left;\r\n}\r\n\r\n.asstm-issue-table-header tr{\r\n\tborder-bottom: 1px solid #ddd;\r\n}\r\n\r\n\r\n.asstm-issue-table-header td{\r\n    vertical-align: middle;\r\n    padding: 4px 64px 4px 10px;\r\n}\r\n\r\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-__webpack_require__(7);
-
-var _AssignedToMe = __webpack_require__(3);
-
-var _AssignedToMe2 = _interopRequireDefault(_AssignedToMe);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/**
- * 
- */
-
-var DashboardDiv = React.createClass({
-	displayName: 'DashboardDiv',
-
-	render: function render() {
-		return React.createElement(
-			'div',
-			{ id: 'dashboardDiv' },
-			React.createElement(
-				'div',
-				{ id: 'dashboardLeftMenuDiv' },
-				'menu'
-			),
-			React.createElement(
-				'div',
-				{ id: 'dashboardCenterDiv' },
-				React.createElement(_AssignedToMe2.default, null)
-			)
-		);
-	}
-});
-
-exports.default = DashboardDiv;
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(8);
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(1)(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {
-	module.hot.accept("!!../../../node_modules/css-loader/index.js!./Dashboard.css", function() {
-		var newContent = require("!!../../../node_modules/css-loader/index.js!./Dashboard.css");
-
-		if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-
-		var locals = (function(a, b) {
-			var key, idx = 0;
-
-			for(key in a) {
-				if(!b || a[key] !== b[key]) return false;
-				idx++;
-			}
-
-			for(key in b) idx--;
-
-			return idx === 0;
-		}(content.locals, newContent.locals));
-
-		if(!locals) throw new Error('Aborting CSS HMR due to changed css-modules locals.');
-
-		update(newContent);
-	});
-
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(0)(false);
-// imports
-
-
-// module
-exports.push([module.i, "@charset \"UTF-8\";\r\n\r\n#dashboardDiv{\r\n\t\r\n}\r\n\r\n#dashboardLeftMenuDiv{\r\n\tfloat:left;\r\n\twidth:20%;\r\n\tborder-right: 1px solid #e5e5e5;\r\n\theight:500px;\r\n}\r\n\r\n#dashboardCenterDiv{\r\n\tfloat:left;\r\n\twidth:80%;\r\n}\r\n\r\n", ""]);
 
 // exports
 

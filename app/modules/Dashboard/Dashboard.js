@@ -4,6 +4,8 @@
 
 import './Dashboard.css';
 
+import AssignedToMeDiv from '../AssignedToMe/AssignedToMe.js';
+
 var DashboardDiv = React.createClass({
 	render: function() {
 		return (
@@ -12,7 +14,7 @@ var DashboardDiv = React.createClass({
 					menu
 				</div>
 				<div id="dashboardCenterDiv">
-					content
+					<AssignedToMeDiv />
 				</div>
 			</div>
 		)
