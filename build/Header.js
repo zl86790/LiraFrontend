@@ -649,41 +649,71 @@ var HeaderDiv = React.createClass({
 	render: function render() {
 
 		return React.createElement(
-			"div",
-			{ className: "d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow" },
-			React.createElement(
-				"h5",
-				{ className: "my-0 mr-md-auto font-weight-normal" },
-				"Lira"
-			),
+			"header",
+			null,
 			React.createElement(
 				"nav",
-				{ className: "my-2 my-md-0 mr-md-3" },
+				{ className: "navbar navbar-expand-md navbar-light bg-light fixed-top border-bottom box-shadow" },
 				React.createElement(
 					"a",
-					{ className: "p-2 text-dark", href: "#" },
-					"Dashboard"
+					{ className: "navbar-brand", href: "#" },
+					"Lira"
 				),
 				React.createElement(
-					"a",
-					{ className: "p-2 text-dark", href: "#" },
-					"Projects"
+					"button",
+					{ className: "navbar-toggler", type: "button", "data-toggle": "collapse", "data-target": "#navbarCollapse", "aria-controls": "navbarCollapse", "aria-expanded": "false", "aria-label": "Toggle navigation" },
+					React.createElement("span", { className: "navbar-toggler-icon" })
 				),
 				React.createElement(
-					"a",
-					{ className: "p-2 text-dark", href: "#" },
-					"Issues"
-				),
-				React.createElement(
-					"a",
-					{ className: "p-2 text-dark", href: "#" },
-					"Boards"
+					"div",
+					{ className: "collapse navbar-collapse", id: "navbarCollapse" },
+					React.createElement(
+						"ul",
+						{ className: "navbar-nav mr-auto" },
+						React.createElement(
+							"li",
+							{ className: "nav-item active" },
+							React.createElement(
+								"a",
+								{ className: "nav-link", href: "#" },
+								"Dashboard ",
+								React.createElement(
+									"span",
+									{ className: "sr-only" },
+									"(current)"
+								)
+							)
+						),
+						React.createElement(
+							"li",
+							{ className: "nav-item" },
+							React.createElement(
+								"a",
+								{ className: "nav-link", href: "#" },
+								"Projects"
+							)
+						),
+						React.createElement(
+							"li",
+							{ className: "nav-item" },
+							React.createElement(
+								"a",
+								{ className: "nav-link disabled", href: "#" },
+								"Issues"
+							)
+						)
+					),
+					React.createElement(
+						"form",
+						{ className: "form-inline mt-2 mt-md-0" },
+						React.createElement("input", { className: "form-control mr-sm-2", type: "text", placeholder: "Search", "aria-label": "Search" }),
+						React.createElement(
+							"button",
+							{ className: "btn btn-outline-success my-2 my-sm-0", type: "submit" },
+							"Search"
+						)
+					)
 				)
-			),
-			React.createElement(
-				"a",
-				{ className: "btn btn-outline-primary", href: "#" },
-				"Sign up"
 			)
 		);
 	}

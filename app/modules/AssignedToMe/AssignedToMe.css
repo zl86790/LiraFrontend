@@ -30,13 +30,14 @@
 .asstm-issue-table{
     background-color: #fff;
     border-collapse: collapse;
-    margin: 8px 0;
     width: 100%;
     text-align:left;
 }
 
 .asstm-issue-table-header tr{
 	border-bottom: 1px solid #ddd;
+	border-right: 1px solid #e5e5e5;
+	border-left: 1px solid #e5e5e5;
 }
 
 

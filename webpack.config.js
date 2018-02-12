@@ -4,7 +4,8 @@ module.exports = {
 	    Login: './app/modules/Login/Login.js',
 	    Header: './app/modules/Header/Header.js',
 	    Dashboard: './app/modules/Dashboard/Dashboard.js',
-	    AssignedToMe: './app/modules/AssignedToMe/AssignedToMe.js'
+	    AssignedToMe: './app/modules/AssignedToMe/AssignedToMe.js',
+	    Footer: './app/modules/Footer/Footer.js'
   },
   output: {
       path: __dirname + '/build',

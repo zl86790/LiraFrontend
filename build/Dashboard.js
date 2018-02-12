@@ -754,7 +754,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, ".asstm-title{\r\n\tcolor: #fff;\r\n\tbackground: transparent;\r\n    font-size: 12px;\r\n    font-weight: bold;\r\n    line-height: 1.666666666667;\r\n    margin: 0;\r\n    padding: 4px 64px 4px 10px;\r\n    text-align:left;\r\n}\r\n\r\n.asstm-nav{\r\n\tbackground-color: #3b73af;\r\n}\r\n\r\n.asstm-nav-bg{\r\n\tbackground: #eee;\r\n    -moz-border-radius-topleft: 3px;\r\n    border-top-left-radius: 3px;\r\n    -moz-border-radius-topright: 3px;\r\n    border-top-right-radius: 3px;\r\n    border: 1px solid #ddd;\r\n    border-bottom: 0;\r\n    margin: 0;\r\n    min-height: 24px;\r\n    padding: 0;\r\n    position: relative;\r\n}\r\n\r\n.asstm-issue-table{\r\n    background-color: #fff;\r\n    border-collapse: collapse;\r\n    margin: 8px 0;\r\n    width: 100%;\r\n    text-align:left;\r\n}\r\n\r\n.asstm-issue-table-header tr{\r\n\tborder-bottom: 1px solid #ddd;\r\n}\r\n\r\n\r\n.asstm-issue-table-header td{\r\n\tfont-size: 12px;\r\n    vertical-align: middle;\r\n    padding: 4px 64px 4px 10px;\r\n}\r\n\r\n", ""]);
+exports.push([module.i, ".asstm-title{\r\n\tcolor: #fff;\r\n\tbackground: transparent;\r\n    font-size: 12px;\r\n    font-weight: bold;\r\n    line-height: 1.666666666667;\r\n    margin: 0;\r\n    padding: 4px 64px 4px 10px;\r\n    text-align:left;\r\n}\r\n\r\n.asstm-nav{\r\n\tbackground-color: #3b73af;\r\n}\r\n\r\n.asstm-nav-bg{\r\n\tbackground: #eee;\r\n    -moz-border-radius-topleft: 3px;\r\n    border-top-left-radius: 3px;\r\n    -moz-border-radius-topright: 3px;\r\n    border-top-right-radius: 3px;\r\n    border: 1px solid #ddd;\r\n    border-bottom: 0;\r\n    margin: 0;\r\n    min-height: 24px;\r\n    padding: 0;\r\n    position: relative;\r\n}\r\n\r\n.asstm-issue-table{\r\n    background-color: #fff;\r\n    border-collapse: collapse;\r\n    width: 100%;\r\n    text-align:left;\r\n}\r\n\r\n.asstm-issue-table-header tr{\r\n\tborder-bottom: 1px solid #ddd;\r\n\tborder-right: 1px solid #e5e5e5;\r\n\tborder-left: 1px solid #e5e5e5;\r\n}\r\n\r\n\r\n.asstm-issue-table-header td{\r\n\tfont-size: 12px;\r\n    vertical-align: middle;\r\n    padding: 4px 64px 4px 10px;\r\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -864,7 +864,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "@charset \"UTF-8\";\r\n\r\n#dashboardDiv{\r\n\t\r\n}\r\n\r\n#dashboardLeftMenuDiv{\r\n\tfloat:left;\r\n\twidth:20%;\r\n\tborder-right: 1px solid #e5e5e5;\r\n\theight:500px;\r\n}\r\n\r\n#dashboardCenterDiv{\r\n\tfloat:left;\r\n\twidth:80%;\r\n}\r\n\r\n", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\r\n\r\n#dashboardDiv{\r\n\t\r\n}\r\n\r\n#dashboardLeftMenuDiv{\r\n\tfloat:left;\r\n\twidth:20%;\r\n\tborder-right: 1px solid #e5e5e5;\r\n\theight:500px;\r\n}\r\n\r\n#dashboardCenterDiv{\r\n\tfloat:left;\r\n\twidth:75%;\r\n\tpadding:20px;\r\n\t\r\n}\r\n\r\n", ""]);
 
 // exports
 
