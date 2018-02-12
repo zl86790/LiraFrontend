@@ -1,27 +1,39 @@
 import './AssignedToMe.css';
 
-var AssignedToMe = React.createClass({
-	render: function() {
+import ReactTable from 'react-table';
+import 'react-table/react-table.css'
 
-		return (
-			<div>
-				<div className="asstm-nav-bg">
-					<div className="asstm-nav">
-				    	<h5 className="asstm-title">Assigned to me</h5>
-				    </div>
-				</div>
-				<table className="asstm-issue-table">
-					<thead className="asstm-issue-table-header">
-				    	<tr>
-				    		<td>Type</td>
-				    		<td>Key</td>
-				    		<td>Summary</td>
-				    		<td>P</td>
-				    	</tr>
-				    </thead>
-			    </table>
-			</div>
-		)
+
+var AssignedToMe = React.createClass({
+	render() {
+		  const data = [{
+		    name: 'Tanner Linsley',
+		    age: 26,
+		    friend: {
+		      name: 'Jason Maurer',
+		      age: 23,
+		    }
+		  }]
+		 
+		  const columns = [{
+		    Header: 'Name',
+		    accessor: 'name' // String-based value accessors!
+		  }, {
+		    Header: 'Age',
+		    accessor: 'age',
+		    Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
+		  }, {
+		    id: 'friendName', // Required because our accessor is not a string
+		    Header: 'Friend Name',
+		    accessor: d => d.friend.name // Custom value accessors!
+		  }, {
+		    Header: props => <span>Friend Age</span>, // Custom header components!
+		    accessor: 'friend.age'
+		  }];
+		  
+		  return (<ReactTable data={data} columns={columns} />);
+		  
+		 
 	}
 	
 });

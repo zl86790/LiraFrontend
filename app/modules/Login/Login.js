@@ -7,7 +7,7 @@ var LoginDiv = React.createClass({
 		var user = {userName:"admin",passWord:"admin"}
 		$.ajax({
 		    type: "POST", 
-		    url: "http://localhost:8081/api/prelogin/login",
+		    url: "http://localhost:8081/api/v1/prelogin/login",
 		    data: JSON.stringify(user), 
 		    dataType: 'json',
 		    contentType: 'application/json',
