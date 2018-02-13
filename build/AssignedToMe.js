@@ -2849,45 +2849,81 @@ var AssignedToMe = React.createClass({
 	displayName: 'AssignedToMe',
 	render: function render() {
 		var data = [{
-			name: 'Tanner Linsley',
-			age: 26,
-			friend: {
-				name: 'Jason Maurer',
-				age: 23
-			}
+			type: 'Bug',
+			key: 'BUG-1',
+			summary: 'test summary',
+			priority: 'High'
+		}, {
+			type: 'Bug',
+			key: 'BUG-2',
+			summary: 'test summary',
+			priority: 'High'
+		}, {
+			type: 'Bug',
+			key: 'BUG-3',
+			summary: 'test summary',
+			priority: 'High'
+		}, {
+			type: 'Bug',
+			key: 'BUG-4',
+			summary: 'test summary',
+			priority: 'High'
+		}, {
+			type: 'Bug',
+			key: 'BUG-5',
+			summary: 'test summary',
+			priority: 'High'
+		}, {
+			type: 'Bug',
+			key: 'BUG-6',
+			summary: 'test summary',
+			priority: 'High'
+		}, {
+			type: 'Bug',
+			key: 'BUG-7',
+			summary: 'test summary',
+			priority: 'High'
+		}, {
+			type: 'Bug',
+			key: 'BUG-8',
+			summary: 'test summary',
+			priority: 'High'
+		}, {
+			type: 'Bug',
+			key: 'BUG-9',
+			summary: 'test summary',
+			priority: 'High'
+		}, {
+			type: 'Bug',
+			key: 'BUG-10',
+			summary: 'test summary',
+			priority: 'High'
 		}];
 
 		var columns = [{
-			Header: 'Name',
-			accessor: 'name' // String-based value accessors!
+			Header: 'Type',
+			accessor: 'type' // String-based value accessors!
 		}, {
-			Header: 'Age',
-			accessor: 'age',
-			Cell: function Cell(props) {
-				return React.createElement(
-					'span',
-					{ className: 'number' },
-					props.value
-				);
-			} // Custom cell components!
+			Header: 'Key',
+			accessor: 'key'
 		}, {
-			id: 'friendName', // Required because our accessor is not a string
-			Header: 'Friend Name',
-			accessor: function accessor(d) {
-				return d.friend.name;
-			} // Custom value accessors!
+			Header: 'Summary',
+			accessor: 'summary'
 		}, {
-			Header: function Header(props) {
-				return React.createElement(
-					'span',
-					null,
-					'Friend Age'
-				);
-			}, // Custom header components!
-			accessor: 'friend.age'
+			Header: 'Priority',
+			accessor: 'priority'
 		}];
 
-		return React.createElement(_reactTable2.default, { data: data, columns: columns });
+		return React.createElement(
+			'div',
+			null,
+			React.createElement(
+				'div',
+				{ className: 'asstm-table-title' },
+				'Assigned to me'
+			),
+			React.createElement(_reactTable2.default, { data: data, columns: columns })
+		);
 	}
 });
 
@@ -2952,7 +2988,7 @@ exports = module.exports = __webpack_require__(8)(false);
 
 
 // module
-exports.push([module.i, ".asstm-title{\r\n\tcolor: #fff;\r\n\tbackground: transparent;\r\n    font-size: 12px;\r\n    font-weight: bold;\r\n    line-height: 1.666666666667;\r\n    margin: 0;\r\n    padding: 4px 64px 4px 10px;\r\n    text-align:left;\r\n}\r\n\r\n.asstm-nav{\r\n\tbackground-color: #3b73af;\r\n}\r\n\r\n.asstm-nav-bg{\r\n\tbackground: #eee;\r\n    -moz-border-radius-topleft: 3px;\r\n    border-top-left-radius: 3px;\r\n    -moz-border-radius-topright: 3px;\r\n    border-top-right-radius: 3px;\r\n    border: 1px solid #ddd;\r\n    border-bottom: 0;\r\n    margin: 0;\r\n    min-height: 24px;\r\n    padding: 0;\r\n    position: relative;\r\n}\r\n\r\n.asstm-issue-table{\r\n    background-color: #fff;\r\n    border-collapse: collapse;\r\n    width: 100%;\r\n    text-align:left;\r\n}\r\n\r\n.asstm-issue-table-header tr{\r\n\tborder-bottom: 1px solid #ddd;\r\n\tborder-right: 1px solid #e5e5e5;\r\n\tborder-left: 1px solid #e5e5e5;\r\n}\r\n\r\n\r\n.asstm-issue-table-header td{\r\n\tfont-size: 12px;\r\n    vertical-align: middle;\r\n    padding: 4px 64px 4px 10px;\r\n}\r\n\r\n", ""]);
+exports.push([module.i, ".asstm-title{\r\n\tcolor: #fff;\r\n\tbackground: transparent;\r\n    font-size: 12px;\r\n    font-weight: bold;\r\n    line-height: 1.666666666667;\r\n    margin: 0;\r\n    padding: 4px 64px 4px 10px;\r\n    text-align:left;\r\n}\r\n\r\n.asstm-nav{\r\n\tbackground-color: #3b73af;\r\n}\r\n\r\n.asstm-nav-bg{\r\n\tbackground: #eee;\r\n    -moz-border-radius-topleft: 3px;\r\n    border-top-left-radius: 3px;\r\n    -moz-border-radius-topright: 3px;\r\n    border-top-right-radius: 3px;\r\n    border: 1px solid #ddd;\r\n    border-bottom: 0;\r\n    margin: 0;\r\n    min-height: 24px;\r\n    padding: 0;\r\n    position: relative;\r\n}\r\n\r\n.asstm-issue-table{\r\n    background-color: #fff;\r\n    border-collapse: collapse;\r\n    width: 100%;\r\n    text-align:left;\r\n}\r\n\r\n.asstm-issue-table-header tr{\r\n\tborder-bottom: 1px solid #ddd;\r\n\tborder-right: 1px solid #e5e5e5;\r\n\tborder-left: 1px solid #e5e5e5;\r\n}\r\n\r\n\r\n.asstm-issue-table-header td{\r\n\tfont-size: 12px;\r\n    vertical-align: middle;\r\n    padding: 4px 64px 4px 10px;\r\n}\r\n\r\n.asstm-table-title{\r\n\tcolor: #fff;\r\n\tbackground: #63adec;\r\n    font-size: 12px;\r\n    font-weight: bold;\r\n    line-height: 1.666666666667;\r\n    margin: 0;\r\n    padding: 4px 64px 4px 10px;\r\n    text-align:left;\r\n}\r\n", ""]);
 
 // exports
 

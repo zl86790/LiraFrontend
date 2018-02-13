@@ -47,3 +47,13 @@
     padding: 4px 64px 4px 10px;
 }
 
+.asstm-table-title{
+	color: #fff;
+	background: #63adec;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1.666666666667;
+    margin: 0;
+    padding: 4px 64px 4px 10px;
+    text-align:left;
+}

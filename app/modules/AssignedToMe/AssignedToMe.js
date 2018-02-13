@@ -6,33 +6,89 @@ import 'react-table/react-table.css'
 
 var AssignedToMe = React.createClass({
 	render() {
-		  const data = [{
-		    name: 'Tanner Linsley',
-		    age: 26,
-		    friend: {
-		      name: 'Jason Maurer',
-		      age: 23,
-		    }
-		  }]
+		  const data = [
+			  {
+			    type: 'Bug',
+			    key: 'BUG-1',
+			    summary: 'test summary',
+			    priority: 'High'
+			  },
+			  {
+			    type: 'Bug',
+			    key: 'BUG-2',
+			    summary: 'test summary',
+			    priority: 'High'
+			  },
+			  {
+			    type: 'Bug',
+			    key: 'BUG-3',
+			    summary: 'test summary',
+			    priority: 'High'
+			  },
+			  {
+			    type: 'Bug',
+			    key: 'BUG-4',
+			    summary: 'test summary',
+			    priority: 'High'
+			  },
+			  {
+			    type: 'Bug',
+			    key: 'BUG-5',
+			    summary: 'test summary',
+			    priority: 'High'
+			  },
+			  {
+			    type: 'Bug',
+			    key: 'BUG-6',
+			    summary: 'test summary',
+			    priority: 'High'
+			  },
+			  {
+			    type: 'Bug',
+			    key: 'BUG-7',
+			    summary: 'test summary',
+			    priority: 'High'
+			  },
+			  {
+			    type: 'Bug',
+			    key: 'BUG-8',
+			    summary: 'test summary',
+			    priority: 'High'
+			  },
+			  {
+			    type: 'Bug',
+			    key: 'BUG-9',
+			    summary: 'test summary',
+			    priority: 'High'
+			  },
+			  {
+			    type: 'Bug',
+			    key: 'BUG-10',
+			    summary: 'test summary',
+			    priority: 'High'
+			  }
+		  ]
 		 
 		  const columns = [{
-		    Header: 'Name',
-		    accessor: 'name' // String-based value accessors!
+		    Header: 'Type',
+		    accessor: 'type' // String-based value accessors!
 		  }, {
-		    Header: 'Age',
-		    accessor: 'age',
-		    Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
+		    Header: 'Key',
+		    accessor: 'key'
 		  }, {
-		    id: 'friendName', // Required because our accessor is not a string
-		    Header: 'Friend Name',
-		    accessor: d => d.friend.name // Custom value accessors!
+		    Header: 'Summary',
+		    accessor: 'summary'
 		  }, {
-		    Header: props => <span>Friend Age</span>, // Custom header components!
-		    accessor: 'friend.age'
+			  Header: 'Priority',
+			  accessor: 'priority'
 		  }];
 		  
-		  return (<ReactTable data={data} columns={columns} />);
-		  
+		  return (
+				  <div>
+				  	<div className="asstm-table-title">Assigned to me</div>
+				  	<ReactTable data={data} columns={columns} />
+				  </div>
+		  );
 		 
 	}
 	
