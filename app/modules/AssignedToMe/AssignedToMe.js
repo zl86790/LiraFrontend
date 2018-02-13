@@ -86,7 +86,28 @@ var AssignedToMe = React.createClass({
 		  return (
 				  <div>
 				  	<div className="asstm-table-title">Assigned to me</div>
-				  	<ReactTable data={data} columns={columns} />
+				  	<ReactTable data={data} columns={columns} 
+					  	getTdProps={(state, rowInfo, column, instance) => {
+					  	    return {
+					  	      onClick: (e, handleOriginal) => {
+					  	        console.log('A Td Element was clicked!')
+					  	        console.log('it produced this event:', e)
+					  	        console.log('It was in this column:', column)
+					  	        console.log('It was in this row:', rowInfo)
+					  	        console.log('It was in this table instance:', instance)
+					  	 
+					  	        // IMPORTANT! React-Table uses onClick internally to trigger
+					  	        // events like expanding SubComponents and pivots.
+					  	        // By default a custom 'onClick' handler will override this functionality.
+					  	        // If you want to fire the original onClick handler, call the
+					  	        // 'handleOriginal' function.
+					  	        if (handleOriginal) {
+					  	          alert(rowInfo.original.key);
+					  	        }
+					  	      }
+					  	    }
+					  	  }}
+				  	/>
 				  </div>
 		  );
 		 
