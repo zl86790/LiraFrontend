@@ -1,6 +1,7 @@
 import './AssignedToMe.css';
 
 import ReactTable from 'react-table';
+import IssueDetail from '../IssueDetail/IssueDetail.js';
 import 'react-table/react-table.css'
 
 
@@ -103,6 +104,10 @@ var AssignedToMe = React.createClass({
 					  	        // 'handleOriginal' function.
 					  	        if (handleOriginal) {
 					  	          alert(rowInfo.original.key);
+					  	          ReactDOM.render(
+						    			<IssueDetail />,
+						    			document.getElementById('dashboardCenterDiv')
+						    	  );
 					  	        }
 					  	      }
 					  	    }
