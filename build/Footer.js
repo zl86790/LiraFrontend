@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 70);
+/******/ 	return __webpack_require__(__webpack_require__.s = 73);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -161,7 +161,7 @@ module.exports = function (css) {
 
 /***/ }),
 
-/***/ 5:
+/***/ 3:
 /***/ (function(module, exports) {
 
 /*
@@ -244,7 +244,7 @@ function toComment(sourceMap) {
 
 /***/ }),
 
-/***/ 6:
+/***/ 4:
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -627,13 +627,13 @@ function updateLink (link, options, obj) {
 
 /***/ }),
 
-/***/ 70:
+/***/ 73:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(71);
+__webpack_require__(74);
 
 var FooterDiv = React.createClass({
 	displayName: "FooterDiv",
@@ -665,11 +665,11 @@ $(document).ready(function () {
 
 /***/ }),
 
-/***/ 71:
+/***/ 74:
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(72);
+var content = __webpack_require__(75);
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -683,7 +683,7 @@ var options = {"hmr":true}
 options.transform = transform
 options.insertInto = undefined;
 
-var update = __webpack_require__(6)(content, options);
+var update = __webpack_require__(4)(content, options);
 
 if(content.locals) module.exports = content.locals;
 
@@ -716,10 +716,10 @@ if(false) {
 
 /***/ }),
 
-/***/ 72:
+/***/ 75:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(5)(false);
+exports = module.exports = __webpack_require__(3)(false);
 // imports
 
 
