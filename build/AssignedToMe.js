@@ -9230,9 +9230,15 @@ var IssueDetailDetails = React.createClass({
 			{ className: 'issueDetailDetailsDiv' },
 			React.createElement(
 				'div',
-				{ style: { clear: 'both' }, onClick: this.showDetails },
-				'Details'
+				{ style: { float: 'left' }, onClick: this.showDetails },
+				'Details\xA0\xA0\xA0'
 			),
+			React.createElement(
+				'div',
+				{ style: { float: 'left', borderBottom: '1px solid #AAAAAA', width: '85%', marginTop: '-5px' } },
+				'\xA0'
+			),
+			React.createElement('div', { style: { clear: 'both' } }),
 			React.createElement(
 				'div',
 				null,

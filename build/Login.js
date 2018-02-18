@@ -9230,9 +9230,15 @@ var IssueDetailDetails = React.createClass({
 			{ className: 'issueDetailDetailsDiv' },
 			React.createElement(
 				'div',
-				{ style: { clear: 'both' }, onClick: this.showDetails },
-				'Details'
+				{ style: { float: 'left' }, onClick: this.showDetails },
+				'Details\xA0\xA0\xA0'
 			),
+			React.createElement(
+				'div',
+				{ style: { float: 'left', borderBottom: '1px solid #AAAAAA', width: '85%', marginTop: '-5px' } },
+				'\xA0'
+			),
+			React.createElement('div', { style: { clear: 'both' } }),
 			React.createElement(
 				'div',
 				null,
@@ -11074,7 +11080,9 @@ var LoginDiv = React.createClass({
 	displayName: 'LoginDiv',
 
 	login: function login(event) {
-		var user = { userName: "admin", passWord: "admin" };
+		var userName = this.refs.userName.value;
+		var passWord = this.refs.passWord.value;
+		var user = { userName: userName, passWord: passWord };
 		$.ajax({
 			type: "POST",
 			url: "http://localhost:8081/api/v1/prelogin/login",
@@ -11105,13 +11113,13 @@ var LoginDiv = React.createClass({
 				{ htmlFor: 'inputEmail', className: 'sr-only' },
 				'Email address'
 			),
-			React.createElement('input', { type: 'text', id: 'inputUserName', className: 'form-control', placeholder: 'User Name', required: true, autoFocus: true }),
+			React.createElement('input', { type: 'text', id: 'inputUserName', className: 'form-control', placeholder: 'User Name', required: true, autoFocus: true, ref: 'userName' }),
 			React.createElement(
 				'label',
 				{ htmlFor: 'inputPassword', className: 'sr-only' },
 				'Password'
 			),
-			React.createElement('input', { type: 'password', id: 'inputPassword', className: 'form-control', placeholder: 'Password', required: true }),
+			React.createElement('input', { type: 'password', id: 'inputPassword', className: 'form-control', placeholder: 'Password', required: true, ref: 'passWord' }),
 			React.createElement(
 				'button',
 				{ id: 'subButton', className: 'btn btn-lg btn-primary btn-block', type: 'button', onClick: this.login },
