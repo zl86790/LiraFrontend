@@ -2,3 +2,15 @@
 	text-align:left;
 	margin-top:70px;
 }
+
+.lira-detail-label{
+	float:left;
+	font-weight:bold;
+	width:25%;
+}
+
+.lira-detail-content{
+	float:left;
+	font-weight:normal;
+	width:25%;
+}

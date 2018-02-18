@@ -23,7 +23,18 @@ var IssueDetailDetails = React.createClass({
 				<div style={{clear:'both'}} ></div>
 				<div>
 					<Collapse isOpened={openDetails}>
-					  <div>Random content</div>
+						<div style={{height:200}}>
+					  		<div className="lira-detail-label">Type:</div>
+					  		<div className="lira-detail-content">Bug</div>
+					  		<div className="lira-detail-label">Status:</div>
+					  		<div className="lira-detail-content">Open</div>
+					  		<div className="lira-detail-label">Priority:</div>
+					  		<div className="lira-detail-content">High</div>
+					  		<div className="lira-detail-label">Resolution:</div>
+					  		<div className="lira-detail-content">Unresolved</div>
+					  		<div className="lira-detail-label">Labels:</div>
+					  		<div className="lira-detail-content">Helloworld</div>
+					  	</div>
 					</Collapse>
 				</div>
 			</div>

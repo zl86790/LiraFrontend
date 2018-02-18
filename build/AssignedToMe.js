@@ -9235,7 +9235,7 @@ var IssueDetailDetails = React.createClass({
 			),
 			React.createElement(
 				'div',
-				{ style: { float: 'left', borderBottom: '1px solid #AAAAAA', width: '85%', marginTop: '-5px' } },
+				{ style: { float: 'left', borderBottom: '1px solid #AAAAAA', width: '85%', marginTop: '-10px' } },
 				'\xA0'
 			),
 			React.createElement('div', { style: { clear: 'both' } }),
@@ -9247,8 +9247,57 @@ var IssueDetailDetails = React.createClass({
 					{ isOpened: openDetails },
 					React.createElement(
 						'div',
-						null,
-						'Random content'
+						{ style: { height: 200 } },
+						React.createElement(
+							'div',
+							{ className: 'lira-detail-label' },
+							'Type:'
+						),
+						React.createElement(
+							'div',
+							{ className: 'lira-detail-content' },
+							'Bug'
+						),
+						React.createElement(
+							'div',
+							{ className: 'lira-detail-label' },
+							'Status:'
+						),
+						React.createElement(
+							'div',
+							{ className: 'lira-detail-content' },
+							'Open'
+						),
+						React.createElement(
+							'div',
+							{ className: 'lira-detail-label' },
+							'Priority:'
+						),
+						React.createElement(
+							'div',
+							{ className: 'lira-detail-content' },
+							'High'
+						),
+						React.createElement(
+							'div',
+							{ className: 'lira-detail-label' },
+							'Resolution:'
+						),
+						React.createElement(
+							'div',
+							{ className: 'lira-detail-content' },
+							'Unresolved'
+						),
+						React.createElement(
+							'div',
+							{ className: 'lira-detail-label' },
+							'Labels:'
+						),
+						React.createElement(
+							'div',
+							{ className: 'lira-detail-content' },
+							'Helloworld'
+						)
 					)
 				)
 			)
@@ -10814,7 +10863,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, ".issueDetailDetailsDiv{\r\n\ttext-align:left;\r\n\tmargin-top:70px;\r\n}", ""]);
+exports.push([module.i, ".issueDetailDetailsDiv{\r\n\ttext-align:left;\r\n\tmargin-top:70px;\r\n}\r\n\r\n.lira-detail-label{\r\n\tfloat:left;\r\n\tfont-weight:bold;\r\n\twidth:25%;\r\n}\r\n\r\n.lira-detail-content{\r\n\tfloat:left;\r\n\tfont-weight:normal;\r\n\twidth:25%;\r\n}", ""]);
 
 // exports
 
