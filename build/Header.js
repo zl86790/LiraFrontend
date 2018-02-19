@@ -60,12 +60,171 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 364);
+/******/ 	return __webpack_require__(__webpack_require__.s = 373);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 12:
+/***/ 373:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+__webpack_require__(374);
+
+var HeaderDiv = React.createClass({
+	displayName: "HeaderDiv",
+
+	render: function render() {
+
+		return React.createElement(
+			"header",
+			null,
+			React.createElement(
+				"nav",
+				{ className: "navbar navbar-expand-md navbar-light bg-light fixed-top border-bottom box-shadow" },
+				React.createElement(
+					"a",
+					{ className: "navbar-brand", href: "#" },
+					"Lira"
+				),
+				React.createElement(
+					"button",
+					{ className: "navbar-toggler", type: "button", "data-toggle": "collapse", "data-target": "#navbarCollapse", "aria-controls": "navbarCollapse", "aria-expanded": "false", "aria-label": "Toggle navigation" },
+					React.createElement("span", { className: "navbar-toggler-icon" })
+				),
+				React.createElement(
+					"div",
+					{ className: "collapse navbar-collapse", id: "navbarCollapse" },
+					React.createElement(
+						"ul",
+						{ className: "navbar-nav mr-auto" },
+						React.createElement(
+							"li",
+							{ className: "nav-item active" },
+							React.createElement(
+								"a",
+								{ className: "nav-link", href: "#" },
+								"Dashboard ",
+								React.createElement(
+									"span",
+									{ className: "sr-only" },
+									"(current)"
+								)
+							)
+						),
+						React.createElement(
+							"li",
+							{ className: "nav-item" },
+							React.createElement(
+								"a",
+								{ className: "nav-link", href: "#" },
+								"Projects"
+							)
+						),
+						React.createElement(
+							"li",
+							{ className: "nav-item" },
+							React.createElement(
+								"a",
+								{ className: "nav-link disabled", href: "#" },
+								"Issues"
+							)
+						)
+					),
+					React.createElement(
+						"form",
+						{ className: "form-inline mt-2 mt-md-0" },
+						React.createElement("input", { className: "form-control mr-sm-2", type: "text", placeholder: "Search", "aria-label": "Search" }),
+						React.createElement(
+							"button",
+							{ className: "btn btn-outline-success my-2 my-sm-0", type: "submit" },
+							"Search"
+						)
+					)
+				)
+			)
+		);
+	}
+
+}); /**
+     * 
+     */
+
+$(document).ready(function () {
+	ReactDOM.render(React.createElement(HeaderDiv, null), document.getElementById('headerDiv'));
+});
+
+/***/ }),
+
+/***/ 374:
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(375);
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(9)(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {
+	module.hot.accept("!!../../../node_modules/css-loader/index.js!./Header.css", function() {
+		var newContent = require("!!../../../node_modules/css-loader/index.js!./Header.css");
+
+		if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+
+		var locals = (function(a, b) {
+			var key, idx = 0;
+
+			for(key in a) {
+				if(!b || a[key] !== b[key]) return false;
+				idx++;
+			}
+
+			for(key in b) idx--;
+
+			return idx === 0;
+		}(content.locals, newContent.locals));
+
+		if(!locals) throw new Error('Aborting CSS HMR due to changed css-modules locals.');
+
+		update(newContent);
+	});
+
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ 375:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(8)(false);
+// imports
+
+
+// module
+exports.push([module.i, "/* header */\r\n.border-top { border-top: 1px solid #e5e5e5; }\r\n.border-bottom { border-bottom: 1px solid #e5e5e5; }\r\n.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ 8:
 /***/ (function(module, exports) {
 
 /*
@@ -148,7 +307,7 @@ function toComment(sourceMap) {
 
 /***/ }),
 
-/***/ 13:
+/***/ 9:
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -214,7 +373,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(97);
+var	fixUrls = __webpack_require__(98);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -531,166 +690,7 @@ function updateLink (link, options, obj) {
 
 /***/ }),
 
-/***/ 364:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-__webpack_require__(365);
-
-var HeaderDiv = React.createClass({
-	displayName: "HeaderDiv",
-
-	render: function render() {
-
-		return React.createElement(
-			"header",
-			null,
-			React.createElement(
-				"nav",
-				{ className: "navbar navbar-expand-md navbar-light bg-light fixed-top border-bottom box-shadow" },
-				React.createElement(
-					"a",
-					{ className: "navbar-brand", href: "#" },
-					"Lira"
-				),
-				React.createElement(
-					"button",
-					{ className: "navbar-toggler", type: "button", "data-toggle": "collapse", "data-target": "#navbarCollapse", "aria-controls": "navbarCollapse", "aria-expanded": "false", "aria-label": "Toggle navigation" },
-					React.createElement("span", { className: "navbar-toggler-icon" })
-				),
-				React.createElement(
-					"div",
-					{ className: "collapse navbar-collapse", id: "navbarCollapse" },
-					React.createElement(
-						"ul",
-						{ className: "navbar-nav mr-auto" },
-						React.createElement(
-							"li",
-							{ className: "nav-item active" },
-							React.createElement(
-								"a",
-								{ className: "nav-link", href: "#" },
-								"Dashboard ",
-								React.createElement(
-									"span",
-									{ className: "sr-only" },
-									"(current)"
-								)
-							)
-						),
-						React.createElement(
-							"li",
-							{ className: "nav-item" },
-							React.createElement(
-								"a",
-								{ className: "nav-link", href: "#" },
-								"Projects"
-							)
-						),
-						React.createElement(
-							"li",
-							{ className: "nav-item" },
-							React.createElement(
-								"a",
-								{ className: "nav-link disabled", href: "#" },
-								"Issues"
-							)
-						)
-					),
-					React.createElement(
-						"form",
-						{ className: "form-inline mt-2 mt-md-0" },
-						React.createElement("input", { className: "form-control mr-sm-2", type: "text", placeholder: "Search", "aria-label": "Search" }),
-						React.createElement(
-							"button",
-							{ className: "btn btn-outline-success my-2 my-sm-0", type: "submit" },
-							"Search"
-						)
-					)
-				)
-			)
-		);
-	}
-
-}); /**
-     * 
-     */
-
-$(document).ready(function () {
-	ReactDOM.render(React.createElement(HeaderDiv, null), document.getElementById('headerDiv'));
-});
-
-/***/ }),
-
-/***/ 365:
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(366);
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(13)(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {
-	module.hot.accept("!!../../../node_modules/css-loader/index.js!./Header.css", function() {
-		var newContent = require("!!../../../node_modules/css-loader/index.js!./Header.css");
-
-		if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-
-		var locals = (function(a, b) {
-			var key, idx = 0;
-
-			for(key in a) {
-				if(!b || a[key] !== b[key]) return false;
-				idx++;
-			}
-
-			for(key in b) idx--;
-
-			return idx === 0;
-		}(content.locals, newContent.locals));
-
-		if(!locals) throw new Error('Aborting CSS HMR due to changed css-modules locals.');
-
-		update(newContent);
-	});
-
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-
-/***/ 366:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(12)(false);
-// imports
-
-
-// module
-exports.push([module.i, "/* header */\r\n.border-top { border-top: 1px solid #e5e5e5; }\r\n.border-bottom { border-bottom: 1px solid #e5e5e5; }\r\n.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ 97:
+/***/ 98:
 /***/ (function(module, exports) {
 
 

@@ -60,12 +60,116 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 367);
+/******/ 	return __webpack_require__(__webpack_require__.s = 376);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 12:
+/***/ 376:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+__webpack_require__(377);
+
+var FooterDiv = React.createClass({
+	displayName: "FooterDiv",
+
+	render: function render() {
+
+		return React.createElement(
+			"footer",
+			{ className: "footer" },
+			React.createElement(
+				"div",
+				{ className: "container" },
+				React.createElement(
+					"span",
+					{ className: "text-muted" },
+					"Place sticky footer content here."
+				)
+			)
+		);
+	}
+
+}); /**
+     * 
+     */
+
+$(document).ready(function () {
+	ReactDOM.render(React.createElement(FooterDiv, null), document.getElementById('footerDiv'));
+});
+
+/***/ }),
+
+/***/ 377:
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(378);
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(9)(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {
+	module.hot.accept("!!../../../node_modules/css-loader/index.js!./Footer.css", function() {
+		var newContent = require("!!../../../node_modules/css-loader/index.js!./Footer.css");
+
+		if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+
+		var locals = (function(a, b) {
+			var key, idx = 0;
+
+			for(key in a) {
+				if(!b || a[key] !== b[key]) return false;
+				idx++;
+			}
+
+			for(key in b) idx--;
+
+			return idx === 0;
+		}(content.locals, newContent.locals));
+
+		if(!locals) throw new Error('Aborting CSS HMR due to changed css-modules locals.');
+
+		update(newContent);
+	});
+
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ 378:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(8)(false);
+// imports
+
+
+// module
+exports.push([module.i, "/* footer */\r\n.border-top { border-top: 1px solid #e5e5e5; }\r\n.border-bottom { border-bottom: 1px solid #e5e5e5; }\r\n/* .box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); } */", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ 8:
 /***/ (function(module, exports) {
 
 /*
@@ -148,7 +252,7 @@ function toComment(sourceMap) {
 
 /***/ }),
 
-/***/ 13:
+/***/ 9:
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -214,7 +318,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(97);
+var	fixUrls = __webpack_require__(98);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -531,111 +635,7 @@ function updateLink (link, options, obj) {
 
 /***/ }),
 
-/***/ 367:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-__webpack_require__(368);
-
-var FooterDiv = React.createClass({
-	displayName: "FooterDiv",
-
-	render: function render() {
-
-		return React.createElement(
-			"footer",
-			{ className: "footer" },
-			React.createElement(
-				"div",
-				{ className: "container" },
-				React.createElement(
-					"span",
-					{ className: "text-muted" },
-					"Place sticky footer content here."
-				)
-			)
-		);
-	}
-
-}); /**
-     * 
-     */
-
-$(document).ready(function () {
-	ReactDOM.render(React.createElement(FooterDiv, null), document.getElementById('footerDiv'));
-});
-
-/***/ }),
-
-/***/ 368:
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(369);
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(13)(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {
-	module.hot.accept("!!../../../node_modules/css-loader/index.js!./Footer.css", function() {
-		var newContent = require("!!../../../node_modules/css-loader/index.js!./Footer.css");
-
-		if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-
-		var locals = (function(a, b) {
-			var key, idx = 0;
-
-			for(key in a) {
-				if(!b || a[key] !== b[key]) return false;
-				idx++;
-			}
-
-			for(key in b) idx--;
-
-			return idx === 0;
-		}(content.locals, newContent.locals));
-
-		if(!locals) throw new Error('Aborting CSS HMR due to changed css-modules locals.');
-
-		update(newContent);
-	});
-
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-
-/***/ 369:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(12)(false);
-// imports
-
-
-// module
-exports.push([module.i, "/* footer */\r\n.border-top { border-top: 1px solid #e5e5e5; }\r\n.border-bottom { border-bottom: 1px solid #e5e5e5; }\r\n/* .box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); } */", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ 97:
+/***/ 98:
 /***/ (function(module, exports) {
 
 

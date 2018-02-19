@@ -2,6 +2,8 @@ import './AssignedToMe.css';
 
 import ReactTable from 'react-table';
 import IssueDetail from '../IssueDetail/IssueDetail.js';
+import IssueDetailLeftMenu from '../IssueDetailLeftMenu/IssueDetailLeftMenu.js';
+
 import 'react-table/react-table.css'
 
 
@@ -108,6 +110,11 @@ var AssignedToMe = React.createClass({
 						    			<IssueDetail />,
 						    			document.getElementById('dashboardCenterDiv')
 						    	  );
+					  	          ReactDOM.render(
+						    			<IssueDetailLeftMenu />,
+						    			document.getElementById('dashboardLeftMenuDiv')
+						    	  );
+					  	        
 					  	        }
 					  	      }
 					  	    }
