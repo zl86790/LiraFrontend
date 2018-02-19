@@ -2,8 +2,12 @@
  * 
  */
 import IssueDetailTitle from "../IssueDetailTitle/IssueDetailTitle.js";
+
+
 import IssueDetailTitleButton from "../IssueDetailTitleButton/IssueDetailTitleButton.js";
 import IssueDetailDetails from "../IssueDetailDetails/IssueDetailDetails.js";
+import IssueDetailDescription from "../IssueDetailDescription/IssueDetailDescription.js";
+import IssueDetailActionsTab from "../IssueDetailActionsTab/IssueDetailActionsTab.js";
 
 import './IssueDetail.css';
 
@@ -16,6 +20,8 @@ var IssueDetail = React.createClass({
 					<IssueDetailTitle />
 					<IssueDetailTitleButton />
 					<IssueDetailDetails />
+					<IssueDetailDescription />
+					<IssueDetailActionsTab />
 				</div>
 			
 			
