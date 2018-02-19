@@ -23,7 +23,7 @@ var IssueDates = React.createClass({
 				<div style={{clear:'both'}} ></div>
 				<div>
 					<Collapse isOpened={openIssueDates}>
-						<div style={{height:200}}>
+						<div style={{}}>
 					  		<div>Created: 2018.2.19</div>
 					  		<div>Updated: 2018.2.19</div>
 					  		<div>Resolved: 2018.2.19</div>

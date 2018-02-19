@@ -23,7 +23,7 @@ var IssuePeople = React.createClass({
 				<div style={{clear:'both'}} ></div>
 				<div>
 					<Collapse isOpened={openPeople}>
-						<div style={{height:80}}>
+						<div style={{}}>
 					  		<div>Assignee: Lizhe</div>
 					  		<div>Reporter: Lizhe</div>
 					  	</div>

@@ -3,6 +3,7 @@
  */
 
 import './Dashboard.css';
+import DashboardLeftMenu from "../DashboardLeftMenu/DashboardLeftMenu.js";
 
 import AssignedToMeDiv from '../AssignedToMe/AssignedToMe.js';
 
@@ -11,7 +12,7 @@ var DashboardDiv = React.createClass({
 		return (
 			<div id="dashboardDiv">
 				<div id="dashboardLeftMenuDiv">
-					menu
+					<DashboardLeftMenu />
 				</div>
 				<div id="dashboardCenterDiv">
 					<AssignedToMeDiv />
