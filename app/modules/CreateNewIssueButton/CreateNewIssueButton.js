@@ -32,7 +32,7 @@ class CreateNewIssueButton extends React.Component {
       dialog = (
         <Dialog
           visible={this.state.visible}
-          animation="slide-fade"
+          animation="zoom"
           maskAnimation="fade"
           onClose={this.onClose}
           style={{ width: 600 }}

@@ -33914,7 +33914,7 @@ var CreateNewIssueButton = function (_React$Component) {
           _DialogWrap2.default,
           {
             visible: this.state.visible,
-            animation: 'slide-fade',
+            animation: 'zoom',
             maskAnimation: 'fade',
             onClose: this.onClose,
             style: { width: 600 },
