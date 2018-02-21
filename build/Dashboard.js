@@ -33959,7 +33959,7 @@ var CreateNewIssueButton = function (_React$Component) {
             ),
             _react2.default.createElement(
               'div',
-              { className: 'create-new-issue-label', style: { paddingTop: 45 } },
+              { className: 'create-new-issue-content', style: { paddingTop: 45 } },
               'Project1'
             ),
             _react2.default.createElement(
@@ -33969,7 +33969,7 @@ var CreateNewIssueButton = function (_React$Component) {
             ),
             _react2.default.createElement(
               'div',
-              { className: 'create-new-issue-label', style: {} },
+              { className: 'create-new-issue-content', style: {} },
               'Bug'
             ),
             _react2.default.createElement(
@@ -33979,7 +33979,7 @@ var CreateNewIssueButton = function (_React$Component) {
             ),
             _react2.default.createElement(
               'div',
-              { className: 'create-new-issue-label', style: {} },
+              { className: 'create-new-issue-content', style: {} },
               _react2.default.createElement('input', { type: 'text', id: 'name', className: 'form-control', placeholder: 'Name', required: true, autoFocus: true, defaultValue: '' })
             ),
             _react2.default.createElement(
@@ -33989,7 +33989,7 @@ var CreateNewIssueButton = function (_React$Component) {
             ),
             _react2.default.createElement(
               'div',
-              { className: 'create-new-issue-label', style: {} },
+              { className: 'create-new-issue-content', style: {} },
               _react2.default.createElement('input', { type: 'text', id: 'priority', className: 'form-control', placeholder: 'Priority', required: true, defaultValue: '' })
             ),
             _react2.default.createElement(
@@ -33999,7 +33999,7 @@ var CreateNewIssueButton = function (_React$Component) {
             ),
             _react2.default.createElement(
               'div',
-              { className: 'create-new-issue-label', style: {} },
+              { className: 'create-new-issue-content', style: {} },
               _react2.default.createElement('input', { type: 'text', id: 'description', className: 'form-control', placeholder: 'Description', required: true, defaultValue: '' })
             ),
             _react2.default.createElement(
@@ -34009,7 +34009,7 @@ var CreateNewIssueButton = function (_React$Component) {
             ),
             _react2.default.createElement(
               'div',
-              { className: 'create-new-issue-label', style: {} },
+              { className: 'create-new-issue-content', style: {} },
               _react2.default.createElement('input', { type: 'text', id: 'assignee', className: 'form-control', placeholder: 'Assignee', required: true, defaultValue: '' })
             ),
             _react2.default.createElement(
@@ -34019,7 +34019,7 @@ var CreateNewIssueButton = function (_React$Component) {
             ),
             _react2.default.createElement(
               'div',
-              { className: 'create-new-issue-label', style: {} },
+              { className: 'create-new-issue-content', style: {} },
               _react2.default.createElement('input', { type: 'text', id: 'reporter', className: 'form-control', placeholder: 'Reporter', required: true, defaultValue: '' })
             ),
             _react2.default.createElement(
@@ -34029,7 +34029,7 @@ var CreateNewIssueButton = function (_React$Component) {
             ),
             _react2.default.createElement(
               'div',
-              { className: 'create-new-issue-label', style: {} },
+              { className: 'create-new-issue-content', style: {} },
               _react2.default.createElement('input', { type: 'text', id: 'labels', className: 'form-control', placeholder: 'Labels', required: true, defaultValue: '' })
             )
           )
@@ -36688,7 +36688,7 @@ exports = module.exports = __webpack_require__(8)(false);
 
 
 // module
-exports.push([module.i, ".create-new-issue-label{\r\n\tfloat:left;\r\n\twidth:50%;\r\n\ttext-align:left;\r\n\tpadding-top:10px;\r\n\tpadding-bottom:10px;\r\n\tpadding-left:15px;\r\n}", ""]);
+exports.push([module.i, ".create-new-issue-label{\r\n\tfloat:left;\r\n\twidth:30%;\r\n\ttext-align:left;\r\n\tpadding-top:10px;\r\n\tpadding-bottom:10px;\r\n\tpadding-left:15px;\r\n}\r\n\r\n.create-new-issue-content{\r\n\tfloat:left;\r\n\twidth:60%;\r\n\ttext-align:left;\r\n\tpadding-top:10px;\r\n\tpadding-bottom:10px;\r\n\tpadding-left:15px;\r\n}", ""]);
 
 // exports
 
