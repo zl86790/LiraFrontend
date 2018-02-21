@@ -4,10 +4,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Dialog from 'rc-dialog/lib/DialogWrap.js';
 
+import './CreateNewIssueButton.css';
+
 class CreateNewIssueButton extends React.Component {
   state = {
     visible: false,
-    destroyOnClose: false,
+    destroyOnClose: true,
   };
   onClick = () => {
     this.setState({
@@ -34,7 +36,7 @@ class CreateNewIssueButton extends React.Component {
           maskAnimation="fade"
           onClose={this.onClose}
           style={{ width: 600 }}
-          title={<div>第二个弹框</div>}
+          title={<div>Create New Issue</div>}
           footer={
             [
               <button
@@ -55,71 +57,55 @@ class CreateNewIssueButton extends React.Component {
               </button>,
             ]
           }
-        ><h4>Text in a modal</h4>
-          <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
-          <hr />
-          <h4>Overflowing text to show scroll behavior</h4>
-          <p>Cras mattis consectetur purus sit amet fermentum.
-            Cras justo odio, dapibus ac facilisis in,
-            egestas eget quam. Morbi leo risus, porta ac consectetur ac,
-            vestibulum at eros.
-          </p>
-          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus
-            sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-          </p>
-          <div style={{ display: '' }}>
-            <p>Aenean lacinia bibendum nulla sed
-              consectetur. Praesent commodo cursus magna,
-              vel scelerisque nisl consectetur et. Donec sed odio dui.
-              Donec
-              ullamcorper nulla non metus auctor fringilla.
-            </p>
-            <p>Cras mattis consectetur purus sit amet fermentum.
-              Cras justo odio, dapibus ac facilisis in, egestas
-              eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-            </p>
-            <p>Praesent commodo cursus
-              magna, vel scelerisque nisl consectetur et.
-              Vivamus sagittis lacus vel augue laoreet rutrum faucibus
-              dolor auctor.
-            </p>
-            <p>Aenean lacinia bibendum nulla sed consectetur.
-              Praesent commodo cursus magna, vel
-              scelerisque nisl consectetur et. Donec sed odio dui.
-              Donec ullamcorper nulla non metus auctor
-              fringilla.
-            </p>
-            <p>Cras mattis consectetur purus sit amet fermentum.
-              Cras justo odio, dapibus ac
-              facilisis in, egestas eget quam. Morbi leo risus,
-              porta ac consectetur ac, vestibulum at eros.
-            </p>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-              Vivamus sagittis lacus vel augue
-              laoreet rutrum faucibus dolor auctor.
-            </p>
-            <p>Aenean lacinia bibendum nulla sed consectetur. Praesent
-              commodo cursus magna, vel scelerisque nisl consectetur et.
-              Donec sed odio dui. Donec ullamcorper nulla
-              non metus auctor fringilla.
-            </p>
-          </div>
+        >
+         <div>
+         	  <h4>Overflowing text to show scroll behavior</h4>
+	          <br/>
+	          <div className="create-new-issue-label" style={{paddingTop:45}}>Project:</div>
+	          <div className="create-new-issue-label" style={{paddingTop:45}}>Project1</div>
+	          
+	          <div className="create-new-issue-label" style={{}}>Issue Type:</div>
+	          <div className="create-new-issue-label" style={{}}>Bug</div>
+	          
+	          <div className="create-new-issue-label" style={{}}>Name:</div>
+	          <div className="create-new-issue-label" style={{}}>
+	          	<input type="text" id="name" className="form-control" placeholder="Name" required autoFocus defaultValue=""/>
+	          </div>
+          	
+          	<div className="create-new-issue-label" style={{}}>Priority:</div>
+            <div className="create-new-issue-label" style={{}}>
+            	<input type="text" id="priority" className="form-control" placeholder="Priority" required defaultValue=""/>
+            </div>
+            	
+        	<div className="create-new-issue-label" style={{}}>Description:</div>
+            <div className="create-new-issue-label" style={{}}>
+            	<input type="text" id="description" className="form-control" placeholder="Description" required defaultValue=""/>
+            </div>	
+            
+        	<div className="create-new-issue-label" style={{}}>Assignee:</div>
+            <div className="create-new-issue-label" style={{}}>
+            	<input type="text" id="assignee" className="form-control" placeholder="Assignee" required defaultValue=""/>
+            </div>
+            	
+        	<div className="create-new-issue-label" style={{}}>Reporter:</div>
+            <div className="create-new-issue-label" style={{}}>
+            	<input type="text" id="reporter" className="form-control" placeholder="Reporter" required defaultValue=""/>
+            </div>
+                	
+        	<div className="create-new-issue-label" style={{}}>Labels:</div>
+            <div className="create-new-issue-label" style={{}}>
+            	<input type="text" id="labels" className="form-control" placeholder="Labels" required defaultValue=""/>
+            </div>
+            		
+            
+         </div>
         </Dialog>
       );
     }
     return (
       <div style={{ margin: 20 }}>
         <p>
-          <button className="btn btn-primary" onClick={this.onClick}>show dialog</button>
-          &nbsp;
-          <label>destroy on close:
-            <input
-              type="checkbox"
-              checked={this.state.destroyOnClose}
-              onChange={this.onDestroyOnCloseChange}
-            />
-          </label>
+          <button className="btn btn-primary" onClick={this.onClick}>Create</button>
         </p>
         {dialog}
       </div>

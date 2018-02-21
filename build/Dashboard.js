@@ -33806,7 +33806,7 @@ var _CreateNewIssueButton = __webpack_require__(374);
 
 var _CreateNewIssueButton2 = _interopRequireDefault(_CreateNewIssueButton);
 
-__webpack_require__(394);
+__webpack_require__(396);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -33869,6 +33869,8 @@ var _DialogWrap = __webpack_require__(381);
 
 var _DialogWrap2 = _interopRequireDefault(_DialogWrap);
 
+__webpack_require__(394);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var CreateNewIssueButton = function (_React$Component) {
@@ -33887,7 +33889,7 @@ var CreateNewIssueButton = function (_React$Component) {
 
     return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = CreateNewIssueButton.__proto__ || (0, _getPrototypeOf2.default)(CreateNewIssueButton)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
       visible: false,
-      destroyOnClose: false
+      destroyOnClose: true
     }, _this.onClick = function () {
       _this.setState({
         visible: true
@@ -33919,7 +33921,7 @@ var CreateNewIssueButton = function (_React$Component) {
             title: _react2.default.createElement(
               'div',
               null,
-              '\u7B2C\u4E8C\u4E2A\u5F39\u6846'
+              'Create New Issue'
             ),
             footer: [_react2.default.createElement(
               'button',
@@ -33942,68 +33944,93 @@ var CreateNewIssueButton = function (_React$Component) {
             )]
           },
           _react2.default.createElement(
-            'h4',
-            null,
-            'Text in a modal'
-          ),
-          _react2.default.createElement(
-            'p',
-            null,
-            'Duis mollis, est non commodo luctus, nisi erat porttitor ligula.'
-          ),
-          _react2.default.createElement('hr', null),
-          _react2.default.createElement(
-            'h4',
-            null,
-            'Overflowing text to show scroll behavior'
-          ),
-          _react2.default.createElement(
-            'p',
-            null,
-            'Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.'
-          ),
-          _react2.default.createElement(
-            'p',
-            null,
-            'Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.'
-          ),
-          _react2.default.createElement(
             'div',
-            { style: { display: '' } },
+            null,
             _react2.default.createElement(
-              'p',
+              'h4',
               null,
-              'Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.'
+              'Overflowing text to show scroll behavior'
+            ),
+            _react2.default.createElement('br', null),
+            _react2.default.createElement(
+              'div',
+              { className: 'create-new-issue-label', style: { paddingTop: 45 } },
+              'Project:'
             ),
             _react2.default.createElement(
-              'p',
-              null,
-              'Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.'
+              'div',
+              { className: 'create-new-issue-label', style: { paddingTop: 45 } },
+              'Project1'
             ),
             _react2.default.createElement(
-              'p',
-              null,
-              'Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.'
+              'div',
+              { className: 'create-new-issue-label', style: {} },
+              'Issue Type:'
             ),
             _react2.default.createElement(
-              'p',
-              null,
-              'Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.'
+              'div',
+              { className: 'create-new-issue-label', style: {} },
+              'Bug'
             ),
             _react2.default.createElement(
-              'p',
-              null,
-              'Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.'
+              'div',
+              { className: 'create-new-issue-label', style: {} },
+              'Name:'
             ),
             _react2.default.createElement(
-              'p',
-              null,
-              'Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.'
+              'div',
+              { className: 'create-new-issue-label', style: {} },
+              _react2.default.createElement('input', { type: 'text', id: 'name', className: 'form-control', placeholder: 'Name', required: true, autoFocus: true, defaultValue: '' })
             ),
             _react2.default.createElement(
-              'p',
-              null,
-              'Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.'
+              'div',
+              { className: 'create-new-issue-label', style: {} },
+              'Priority:'
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'create-new-issue-label', style: {} },
+              _react2.default.createElement('input', { type: 'text', id: 'priority', className: 'form-control', placeholder: 'Priority', required: true, defaultValue: '' })
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'create-new-issue-label', style: {} },
+              'Description:'
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'create-new-issue-label', style: {} },
+              _react2.default.createElement('input', { type: 'text', id: 'description', className: 'form-control', placeholder: 'Description', required: true, defaultValue: '' })
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'create-new-issue-label', style: {} },
+              'Assignee:'
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'create-new-issue-label', style: {} },
+              _react2.default.createElement('input', { type: 'text', id: 'assignee', className: 'form-control', placeholder: 'Assignee', required: true, defaultValue: '' })
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'create-new-issue-label', style: {} },
+              'Reporter:'
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'create-new-issue-label', style: {} },
+              _react2.default.createElement('input', { type: 'text', id: 'reporter', className: 'form-control', placeholder: 'Reporter', required: true, defaultValue: '' })
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'create-new-issue-label', style: {} },
+              'Labels:'
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'create-new-issue-label', style: {} },
+              _react2.default.createElement('input', { type: 'text', id: 'labels', className: 'form-control', placeholder: 'Labels', required: true, defaultValue: '' })
             )
           )
         );
@@ -34017,18 +34044,7 @@ var CreateNewIssueButton = function (_React$Component) {
           _react2.default.createElement(
             'button',
             { className: 'btn btn-primary', onClick: this.onClick },
-            'show dialog'
-          ),
-          '\xA0',
-          _react2.default.createElement(
-            'label',
-            null,
-            'destroy on close:',
-            _react2.default.createElement('input', {
-              type: 'checkbox',
-              checked: this.state.destroyOnClose,
-              onChange: this.onDestroyOnCloseChange
-            })
+            'Create'
           )
         ),
         dialog
@@ -36637,6 +36653,70 @@ var update = __webpack_require__(9)(content, options);
 if(content.locals) module.exports = content.locals;
 
 if(false) {
+	module.hot.accept("!!../../../node_modules/css-loader/index.js!./CreateNewIssueButton.css", function() {
+		var newContent = require("!!../../../node_modules/css-loader/index.js!./CreateNewIssueButton.css");
+
+		if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+
+		var locals = (function(a, b) {
+			var key, idx = 0;
+
+			for(key in a) {
+				if(!b || a[key] !== b[key]) return false;
+				idx++;
+			}
+
+			for(key in b) idx--;
+
+			return idx === 0;
+		}(content.locals, newContent.locals));
+
+		if(!locals) throw new Error('Aborting CSS HMR due to changed css-modules locals.');
+
+		update(newContent);
+	});
+
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 395 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(8)(false);
+// imports
+
+
+// module
+exports.push([module.i, ".create-new-issue-label{\r\n\tfloat:left;\r\n\twidth:50%;\r\n\ttext-align:left;\r\n\tpadding-top:10px;\r\n\tpadding-bottom:10px;\r\n\tpadding-left:15px;\r\n}", ""]);
+
+// exports
+
+
+/***/ }),
+/* 396 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(397);
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(9)(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {
 	module.hot.accept("!!../../../node_modules/css-loader/index.js!./DashboardLeftMenu.css", function() {
 		var newContent = require("!!../../../node_modules/css-loader/index.js!./DashboardLeftMenu.css");
 
@@ -36664,7 +36744,7 @@ if(false) {
 }
 
 /***/ }),
-/* 395 */
+/* 397 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(8)(false);
