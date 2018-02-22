@@ -33946,10 +33946,7 @@ var CreateNewIssueButton = function (_React$Component) {
         dataType: 'json',
         contentType: 'application/json',
         headers: {
-          lira_token: "eyJhbGciOiJIUzUxMiJ9.eyJkYXRlIjoxNTE5MjgxODMyNTM5LCJleHAiOjE1MjI4ODE4MzIsInVzZXJuYW1lIjoiYWRtaW4ifQ.SiqqPfRC-I3AM4gLHQ2bCkUEKKoMqoezJXAFA4hzipFzyzT6YQHtiNY3OQMdo3x3NzfhZNyGgttJolCDzA9C2Q"
-        },
-        beforeSend: function beforeSend(request) {
-          request.setRequestHeader("Test", "Chenxizhang");
+          lira_token: 'eyJhbGciOiJIUzUxMiJ9.eyJkYXRlIjoxNTE5MjgxODMyNTM5LCJleHAiOjE1MjI4ODE4MzIsInVzZXJuYW1lIjoiYWRtaW4ifQ.SiqqPfRC-I3AM4gLHQ2bCkUEKKoMqoezJXAFA4hzipFzyzT6YQHtiNY3OQMdo3x3NzfhZNyGgttJolCDzA9C2Q'
         },
         success: function success(data) {
           alert("Create success");

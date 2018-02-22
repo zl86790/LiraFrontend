@@ -48,11 +48,8 @@ class CreateNewIssueButton extends React.Component {
 	    dataType: 'json',
 	    contentType: 'application/json',
 	    headers: {
-	    	lira_token: "eyJhbGciOiJIUzUxMiJ9.eyJkYXRlIjoxNTE5MjgxODMyNTM5LCJleHAiOjE1MjI4ODE4MzIsInVzZXJuYW1lIjoiYWRtaW4ifQ.SiqqPfRC-I3AM4gLHQ2bCkUEKKoMqoezJXAFA4hzipFzyzT6YQHtiNY3OQMdo3x3NzfhZNyGgttJolCDzA9C2Q"
+	    	lira_token: 'eyJhbGciOiJIUzUxMiJ9.eyJkYXRlIjoxNTE5MjgxODMyNTM5LCJleHAiOjE1MjI4ODE4MzIsInVzZXJuYW1lIjoiYWRtaW4ifQ.SiqqPfRC-I3AM4gLHQ2bCkUEKKoMqoezJXAFA4hzipFzyzT6YQHtiNY3OQMdo3x3NzfhZNyGgttJolCDzA9C2Q'
 	    },
-	    beforeSend: function(request) {
-            request.setRequestHeader("Test", "Chenxizhang");
-        },
 	    success: function(data){ 
 	    	alert("Create success");
 	    	_this.setState({
