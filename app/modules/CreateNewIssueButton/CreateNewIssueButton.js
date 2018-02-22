@@ -3,6 +3,8 @@ import 'rc-dialog/assets/bootstrap.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Dialog from 'rc-dialog/lib/DialogWrap.js';
+import Global from '../Global/Global.js';
+
 
 import './CreateNewIssueButton.css';
 
@@ -48,7 +50,7 @@ class CreateNewIssueButton extends React.Component {
 	    dataType: 'json',
 	    contentType: 'application/json',
 	    headers: {
-	    	lira_token: 'eyJhbGciOiJIUzUxMiJ9.eyJkYXRlIjoxNTE5MjgxODMyNTM5LCJleHAiOjE1MjI4ODE4MzIsInVzZXJuYW1lIjoiYWRtaW4ifQ.SiqqPfRC-I3AM4gLHQ2bCkUEKKoMqoezJXAFA4hzipFzyzT6YQHtiNY3OQMdo3x3NzfhZNyGgttJolCDzA9C2Q'
+	    	lira_token: Global.tokenObject.lira_token
 	    },
 	    success: function(data){ 
 	    	alert("Create success");

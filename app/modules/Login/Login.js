@@ -1,6 +1,7 @@
 import './Login.css';
 
 import DashboardDiv from '../Dashboard/Dashboard.js';
+import Global from '../Global/Global.js';
 
 var LoginDiv = React.createClass({
 	login: function(event) {
@@ -16,6 +17,7 @@ var LoginDiv = React.createClass({
 		    contentType: 'application/json',
 		    success: function(data){ 
 		    	alert(JSON.stringify(data));
+		    	Global.tokenObject = data;
 		    	ReactDOM.render(
 	    			<DashboardDiv />,
 	    			document.getElementById('centerDiv')

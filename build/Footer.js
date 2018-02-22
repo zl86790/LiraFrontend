@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 406);
+/******/ 	return __webpack_require__(__webpack_require__.s = 407);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -161,13 +161,13 @@ module.exports = function (css) {
 
 /***/ }),
 
-/***/ 406:
+/***/ 407:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(407);
+__webpack_require__(408);
 
 var FooterDiv = React.createClass({
 	displayName: "FooterDiv",
@@ -199,11 +199,11 @@ $(document).ready(function () {
 
 /***/ }),
 
-/***/ 407:
+/***/ 408:
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(408);
+var content = __webpack_require__(409);
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -250,7 +250,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 408:
+/***/ 409:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(8)(false);
