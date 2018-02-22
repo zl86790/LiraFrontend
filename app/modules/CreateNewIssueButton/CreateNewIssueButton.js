@@ -21,6 +21,51 @@ class CreateNewIssueButton extends React.Component {
       visible: false,
     });
   }
+  onSave = () => {
+	  
+	var _this = this;
+	  
+  	var issue = new Object();
+  	issue.name = "Lizhe";
+  	issue.type = "Bug";
+  	issue.priority = "High";
+  	issue.labels = "Bug";
+  	issue.status = "Open";
+  	issue.description = "This is a mockup description";
+  	issue.assignee = 1;
+  	issue.reporter = 1;
+  	issue.created_time = "2018-01-01";
+  	issue.updated_time = "2018-01-01";
+  	issue.resolved_time = "2018-01-01";
+  	issue.estimated = 8;
+  	issue.remaining = 8;
+  	issue.logged = 0;
+  	
+	$.ajax({
+	    type: "POST", 
+	    url: "http://localhost:8081/api/v1/postlogin/issue",
+	    data: JSON.stringify(issue), 
+	    dataType: 'json',
+	    contentType: 'application/json',
+	    headers: {
+	    	lira_token: "eyJhbGciOiJIUzUxMiJ9.eyJkYXRlIjoxNTE5MjgxODMyNTM5LCJleHAiOjE1MjI4ODE4MzIsInVzZXJuYW1lIjoiYWRtaW4ifQ.SiqqPfRC-I3AM4gLHQ2bCkUEKKoMqoezJXAFA4hzipFzyzT6YQHtiNY3OQMdo3x3NzfhZNyGgttJolCDzA9C2Q"
+	    },
+	    beforeSend: function(request) {
+            request.setRequestHeader("Test", "Chenxizhang");
+        },
+	    success: function(data){ 
+	    	alert("Create success");
+	    	_this.setState({
+    	      visible: false,
+    	    });
+	    },
+		error: function(data){ 
+	    	alert("login error");
+	    }
+	});
+	  
+    
+  }
   onDestroyOnCloseChange = (e) => {
     this.setState({
       destroyOnClose: e.target.checked,
@@ -51,7 +96,7 @@ class CreateNewIssueButton extends React.Component {
                 type="button"
                 className="btn btn-primary"
                 key="save"
-                onClick={this.onClose}
+                onClick={this.onSave}
               >
               Save changes
               </button>,

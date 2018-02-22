@@ -4,6 +4,7 @@ import DashboardDiv from '../Dashboard/Dashboard.js';
 
 var LoginDiv = React.createClass({
 	login: function(event) {
+		var _this = this;
 		var userName = this.refs.userName.value;
 		var passWord = this.refs.passWord.value;
 		var user = {userName:userName,passWord:passWord}
@@ -14,7 +15,7 @@ var LoginDiv = React.createClass({
 		    dataType: 'json',
 		    contentType: 'application/json',
 		    success: function(data){ 
-		    	alert("login success");
+		    	alert(JSON.stringify(data));
 		    	ReactDOM.render(
 	    			<DashboardDiv />,
 	    			document.getElementById('centerDiv')
