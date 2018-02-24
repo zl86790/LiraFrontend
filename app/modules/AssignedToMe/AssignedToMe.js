@@ -3,81 +3,44 @@ import './AssignedToMe.css';
 import ReactTable from 'react-table';
 import IssueDetail from '../IssueDetail/IssueDetail.js';
 import IssueDetailLeftMenu from '../IssueDetailLeftMenu/IssueDetailLeftMenu.js';
+import Global from '../Global/Global.js';
 
 import 'react-table/react-table.css'
 
 
 var AssignedToMe = React.createClass({
+	getInitialState: function() {
+        return {_data: []};
+    },
+	componentDidMount: function() {
+		var _this = this;
+		$.ajax({
+		    type: "GET", 
+		    url: "http://localhost:8081/api/v1/postlogin/issues",
+		    data: 'name=Lizhe', 
+		    dataType: 'json',
+		    contentType: 'application/json',
+		    headers: {
+		    	lira_token: Global.tokenObject.lira_token
+		    },
+		    success: function(_data){ 
+		    	alert(JSON.stringify(_data));
+		    	_this.setState({_data:_data});
+		    },
+			error: function(data){ 
+		    	alert("load error");
+		    }
+		});
+	},
+
 	render() {
-		  const data = [
-			  {
-			    type: 'Bug',
-			    key: 'BUG-1',
-			    summary: 'test summary',
-			    priority: 'High'
-			  },
-			  {
-			    type: 'Bug',
-			    key: 'BUG-2',
-			    summary: 'test summary',
-			    priority: 'High'
-			  },
-			  {
-			    type: 'Bug',
-			    key: 'BUG-3',
-			    summary: 'test summary',
-			    priority: 'High'
-			  },
-			  {
-			    type: 'Bug',
-			    key: 'BUG-4',
-			    summary: 'test summary',
-			    priority: 'High'
-			  },
-			  {
-			    type: 'Bug',
-			    key: 'BUG-5',
-			    summary: 'test summary',
-			    priority: 'High'
-			  },
-			  {
-			    type: 'Bug',
-			    key: 'BUG-6',
-			    summary: 'test summary',
-			    priority: 'High'
-			  },
-			  {
-			    type: 'Bug',
-			    key: 'BUG-7',
-			    summary: 'test summary',
-			    priority: 'High'
-			  },
-			  {
-			    type: 'Bug',
-			    key: 'BUG-8',
-			    summary: 'test summary',
-			    priority: 'High'
-			  },
-			  {
-			    type: 'Bug',
-			    key: 'BUG-9',
-			    summary: 'test summary',
-			    priority: 'High'
-			  },
-			  {
-			    type: 'Bug',
-			    key: 'BUG-10',
-			    summary: 'test summary',
-			    priority: 'High'
-			  }
-		  ]
-		 
+
 		  const columns = [{
 		    Header: 'Type',
-		    accessor: 'type' // String-based value accessors!
+		    accessor: 'type' 
 		  }, {
 		    Header: 'Key',
-		    accessor: 'key'
+		    accessor: 'name'
 		  }, {
 		    Header: 'Summary',
 		    accessor: 'summary'
@@ -89,7 +52,7 @@ var AssignedToMe = React.createClass({
 		  return (
 				  <div>
 				  	<div className="asstm-table-title">Assigned to me</div>
-				  	<ReactTable data={data} columns={columns} 
+				  	<ReactTable data={this.state._data} columns={columns} 
 					  	getTdProps={(state, rowInfo, column, instance) => {
 					  	    return {
 					  	      onClick: (e, handleOriginal) => {
@@ -105,7 +68,7 @@ var AssignedToMe = React.createClass({
 					  	        // If you want to fire the original onClick handler, call the
 					  	        // 'handleOriginal' function.
 					  	        if (handleOriginal) {
-					  	          alert(rowInfo.original.key);
+					  	          alert(rowInfo.original.name);
 					  	          ReactDOM.render(
 						    			<IssueDetail />,
 						    			document.getElementById('dashboardCenterDiv')

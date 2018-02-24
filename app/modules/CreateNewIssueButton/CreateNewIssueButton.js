@@ -28,7 +28,7 @@ class CreateNewIssueButton extends React.Component {
 	var _this = this;
 	  
   	var issue = new Object();
-  	issue.name = "Lizhe";
+  	issue.name = "ODF";
   	issue.type = "Bug";
   	issue.priority = "High";
   	issue.labels = "Bug";
