@@ -1,8 +1,10 @@
 /**
  * 
  */
-
+import React from 'react';
+import ReactDOM from 'react-dom';
 import './Dashboard.css';
+
 import DashboardLeftMenu from "../DashboardLeftMenu/DashboardLeftMenu.js";
 
 import AssignedToMeDiv from '../AssignedToMe/AssignedToMe.js';
@@ -10,14 +12,21 @@ import AssignedToMeDiv from '../AssignedToMe/AssignedToMe.js';
 var DashboardDiv = React.createClass({
 	render: function() {
 		return (
-			<div id="dashboardDiv">
-				<div id="dashboardLeftMenuDiv">
-					<DashboardLeftMenu />
+			<div>
+				<div id="headerDiv"><Header /></div>
+				<div id="centerDiv" style={{padding:60}}>
+					<div id="dashboardDiv">
+						<div id="dashboardLeftMenuDiv">
+							<DashboardLeftMenu />
+						</div>
+						<div id="dashboardCenterDiv">
+							<AssignedToMeDiv />
+						</div>
+					</div>
 				</div>
-				<div id="dashboardCenterDiv">
-					<AssignedToMeDiv />
-				</div>
+				<div id="footerDiv"><Footer /></div>
 			</div>
+			
 		)
 	}
 });

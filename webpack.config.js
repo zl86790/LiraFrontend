@@ -1,11 +1,7 @@
 var webpack = require('webpack');
 module.exports = {
   entry:  {
-	    Login: './app/modules/Login/Login.js',
-	    Header: './app/modules/Header/Header.js',
-	    Dashboard: './app/modules/Dashboard/Dashboard.js',
-	    AssignedToMe: './app/modules/AssignedToMe/AssignedToMe.js',
-	    Footer: './app/modules/Footer/Footer.js'
+	    App: './app/modules/App/App.js',
   },
   output: {
       path: __dirname + '/build',

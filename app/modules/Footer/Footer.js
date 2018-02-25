@@ -1,6 +1,8 @@
 /**
  * 
  */
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 import './Footer.css';
 
@@ -20,10 +22,4 @@ var FooterDiv = React.createClass({
 	
 });
 
-$(document).ready(function(){
-	ReactDOM.render(
-		<FooterDiv />,
-		document.getElementById('footerDiv')
-	);
-});
-
+export default FooterDiv;

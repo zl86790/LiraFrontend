@@ -3,6 +3,8 @@
  */
 
 import './Header.css';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 var HeaderDiv = React.createClass({
 	render: function() {
@@ -40,10 +42,5 @@ var HeaderDiv = React.createClass({
 	
 });
 
-$(document).ready(function(){
-	ReactDOM.render(
-		<HeaderDiv />,
-		document.getElementById('headerDiv')
-	);
-});
+export default HeaderDiv;
 

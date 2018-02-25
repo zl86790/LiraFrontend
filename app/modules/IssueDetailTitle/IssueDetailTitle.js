@@ -1,7 +1,8 @@
 /**
  * 
  */
-
+import React from 'react';
+import ReactDOM from 'react-dom';
 import './IssueDetailTitle.css';
 
 var IssueDetailTitle = React.createClass({

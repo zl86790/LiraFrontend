@@ -1,6 +1,9 @@
 /**
  * 
  */
+import React from 'react';
+import ReactDOM from 'react-dom';
+
 import IssuePeople from "../IssuePeople/IssuePeople.js";
 import IssueDates from "../IssueDates/IssueDates.js";
 import IssueTimeTrack from "../IssueTimeTrack/IssueTimeTrack.js";
