@@ -1,7 +1,7 @@
 import './Login.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter  as Router, Route, Link, browserHistory, Switch, withRouter } from "react-router-dom";
+import { BrowserRouter  as Router, Route, Link, browserHistory as history, Switch, withRouter } from "react-router-dom";
 
 import DashboardDiv from '../Dashboard/Dashboard.js';
 import Global from '../Global/Global.js';
@@ -21,10 +21,7 @@ var LoginDiv = React.createClass({
 		    success: function(data){ 
 		    	alert(JSON.stringify(data));
 		    	Global.tokenObject = data;
-		    	ReactDOM.render(
-		    			<DashboardDiv />,
-		    			document.getElementById('centerDiv')
-		    		);
+		    	_this.props.history.push('/public/Dashboard');
 		    },
 			error: function(data){ 
 		    	alert("login error");
