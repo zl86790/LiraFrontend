@@ -21,7 +21,10 @@ var LoginDiv = React.createClass({
 		    success: function(data){ 
 		    	alert(JSON.stringify(data));
 		    	Global.tokenObject = data;
-		    	this.props.history.push("/Dashboard");
+		    	ReactDOM.render(
+		    			<DashboardDiv />,
+		    			document.getElementById('centerDiv')
+		    		);
 		    },
 			error: function(data){ 
 		    	alert("login error");

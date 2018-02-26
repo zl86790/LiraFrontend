@@ -12,7 +12,7 @@ var DashboardDiv = React.createClass({
 	render: function() {
 		return (
 			<div>
-				<div id="centerDiv" style={{padding:60}}>
+				<div id="centerDiv">
 					<div id="dashboardDiv">
 						<div id="dashboardLeftMenuDiv">
 							<DashboardLeftMenu />

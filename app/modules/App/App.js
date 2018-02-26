@@ -6,6 +6,7 @@ import Header from '../Header/Header.js';
 import Login from '../Login/Login.js';
 import Footer from '../Footer/Footer.js';
 import Dashboard from '../Dashboard/Dashboard.js';
+import Projects from '../Projects/Projects.js';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -21,10 +22,10 @@ var App = React.createClass({
 					<div id="headerDiv"><Header /></div>
 					<div id="centerDiv" style={{padding:60}}>
 						<Switch>
-					      <Route exact path='/' component={Login}/>
-					      <Route exact path='/Login' component={Login}/>
-					      <Route exact path='/Dashboard' component={Dashboard}/>
-					      <Redirect from='' to="/" />
+					      <Route exact path='/public/' component={Login}/>
+					      <Route exact path='/public/Projects' component={Projects}/>
+					      <Route exact path='/public/Dashboard' component={Dashboard}/>
+					      <Redirect from='' to="/public/" />
 					    </Switch>
 					</div>
 					<div id="footerDiv"><Footer /></div>

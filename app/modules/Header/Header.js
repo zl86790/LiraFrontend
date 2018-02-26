@@ -5,6 +5,7 @@
 import './Header.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route, Link, browserHistory, Switch, Redirect } from "react-router-dom";
 
 var HeaderDiv = React.createClass({
 	render: function() {
@@ -20,10 +21,10 @@ var HeaderDiv = React.createClass({
 			        <div className="collapse navbar-collapse" id="navbarCollapse">
 			          <ul className="navbar-nav mr-auto">
 			            <li className="nav-item active">
-			              <a className="nav-link" href="#">Dashboard <span className="sr-only">(current)</span></a>
+			            	<Link className="nav-link" to={'/public/Dashboard'}>Dashboard</Link>
 			            </li>
 			            <li className="nav-item">
-			              <a className="nav-link" href="#">Projects</a>
+			              <Link className="nav-link" to={'/public/Projects'}>Projects</Link>
 			            </li>
 			            <li className="nav-item">
 			              <a className="nav-link disabled" href="#">Issues</a>

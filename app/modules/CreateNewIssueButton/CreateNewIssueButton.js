@@ -4,6 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Dialog from 'rc-dialog/lib/DialogWrap.js';
 import Global from '../Global/Global.js';
+import AssignedToMeDiv from '../AssignedToMe/AssignedToMe.js';
 
 
 import './CreateNewIssueButton.css';
@@ -30,6 +31,7 @@ class CreateNewIssueButton extends React.Component {
   	var issue = new Object();
   	issue.name = "ODF";
   	issue.type = "Bug";
+  	issue.summary= "Summary";
   	issue.priority = "High";
   	issue.labels = "Bug";
   	issue.status = "Open";
@@ -57,6 +59,10 @@ class CreateNewIssueButton extends React.Component {
 	    	_this.setState({
     	      visible: false,
     	    });
+	    	ReactDOM.render(
+	    			<AssignedToMeDiv />,
+	    			document.getElementById('dashboardCenterDiv')
+	    		);
 	    },
 		error: function(data){ 
 	    	alert("login error");
