@@ -6,14 +6,12 @@ import ReactDOM from 'react-dom';
 import './Dashboard.css';
 
 import DashboardLeftMenu from "../DashboardLeftMenu/DashboardLeftMenu.js";
-
 import AssignedToMeDiv from '../AssignedToMe/AssignedToMe.js';
 
 var DashboardDiv = React.createClass({
 	render: function() {
 		return (
 			<div>
-				<div id="headerDiv"><Header /></div>
 				<div id="centerDiv" style={{padding:60}}>
 					<div id="dashboardDiv">
 						<div id="dashboardLeftMenuDiv">
@@ -24,7 +22,6 @@ var DashboardDiv = React.createClass({
 						</div>
 					</div>
 				</div>
-				<div id="footerDiv"><Footer /></div>
 			</div>
 			
 		)

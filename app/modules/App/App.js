@@ -11,7 +11,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { BrowserRouter as Router, Route, Link, browserHistory, Switch, Redirect } from "react-router-dom";
-import { hashHistory } from 'react-router';
 
 
 var App = React.createClass({
@@ -25,7 +24,7 @@ var App = React.createClass({
 					      <Route exact path='/' component={Login}/>
 					      <Route exact path='/Login' component={Login}/>
 					      <Route exact path='/Dashboard' component={Dashboard}/>
-					      <Redirect from='' to="/Login" />
+					      <Redirect from='' to="/" />
 					    </Switch>
 					</div>
 					<div id="footerDiv"><Footer /></div>
