@@ -6,17 +6,17 @@ import ReactDOM from 'react-dom';
 import Collapse from 'react-collapse';
 import './IssuePeople.css';
 
-var IssuePeople = React.createClass({
+class IssuePeople extends React.Component {
 	
-	getInitialState: function() {
+	getInitialState() {
         return {openPeople: true};
-    },
+    }
 
-	showPeople: function(event) {
+	showPeople(event) {
 		this.setState({openPeople: !this.state.openPeople});
-	},
+	}
 
-	render: function() {
+	render() {
 		var openPeople = this.state.openPeople ? true : false;
 		return (
 			<div style={{textAlign:'left'}}>
@@ -36,6 +36,6 @@ var IssuePeople = React.createClass({
 		)
 	}
 	
-});
+};
 
 export default IssuePeople;

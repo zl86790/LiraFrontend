@@ -5,8 +5,8 @@ import { BrowserRouter  as Router, Route, Link, browserHistory as history, Switc
 
 import Global from '../Global/Global.js';
 
-var LoginDiv = React.createClass({
-	login: function(event) {
+class LoginDiv extends React.Component {
+	login(event) {
 		var _this = this;
 		var userName = this.refs.userName.value;
 		var passWord = this.refs.passWord.value;
@@ -27,8 +27,8 @@ var LoginDiv = React.createClass({
 		    }
 		});
 		
-	},
-	render: function() {
+	}
+	render() {
 		return (
 			
 			<form className="form-signin">
@@ -38,13 +38,13 @@ var LoginDiv = React.createClass({
 				<input type="text" id="inputUserName" className="form-control" placeholder="User Name" required autoFocus ref="userName" defaultValue="admin"/>
 				<label htmlFor="inputPassword" className="sr-only">Password</label>  
 				<input type="password" id="inputPassword" className="form-control" placeholder="Password" required ref="passWord" defaultValue="admin"/>
-				<button id="subButton" className="btn btn-lg btn-primary btn-block" type="button" onClick={this.login}>Sign in</button>
+				<button id="subButton" className="btn btn-lg btn-primary btn-block" type="button" onClick={this.login.bind(this)}>Sign in</button>
 				<p className="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
 			</form>
 
 		)
 	}
-});
+};
 
 export default withRouter(LoginDiv);
 	

@@ -5,8 +5,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './IssueDetailTitle.css';
 
-var IssueDetailTitle = React.createClass({
-	render: function() {
+class IssueDetailTitle extends React.Component {
+	render() {
 
 		return (
 				
@@ -18,6 +18,6 @@ var IssueDetailTitle = React.createClass({
 		)
 	}
 	
-});
+};
 
 export default IssueDetailTitle;

@@ -6,9 +6,8 @@ import ReactDOM from 'react-dom';
 
 import Login from '../../components/Login/Login.js';
 
-
-var LoginPage = React.createClass({
-	render: function() {
+class LoginPage extends React.Component {
+	render() {
 
 		return (
 				
@@ -17,6 +16,6 @@ var LoginPage = React.createClass({
 		)
 	}
 	
-});
+};
 
 export default LoginPage;

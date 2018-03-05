@@ -7,17 +7,17 @@ import Collapse from 'react-collapse';
 
 import './IssueDetailDetails.css';
 
-var IssueDetailDetails = React.createClass({
+class IssueDetailDetails extends React.Component {
 	
-	getInitialState: function() {
+	getInitialState() {
         return {openDetails: true};
-    },
+    }
 
-	showDetails: function(event) {
+	showDetails(event) {
 		this.setState({openDetails: !this.state.openDetails});
-	},
+	}
 
-	render: function() {
+	render() {
 		var openDetails = this.state.openDetails ? true : false;
 		return (
 			<div className="issueDetailDetailsDiv">
@@ -45,6 +45,6 @@ var IssueDetailDetails = React.createClass({
 		)
 	}
 	
-});
+};
 
 export default IssueDetailDetails;

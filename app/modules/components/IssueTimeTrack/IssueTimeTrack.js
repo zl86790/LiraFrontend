@@ -6,17 +6,17 @@ import ReactDOM from 'react-dom';
 import Collapse from 'react-collapse';
 import './IssueTimeTrack.css';
 
-var IssueTimeTrack = React.createClass({
+class IssueTimeTrack extends React.Component {
 	
-	getInitialState: function() {
+	getInitialState() {
         return {openIssueTimeTrack: true};
-    },
+    }
 
-	showIssueTimeTrack: function(event) {
+	showIssueTimeTrack(event) {
 		this.setState({openIssueTimeTrack: !this.state.openIssueTimeTrack});
-	},
+	}
 
-	render: function() {
+	render() {
 		var openIssueTimeTrack = this.state.openIssueTimeTrack ? true : false;
 		return (
 			<div style={{textAlign:'left'}}>
@@ -37,6 +37,6 @@ var IssueTimeTrack = React.createClass({
 		)
 	}
 	
-});
+};
 
 export default IssueTimeTrack;

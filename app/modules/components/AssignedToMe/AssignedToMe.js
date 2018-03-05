@@ -8,12 +8,13 @@ import { BrowserRouter  as Router, Route, Link, browserHistory as history, Switc
 
 import 'react-table/react-table.css'
 
+class AssignedToMe extends React.Component {
 
-var AssignedToMe = React.createClass({
-	getInitialState: function() {
-        return {_data: []};
-    },
-	componentDidMount: function() {
+	constructor(props) {
+		super(props);
+		this.state = {ass2medata: []};  
+	}
+	componentDidMount() {
 		var _this = this;
 		$.ajax({
 		    type: "GET", 
@@ -24,15 +25,15 @@ var AssignedToMe = React.createClass({
 		    headers: {
 		    	lira_token: Global.tokenObject.lira_token
 		    },
-		    success: function(_data){ 
-		    	alert(JSON.stringify(_data));
-		    	_this.setState({_data:_data});
+		    success: function(ass2medata){ 
+		    	alert(JSON.stringify(ass2medata));
+		    	_this.setState({ass2medata:ass2medata});
 		    },
 			error: function(data){ 
 		    	alert("load error");
 		    }
 		});
-	},
+	}
 
 	render() {
 
@@ -53,7 +54,7 @@ var AssignedToMe = React.createClass({
 		  return (
 				  <div>
 				  	<div className="asstm-table-title">Assigned to me</div>
-				  	<ReactTable data={this.state._data} columns={columns} 
+				  	<ReactTable data={this.state.ass2medata} columns={columns} 
 					  	getTdProps={(state, rowInfo, column, instance) => {
 					  	    return {
 					  	      onClick: (e, handleOriginal) => {
@@ -81,6 +82,6 @@ var AssignedToMe = React.createClass({
 		 
 	}
 	
-});
+};
 
 export default withRouter(AssignedToMe);

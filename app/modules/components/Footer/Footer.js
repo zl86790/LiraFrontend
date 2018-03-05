@@ -6,8 +6,8 @@ import ReactDOM from 'react-dom';
 
 import './Footer.css';
 
-var FooterDiv = React.createClass({
-	render: function() {
+class FooterDiv extends React.Component {
+	render() {
 
 		return (
 				
@@ -20,6 +20,6 @@ var FooterDiv = React.createClass({
 		)
 	}
 	
-});
+};
 
 export default FooterDiv;

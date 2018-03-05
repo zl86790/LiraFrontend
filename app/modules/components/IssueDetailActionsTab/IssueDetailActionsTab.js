@@ -10,8 +10,8 @@ var callback = function(key){
 	 
 }
 
-var IssueDetailActionsTab = React.createClass({
-	render: function() {
+class IssueDetailActionsTab extends React.Component {
+	render() {
 
 		return (
 				
@@ -51,7 +51,7 @@ var IssueDetailActionsTab = React.createClass({
 		)
 	}
 	
-});
+};
 
 export default IssueDetailActionsTab;
 

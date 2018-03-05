@@ -10,8 +10,8 @@ import IssueTimeTrack from "../IssueTimeTrack/IssueTimeTrack.js";
 
 import './IssueDetailLeftMenu.css';
 
-var IssueDetailLeftMenu = React.createClass({
-	render: function() {
+class IssueDetailLeftMenu extends React.Component {
+	render() {
 
 		return (
 			
@@ -25,7 +25,7 @@ var IssueDetailLeftMenu = React.createClass({
 		)
 	}
 	
-});
+};
 
 export default IssueDetailLeftMenu;
 

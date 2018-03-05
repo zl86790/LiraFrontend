@@ -6,17 +6,17 @@ import ReactDOM from 'react-dom';
 import Collapse from 'react-collapse';
 import './IssueDetailDescription.css';
 
-var IssueDetailDescription = React.createClass({
+class IssueDetailDescription extends React.Component {
 	
-	getInitialState: function() {
+	getInitialState() {
         return {openDescription: true};
-    },
+    }
 
-	showDescription: function(event) {
+	showDescription(event) {
 		this.setState({openDescription: !this.state.openDescription});
-	},
+	}
 
-	render: function() {
+	render() {
 		var openDescription = this.state.openDescription ? true : false;
 		return (
 			<div className="issueDetailDescriptionDiv">
@@ -35,6 +35,6 @@ var IssueDetailDescription = React.createClass({
 		)
 	}
 	
-});
+};
 
 export default IssueDetailDescription;

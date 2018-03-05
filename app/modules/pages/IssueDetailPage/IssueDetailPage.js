@@ -17,8 +17,8 @@ import IssueDetailActionsTab from "../../components/IssueDetailActionsTab/IssueD
 
 import './IssueDetailPage.css';
 
-var IssueDetail = React.createClass({
-	render: function() {
+class IssueDetail extends React.Component {
+	render() {
 
 		return (
 				
@@ -45,7 +45,7 @@ var IssueDetail = React.createClass({
 		)
 	}
 	
-});
+};
 
 export default IssueDetail;
 

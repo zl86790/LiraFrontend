@@ -6,8 +6,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './IssueDetailTitleButton.css';
 
-var IssueDetailTitleButton = React.createClass({
-	render: function() {
+class IssueDetailTitleButton extends React.Component {
+	render() {
 
 		return (
 				
@@ -23,6 +23,6 @@ var IssueDetailTitleButton = React.createClass({
 		)
 	}
 	
-});
+};
 
 export default IssueDetailTitleButton;

@@ -6,17 +6,16 @@ import ReactDOM from 'react-dom';
 import Collapse from 'react-collapse';
 import './IssueDates.css';
 
-var IssueDates = React.createClass({
-	
-	getInitialState: function() {
+class IssueDates extends React.Component {
+	getInitialState() {
         return {openIssueDates: true};
-    },
+    }
 
-	showIssueDates: function(event) {
+	showIssueDates(event) {
 		this.setState({openIssueDates: !this.state.openIssueDates});
-	},
+	}
 
-	render: function() {
+	render() {
 		var openIssueDates = this.state.openIssueDates ? true : false;
 		return (
 			<div style={{textAlign:'left'}}>
@@ -37,6 +36,6 @@ var IssueDates = React.createClass({
 		)
 	}
 	
-});
+};
 
 export default IssueDates;

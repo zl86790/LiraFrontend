@@ -8,9 +8,8 @@ import './DashboardPage.css';
 import AssignedToMeDiv from '../../components/AssignedToMe/AssignedToMe.js';
 import CreatenewIssueButton from '../../components/CreateNewIssueButton/CreateNewIssueButton.js';
 
-
-var DashboardPage = React.createClass({
-	render: function() {
+class DashboardPage extends React.Component {
+	render() {
 
 		return (
 				
@@ -28,6 +27,6 @@ var DashboardPage = React.createClass({
 		)
 	}
 	
-});
+};
 
 export default DashboardPage;

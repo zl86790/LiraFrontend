@@ -7,8 +7,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Link, browserHistory, Switch, Redirect } from "react-router-dom";
 
-var HeaderDiv = React.createClass({
-	render: function() {
+class HeaderDiv extends React.Component {
+	render() {
 
 		return (
 				
@@ -41,7 +41,7 @@ var HeaderDiv = React.createClass({
 		)
 	}
 	
-});
+};
 
 export default HeaderDiv;
 

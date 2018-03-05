@@ -16,8 +16,8 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Link, browserHistory, Switch, Redirect } from "react-router-dom";
 
 
-var App = React.createClass({
-	render: function() {
+class App extends React.Component {
+	render() {
 
 		return (
 				<div>
@@ -35,7 +35,7 @@ var App = React.createClass({
 		)
 	}
 	
-});
+}
 
 
 
