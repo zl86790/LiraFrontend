@@ -7,9 +7,12 @@ import Collapse from 'react-collapse';
 import './IssueDates.css';
 
 class IssueDates extends React.Component {
-	getInitialState() {
-        return {openIssueDates: true};
-    }
+	
+	constructor(props) {
+		super(props);
+		this.state = {openIssueDates: true};
+		this.showIssueDates = this.showIssueDates.bind(this);
+	}
 
 	showIssueDates(event) {
 		this.setState({openIssueDates: !this.state.openIssueDates});

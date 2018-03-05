@@ -8,9 +8,11 @@ import './IssueTimeTrack.css';
 
 class IssueTimeTrack extends React.Component {
 	
-	getInitialState() {
-        return {openIssueTimeTrack: true};
-    }
+	constructor(props) {
+		super(props);
+		this.state = {openIssueTimeTrack: true};  
+		this.showIssueTimeTrack = this.showIssueTimeTrack.bind(this);
+	}
 
 	showIssueTimeTrack(event) {
 		this.setState({openIssueTimeTrack: !this.state.openIssueTimeTrack});

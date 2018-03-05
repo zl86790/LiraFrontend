@@ -8,9 +8,11 @@ import './IssuePeople.css';
 
 class IssuePeople extends React.Component {
 	
-	getInitialState() {
-        return {openPeople: true};
-    }
+	constructor(props) {
+		super(props);
+		this.state = {openPeople: true};  
+		this.showPeople = this.showPeople.bind(this);
+	}
 
 	showPeople(event) {
 		this.setState({openPeople: !this.state.openPeople});

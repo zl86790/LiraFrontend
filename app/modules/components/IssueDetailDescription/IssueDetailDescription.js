@@ -8,9 +8,11 @@ import './IssueDetailDescription.css';
 
 class IssueDetailDescription extends React.Component {
 	
-	getInitialState() {
-        return {openDescription: true};
-    }
+	constructor(props) {
+		super(props);
+		this.state = {openDescription: true};  
+		this.showDescription = this.showDescription.bind(this);
+	}
 
 	showDescription(event) {
 		this.setState({openDescription: !this.state.openDescription});
