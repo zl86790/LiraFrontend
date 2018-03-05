@@ -8,6 +8,7 @@ import AssignedToMeDiv from '../AssignedToMe/AssignedToMe.js';
 
 
 import './CreateNewIssueButton.css';
+import { BrowserRouter  as Router, Route, Link, browserHistory as history, Switch, withRouter } from "react-router-dom";
 
 class CreateNewIssueButton extends React.Component {
   state = {
@@ -59,10 +60,7 @@ class CreateNewIssueButton extends React.Component {
 	    	_this.setState({
     	      visible: false,
     	    });
-	    	ReactDOM.render(
-	    			<AssignedToMeDiv />,
-	    			document.getElementById('dashboardCenterDiv')
-	    		);
+	    	_this.props.history.push('/public/Dashboard.html');
 	    },
 		error: function(data){ 
 	    	alert("login error");
@@ -163,4 +161,4 @@ class CreateNewIssueButton extends React.Component {
   }
 }
 
-export default CreateNewIssueButton;
+export default withRouter(CreateNewIssueButton);

@@ -3,9 +3,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import ReactTable from 'react-table';
-import IssueDetail from '../IssueDetail/IssueDetail.js';
-import IssueDetailLeftMenu from '../IssueDetailLeftMenu/IssueDetailLeftMenu.js';
 import Global from '../Global/Global.js';
+import { BrowserRouter  as Router, Route, Link, browserHistory as history, Switch, withRouter } from "react-router-dom";
 
 import 'react-table/react-table.css'
 
@@ -71,15 +70,7 @@ var AssignedToMe = React.createClass({
 					  	        // 'handleOriginal' function.
 					  	        if (handleOriginal) {
 					  	          alert(rowInfo.original.name);
-					  	          ReactDOM.render(
-						    			<IssueDetail />,
-						    			document.getElementById('dashboardCenterDiv')
-						    	  );
-					  	          ReactDOM.render(
-						    			<IssueDetailLeftMenu />,
-						    			document.getElementById('dashboardLeftMenuDiv')
-						    	  );
-					  	        
+					  	          this.props.history.push('/public/IssueDetail.html');
 					  	        }
 					  	      }
 					  	    }
@@ -92,4 +83,4 @@ var AssignedToMe = React.createClass({
 	
 });
 
-export default AssignedToMe;
+export default withRouter(AssignedToMe);

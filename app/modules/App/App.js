@@ -2,11 +2,13 @@
  * 
  */
 
-import Header from '../Header/Header.js';
-import Login from '../Login/Login.js';
-import Footer from '../Footer/Footer.js';
-import Dashboard from '../Dashboard/Dashboard.js';
-import Projects from '../Projects/Projects.js';
+import Header from '../components/Header/Header.js';
+import Footer from '../components/Footer/Footer.js';
+
+import LoginPage from '../pages/LoginPage/LoginPage.js';
+import DashboardPage from '../pages/DashboardPage/DashboardPage.js';
+import IssueDetailPage from '../pages/IssueDetailPage/IssueDetailPage.js';
+
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -22,9 +24,9 @@ var App = React.createClass({
 					<div id="headerDiv"><Header /></div>
 					<div id="centerDiv" style={{padding:60}}>
 						<Switch>
-					      <Route exact path='/public/' component={Login}/>
-					      <Route exact path='/public/Projects' component={Projects}/>
-					      <Route exact path='/public/Dashboard' component={Dashboard}/>
+					      <Route exact path='/public/' component={LoginPage}/>
+					      <Route exact path='/public/Dashboard.html' component={DashboardPage}/>
+					      <Route exact path='/public/IssueDetail.html' component={IssueDetailPage}/>
 					      <Redirect from='' to="/public/" />
 					    </Switch>
 					</div>

@@ -4,13 +4,13 @@
 	
 }
 
-#dashboardLeftMenuDiv{
+#centerLeftDiv{
 	float:left;
 	width:20%;
 	height:500px;
 }
 
-#dashboardCenterDiv{
+#centerRightDiv{
 	float:left;
 	width:75%;
 	padding:20px;
