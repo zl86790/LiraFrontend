@@ -10,6 +10,7 @@ import 'react-table/react-table.css'
 
 import { Provider, connect } from 'react-redux';  
 import { createStore,combineReducers } from 'redux'
+import axios from 'axios';
 
 import store from '../../App/Store.js';
 
@@ -20,8 +21,21 @@ class AssignedToMe extends React.Component {
 		this.state = {ass2medata: []};  
 	}
 	componentWillMount() {
-		store.dispatch(handleGETDATA);
-
+		let url = 'http://localhost:8081/api/v1/postlogin/issues';
+   	 	axios.get(url, {
+		    params: {
+		      
+		    },
+		    headers: {
+		      "lira_token": Global.tokenObject.lira_token
+		    }
+		  })
+		  .then(function (response) {
+			  handleGETDATA.payload=response.data;
+			  store.dispatch(handleGETDATA);
+		  }).catch(function (error) {
+			alert("load error");
+		  });
 	}
 
 	render() {
