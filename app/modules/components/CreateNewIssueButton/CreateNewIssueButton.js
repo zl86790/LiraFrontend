@@ -6,7 +6,8 @@ import Dialog from 'rc-dialog/lib/DialogWrap.js';
 import Global from '../Global/Global.js';
 import AssignedToMeDiv from '../AssignedToMe/AssignedToMe.js';
 
-
+import axios from 'axios';
+import store from '../../App/Store.js';
 import './CreateNewIssueButton.css';
 import { BrowserRouter  as Router, Route, Link, browserHistory as history, Switch, withRouter } from "react-router-dom";
 
@@ -26,47 +27,57 @@ class CreateNewIssueButton extends React.Component {
     });
   }
   onSave = () => {
-	  
-	var _this = this;
-	  
-  	var issue = new Object();
-  	issue.name = "ODF";
-  	issue.type = "Bug";
-  	issue.summary= "Summary";
-  	issue.priority = "High";
-  	issue.labels = "Bug";
-  	issue.status = "Open";
-  	issue.description = "This is a mockup description";
-  	issue.assignee = 1;
-  	issue.reporter = 1;
-  	issue.created_time = "2018-01-01";
-  	issue.updated_time = "2018-01-01";
-  	issue.resolved_time = "2018-01-01";
-  	issue.estimated = 8;
-  	issue.remaining = 8;
-  	issue.logged = 0;
-  	
-	$.ajax({
-	    type: "POST", 
-	    url: "http://localhost:8081/api/v1/postlogin/issue",
-	    data: JSON.stringify(issue), 
-	    dataType: 'json',
-	    contentType: 'application/json',
-	    headers: {
-	    	lira_token: Global.tokenObject.lira_token
-	    },
-	    success: function(data){ 
-	    	alert("Create success");
-	    	_this.setState({
-    	      visible: false,
-    	    });
-	    	_this.props.history.push('/public/Dashboard.html');
-	    },
-		error: function(data){ 
-	    	alert("login error");
-	    }
-	});
-	  
+	  var _this = this;
+	  var issue = new Object();
+	  	issue.name = "ODF";
+	  	issue.type = "Bug";
+	  	issue.summary= "Summary";
+	  	issue.priority = "High";
+	  	issue.labels = "Bug";
+	  	issue.status = "Open";
+	  	issue.description = "This is a mockup description";
+	  	issue.assignee = 1;
+	  	issue.reporter = 1;
+	  	issue.created_time = "2018-01-01";
+	  	issue.updated_time = "2018-01-01";
+	  	issue.resolved_time = "2018-01-01";
+	  	issue.estimated = 8;
+	  	issue.remaining = 8;
+	  	issue.logged = 0;
+	 	
+	  var qs = require('qs');
+ 	  axios.post('http://localhost:8081/api/v1/postlogin/issue', 
+ 			  {
+			 		name:"ODF",
+			 	  	type:"Bug",
+			 	  	summary:"Summary",
+			 	  	priority:"High",
+			 	  	labels:"Bug",
+			 	  	status:"Open",
+			 	  	description:"This is a mockup description",
+			 	  	assignee:1,
+			 	  	reporter:1,
+			 	  	created_time:"2018-01-01",
+			 	  	updated_time:"2018-01-01",
+			 	  	resolved_time:"2018-01-01",
+			 	  	estimated:8,
+			 	  	remaining:8,
+			 	  	logged:0
+ 			  }, 
+ 			  {
+		 	    headers: {
+		 	    	"lira_token": Global.tokenObject.lira_token,
+		 	    }
+ 			  }
+ 	  ).then(function (response) {
+ 		  alert("Create success");
+	      _this.setState({
+ 	        visible: false,
+ 	      });
+	      store.dispatch(handleGETDATA);
+ 	  }).catch(function (error) {
+ 		 alert("create error"+error);
+ 	  });
     
   }
   onDestroyOnCloseChange = (e) => {
@@ -160,5 +171,10 @@ class CreateNewIssueButton extends React.Component {
     );
   }
 }
+
+//action  
+const handleGETDATA = {  
+    type:'GETDATA'  
+} 
 
 export default withRouter(CreateNewIssueButton);

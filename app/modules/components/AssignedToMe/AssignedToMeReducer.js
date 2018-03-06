@@ -7,7 +7,7 @@ export const reducer = (state = {}, action) => {
     case 'GETDATA': 
     	 state = new Object();
     	 state._data = action.payload;
-    	 alert(JSON.stringify(state._data));
+    	 alert(":::::::::::::"+JSON.stringify(state._data));
     	 return state;
     default: return state;
   }
