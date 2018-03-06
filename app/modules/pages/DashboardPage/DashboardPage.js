@@ -18,16 +18,14 @@ class DashboardPage extends React.Component {
 		return (
 				
 			<div>
-				<Provider store={store}>  
-					<div id="centerDiv">
-						<div id="centerLeftDiv">
-							<CreatenewIssueButton />
-						</div>
-						<div id="centerRightDiv">
-							<AssignedToMeDiv />
-						</div>
+				<div id="centerDiv">
+					<div id="centerLeftDiv">
+						<CreatenewIssueButton />
 					</div>
-				</Provider>
+					<div id="centerRightDiv">
+						<AssignedToMeDiv />
+					</div>
+				</div>
 			</div>
 			
 		)

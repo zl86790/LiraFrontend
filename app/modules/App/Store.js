@@ -3,7 +3,7 @@ import {reducer as ass2medataReducer} from '../components/AssignedToMe/AssignedT
 
 
 const allCombineReducer = combineReducers({
-	ass2medata:ass2medataReducer
+	num:ass2medataReducer
 })
 
 //store

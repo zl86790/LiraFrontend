@@ -13,6 +13,10 @@ import IssueDetailPage from '../pages/IssueDetailPage/IssueDetailPage.js';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import { Provider, connect } from 'react-redux';  
+import { createStore,combineReducers } from 'redux'
+import store from './Store.js';
+
 import { BrowserRouter as Router, Route, Link, browserHistory, Switch, Redirect } from "react-router-dom";
 
 
@@ -20,6 +24,7 @@ class App extends React.Component {
 	render() {
 
 		return (
+				<Provider store={store}> 
 				<div>
 					<div id="headerDiv"><Header /></div>
 					<div id="centerDiv" style={{padding:60}}>
@@ -32,6 +37,7 @@ class App extends React.Component {
 					</div>
 					<div id="footerDiv"><Footer /></div>
 				</div>
+				</Provider>
 		)
 	}
 	
