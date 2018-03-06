@@ -6,6 +6,10 @@ import ReactTable from 'react-table';
 import Global from '../Global/Global.js';
 import { BrowserRouter  as Router, Route, Link, browserHistory as history, Switch, withRouter } from "react-router-dom";
 
+import { Provider, connect } from 'react-redux';  
+import { createStore,combineReducers } from 'redux'
+import store from '../../App/Store.js';
+
 import 'react-table/react-table.css'
 
 class AssignedToMe extends React.Component {
@@ -15,28 +19,12 @@ class AssignedToMe extends React.Component {
 		this.state = {ass2medata: []};  
 	}
 	componentDidMount() {
-		var _this = this;
-		$.ajax({
-		    type: "GET", 
-		    url: "http://localhost:8081/api/v1/postlogin/issues",
-		    data: 'name=Lizhe', 
-		    dataType: 'json',
-		    contentType: 'application/json',
-		    headers: {
-		    	lira_token: Global.tokenObject.lira_token
-		    },
-		    success: function(ass2medata){ 
-		    	alert(JSON.stringify(ass2medata));
-		    	_this.setState({ass2medata:ass2medata});
-		    },
-			error: function(data){ 
-		    	alert("load error");
-		    }
-		});
+		alert("componentDidMount");
+		store.dispatch(getAssignedToMeDataAction);
 	}
 
 	render() {
-
+		  const {ass2medata} = this.props; 
 		  const columns = [{
 		    Header: 'Type',
 		    accessor: 'type' 
@@ -54,7 +42,7 @@ class AssignedToMe extends React.Component {
 		  return (
 				  <div>
 				  	<div className="asstm-table-title">Assigned to me</div>
-				  	<ReactTable data={this.state.ass2medata} columns={columns} 
+				  	<ReactTable data={ass2medata} columns={columns} 
 					  	getTdProps={(state, rowInfo, column, instance) => {
 					  	    return {
 					  	      onClick: (e, handleOriginal) => {
@@ -83,5 +71,22 @@ class AssignedToMe extends React.Component {
 	}
 	
 };
+
+
+const getAssignedToMeDataAction = {  
+    type:'GETASSIGNEDTOMEDATAACTION'  
+}
+
+function mapStateToProps(state) {  
+    return { ass2medata: state.ass2medata }  
+}  
+
+function mapDispatchToProps(dispatch){  
+    return{  
+    	handleGetAssignedToMeData:()=>dispatch(getAssignedToMeDataAction),  
+    }  
+}  
+
+AssignedToMe = connect(mapStateToProps, mapDispatchToProps)(AssignedToMe)  
 
 export default withRouter(AssignedToMe);

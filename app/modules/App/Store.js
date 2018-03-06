@@ -1,5 +1,5 @@
 import {createStore, combineReducers} from 'redux';
-import {reducer as ass2medataReducer} from './ass2medataReducer.js';
+import {reducer as ass2medataReducer} from '../components/AssignedToMe/AssignedToMeReducer.js';
 
 
 const allCombineReducer = combineReducers({
