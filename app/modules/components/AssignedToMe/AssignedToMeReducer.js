@@ -1,8 +1,15 @@
 //reducer
-export const reducer = (state = 0, action) => {
+export const reducer = (state = {}, action) => {
   switch (action.type) {
-    case 'INCREMENT': return state + 1;
-    case 'DECREMENT': return state - 1;
+    case 'GETDATA': 
+    	 const data = [{
+    		type: 'Bug',
+		    key: 'BUG-1',
+		    summary: 'test summary',
+		    priority: 'High'
+ 		  }]
+    	 state._data = data
+    	 return state;
     default: return state;
   }
 };

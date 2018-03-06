@@ -11,6 +11,8 @@ import 'react-table/react-table.css'
 import { Provider, connect } from 'react-redux';  
 import { createStore,combineReducers } from 'redux'
 
+import store from '../../App/Store.js';
+
 class AssignedToMe extends React.Component {
 
 	constructor(props) {
@@ -18,28 +20,31 @@ class AssignedToMe extends React.Component {
 		this.state = {ass2medata: []};  
 	}
 	componentDidMount() {
-		var _this = this;
-		$.ajax({
-		    type: "GET", 
-		    url: "http://localhost:8081/api/v1/postlogin/issues",
-		    data: 'name=Lizhe', 
-		    dataType: 'json',
-		    contentType: 'application/json',
-		    headers: {
-		    	lira_token: Global.tokenObject.lira_token
-		    },
-		    success: function(ass2medata){ 
-		    	alert(JSON.stringify(ass2medata));
-		    	_this.setState({ass2medata:ass2medata});
-		    },
-			error: function(data){ 
-		    	alert("load error");
-		    }
-		});
+		store.dispatch(handleGETDATA)
+//		var _this = this;
+//		$.ajax({
+//		    type: "GET", 
+//		    url: "http://localhost:8081/api/v1/postlogin/issues",
+//		    data: 'name=Lizhe', 
+//		    dataType: 'json',
+//		    contentType: 'application/json',
+//		    headers: {
+//		    	lira_token: Global.tokenObject.lira_token
+//		    },
+//		    success: function(ass2medata){ 
+//		    	alert(JSON.stringify(ass2medata));
+//		    	_this.setState({ass2medata:ass2medata});
+//		    },
+//			error: function(data){ 
+//		    	alert("load error");
+//		    }
+//		});
 	}
 
 	render() {
 
+		  const {value} = this.props;  
+		
 		  const columns = [{
 		    Header: 'Type',
 		    accessor: 'type' 
@@ -57,7 +62,7 @@ class AssignedToMe extends React.Component {
 		  return (
 				  <div>
 				  	<div className="asstm-table-title">Assigned to me</div>
-				  	<ReactTable data={this.state.ass2medata} columns={columns} 
+				  	<ReactTable data={value._data} columns={columns} 
 					  	getTdProps={(state, rowInfo, column, instance) => {
 					  	    return {
 					  	      onClick: (e, handleOriginal) => {
@@ -80,7 +85,6 @@ class AssignedToMe extends React.Component {
 					  	    }
 					  	  }}
 				  	/>
-				  	<Counter />  
 				  </div>
 		  );
 		 
@@ -88,43 +92,28 @@ class AssignedToMe extends React.Component {
 	
 };
 
-class Counter extends React.Component{  
-	render() {  
-		const {value,handleIncrement,handleDecrement} = this.props;  
-		
-	    return (
-	        	<div><h1>{value}</h1>
-	        		<button onClick={handleIncrement}>+</button>
-	        		<button onClick={handleDecrement}>-</button>
-	        	</div>
-	    )
-	}
-    
-}
+
 
 //action  
-const handleIncrement = {  
-    type:'INCREMENT'  
-}  
-const handleDecrement = {  
-    type:'DECREMENT'  
+const handleGETDATA = {  
+    type:'GETDATA'  
 }  
 
 
 
 //映射Redux state到组件的属性  
 function mapStateToProps(state) {  
-    return { value: state.num }  
+    return { value: state.ass2medata }  
 }  
   
 //映射Redux actions到组件的属性  
 function mapDispatchToProps(dispatch){  
     return{  
-    	handleIncrement:()=>dispatch(handleIncrement),  
-    	handleDecrement:()=>dispatch(handleDecrement)  
+//    	handleIncrement:()=>dispatch(handleGETDATA),  
+//    	handleDecrement:()=>dispatch(handleDecrement)  
     }  
 }  
 
-Counter = connect(mapStateToProps, mapDispatchToProps)(Counter)  
+AssignedToMe = connect(mapStateToProps, mapDispatchToProps)(AssignedToMe)  
 
 export default withRouter(AssignedToMe);
