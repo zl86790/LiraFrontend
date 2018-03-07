@@ -7,6 +7,12 @@ import Collapse from 'react-collapse';
 
 import './IssueDetailDetails.css';
 
+import { Provider, connect } from 'react-redux';  
+import { createStore,combineReducers } from 'redux'
+import axios from 'axios';
+import Global from '../Global/Global.js';
+import store from '../../App/Store.js';
+
 class IssueDetailDetails extends React.Component {
 	
 	constructor(props) {
@@ -14,12 +20,36 @@ class IssueDetailDetails extends React.Component {
 		this.state = {openDetails: true};  
 		this.showDetails = this.showDetails.bind(this);
 	}
+	
+	componentDidMount() {
+		let url = 'http://localhost:8081/api/v1/postlogin/issue';
+   	 	axios.get(url, {
+		    params: {
+		      id:56
+		    },
+		    headers: {
+		      "lira_token": Global.tokenObject.lira_token
+		    }
+		  })
+		  .then(function (response) {
+			  handleGETISSUEDATA.payload=response.data;
+			  store.dispatch(handleGETISSUEDATA);
+		  }).catch(function (error) {
+			alert(error);
+		  });
+	}
 
 	showDetails(event) {
 		this.setState({openDetails: !this.state.openDetails});
 	}
 
 	render() {
+		
+		const {value} = this.props;  
+		if(value._data==undefined){
+			value._data = new Object();
+		}
+		
 		var openDetails = this.state.openDetails ? true : false;
 		return (
 			<div className="issueDetailDetailsDiv">
@@ -30,15 +60,13 @@ class IssueDetailDetails extends React.Component {
 					<Collapse isOpened={openDetails}>
 						<div style={{height:40}}>
 					  		<div className="lira-detail-label">Type:</div>
-					  		<div className="lira-detail-content">Bug</div>
+					  		<div className="lira-detail-content">{value._data.type}</div>
 					  		<div className="lira-detail-label">Status:</div>
-					  		<div className="lira-detail-content">Open</div>
+					  		<div className="lira-detail-content">{value._data.status}</div>
 					  		<div className="lira-detail-label">Priority:</div>
-					  		<div className="lira-detail-content">High</div>
-					  		<div className="lira-detail-label">Resolution:</div>
-					  		<div className="lira-detail-content">Unresolved</div>
+					  		<div className="lira-detail-content">{value._data.priority}</div>
 					  		<div className="lira-detail-label">Labels:</div>
-					  		<div className="lira-detail-content">Helloworld</div>
+					  		<div className="lira-detail-content">{value._data.labels}</div>
 					  	</div>
 					</Collapse>
 				</div>
@@ -48,5 +76,23 @@ class IssueDetailDetails extends React.Component {
 	}
 	
 };
+
+//action  
+const handleGETISSUEDATA = {  
+    type:'GETISSUEDATA'  
+}  
+
+
+ 
+function mapStateToProps(state) {  
+    return { value: state.issuedata }  
+}  
+  
+function mapDispatchToProps(dispatch){  
+    return{  
+    }  
+}  
+
+IssueDetailDetails = connect(mapStateToProps, mapDispatchToProps)(IssueDetailDetails)  
 
 export default IssueDetailDetails;
