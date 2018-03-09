@@ -5,6 +5,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Collapse from 'react-collapse';
 import './IssueDates.css';
+import { Provider, connect } from 'react-redux';  
+import { createStore,combineReducers } from 'redux'
+import axios from 'axios';
+import Global from '../Global/Global.js';
+import store from '../../App/Store.js';
 
 class IssueDates extends React.Component {
 	
@@ -19,6 +24,12 @@ class IssueDates extends React.Component {
 	}
 
 	render() {
+	
+		const {value} = this.props;
+		if(value._data==undefined){
+			value._data = new Object();
+		}
+		
 		var openIssueDates = this.state.openIssueDates ? true : false;
 		return (
 			<div style={{textAlign:'left'}}>
@@ -28,9 +39,9 @@ class IssueDates extends React.Component {
 				<div>
 					<Collapse isOpened={openIssueDates}>
 						<div style={{}}>
-					  		<div>Created: 2018.2.19</div>
-					  		<div>Updated: 2018.2.19</div>
-					  		<div>Resolved: 2018.2.19</div>
+					  		<div>Created: {value._data.created_time}</div>
+					  		<div>Updated: {value._data.updated_time}</div>
+					  		<div>Resolved: {value._data.resolved_time}</div>
 					  	</div>
 					</Collapse>
 				</div>
@@ -40,5 +51,17 @@ class IssueDates extends React.Component {
 	}
 	
 };
+
+
+function mapStateToProps(state) {  
+  return { value: state.issuedata }  
+}  
+
+function mapDispatchToProps(dispatch){  
+  return{  
+  }  
+}  
+
+IssueDates = connect(mapStateToProps, mapDispatchToProps)(IssueDates)  
 
 export default IssueDates;
