@@ -5,6 +5,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Collapse from 'react-collapse';
 import './IssueDetailDescription.css';
+
 import { Provider, connect } from 'react-redux';  
 import { createStore,combineReducers } from 'redux'
 import axios from 'axios';
@@ -24,6 +25,7 @@ class IssueDetailDescription extends React.Component {
 	}
 
 	render() {
+		
 		const {value} = this.props;  
 		if(value._data==undefined){
 			value._data = new Object();
@@ -38,8 +40,8 @@ class IssueDetailDescription extends React.Component {
 				<div>
 					<Collapse isOpened={openDescription}>
 						<div style={{height:200}}>
-						<div>{value._data.summary}</div>
-						<div>{value._data.description}</div>
+							{value._data.summary}
+							{value._data.description}
 					  	</div>
 					</Collapse>
 				</div>
@@ -49,16 +51,5 @@ class IssueDetailDescription extends React.Component {
 	}
 	
 };
-
-function mapStateToProps(state) {  
-    return { value: state.issuedata }  
-}  
-  
-function mapDispatchToProps(dispatch){  
-    return{  
-    }  
-}  
-
-IssueDetailDescription = connect(mapStateToProps, mapDispatchToProps)(IssueDetailDescription)  
 
 export default IssueDetailDescription;

@@ -29,7 +29,8 @@ class CreateNewIssueButton extends React.Component {
   onSave = () => {
 	  var _this = this;
 	  var issue = new Object();
-	  	issue.name = "ODF";
+	  	issue.issue_key = "ODF-117";
+	  	issue.name = "Name";
 	  	issue.type = "Bug";
 	  	issue.summary= "Summary";
 	  	issue.priority = "High";
