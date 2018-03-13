@@ -49,6 +49,7 @@ class CreateNewIssueButton extends React.Component {
 	  var qs = require('qs');
  	  axios.post('http://localhost:8081/api/v1/postlogin/issue', 
  			  {
+ 		  			issue_key:"ODF-117",
 			 		name:"ODF",
 			 	  	type:"Bug",
 			 	  	summary:"Summary",
