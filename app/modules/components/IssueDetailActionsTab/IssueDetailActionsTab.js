@@ -49,6 +49,10 @@ class IssueDetailActionsTab extends React.Component {
 			commentsvalue._commentsdata = [];
 		}
 		
+		const listItems = commentsvalue._commentsdata.map((comments) =>   
+          <li>{comments.content}</li>  
+        );  
+		
 		return (
 				
 				<Tabs
@@ -58,16 +62,7 @@ class IssueDetailActionsTab extends React.Component {
 			      renderTabContent={()=><TabContent />}
 			    >
 			      <TabPane tab='Comments' key="1">
-				      {commentsvalue._commentsdata.map((content,index) =>  
-				      <ListItem value={number} />  
-				      )} 
-			      	<hr/>1. Morckup comment 1 here 
-			      	<hr/>2. Morckup comment 1 here 
-			      	<hr/>3. Morckup comment 1 here 
-			      	<hr/>4. Morckup comment 1 here 
-			      	<hr/>5. Morckup comment 1 here 
-			      	<hr/>6. Morckup comment 1 here 
-			      	<hr/>7. Morckup comment 1 here 
+			      	<ul>{listItems}</ul>  
 			      </TabPane>
 			      <TabPane tab='History' key="2">
 			      	<hr/>1. Added details 
