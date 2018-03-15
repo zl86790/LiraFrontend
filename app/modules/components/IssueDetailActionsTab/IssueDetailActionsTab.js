@@ -11,6 +11,7 @@ import Global from '../Global/Global.js';
 import store from '../../App/Store.js';
 
 import "./IssueDetailActionsTab.css";
+import IssueComments from "../IssueComments/IssueComments.js";
 
 var callback = function(key){
 	 
@@ -25,21 +26,7 @@ class IssueDetailActionsTab extends React.Component {
 	}
 	
 	componentDidMount() {
-		let url = 'http://localhost:8081/api/v1/postlogin/comments';
-   	 	axios.get(url, {
-		    params: {
-		      issue_id:57
-		    },
-		    headers: {
-		      "lira_token": Global.tokenObject.lira_token
-		    }
-		  })
-		  .then(function (response) {
-			  handleGETCOMMENTSDATA.payload=response.data;
-			  store.dispatch(handleGETCOMMENTSDATA);
-		  }).catch(function (error) {
-			alert(error);
-		  });
+		
 	}
 	
 	render() {
@@ -50,7 +37,7 @@ class IssueDetailActionsTab extends React.Component {
 		}
 		
 		const listItems = commentsvalue._commentsdata.map((comments) =>   
-          <li>{comments.content}</li>  
+          <div><hr/>{comments.content}</div>  
         );  
 		
 		return (
@@ -62,7 +49,7 @@ class IssueDetailActionsTab extends React.Component {
 			      renderTabContent={()=><TabContent />}
 			    >
 			      <TabPane tab='Comments' key="1">
-			      	<ul>{listItems}</ul>  
+			      	<IssueComments />
 			      </TabPane>
 			      <TabPane tab='History' key="2">
 			      	<hr/>1. Added details 
