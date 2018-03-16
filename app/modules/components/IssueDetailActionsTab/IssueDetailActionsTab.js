@@ -12,6 +12,7 @@ import store from '../../App/Store.js';
 
 import "./IssueDetailActionsTab.css";
 import IssueComments from "../IssueComments/IssueComments.js";
+import IssueHistory from "../IssueHistory/IssueHistory.js";
 
 var callback = function(key){
 	 
@@ -52,17 +53,7 @@ class IssueDetailActionsTab extends React.Component {
 			      	<IssueComments />
 			      </TabPane>
 			      <TabPane tab='History' key="2">
-			      	<hr/>1. Added details 
-			      	<hr/>2. Added descriptions 
-			      	<hr/>3. Added tab panels 
-			      	<hr/>4. Update the page style 
-			      	<hr/>1. Morckup comment 1 here 
-			      	<hr/>2. Morckup comment 1 here 
-			      	<hr/>3. Morckup comment 1 here 
-			      	<hr/>4. Morckup comment 1 here 
-			      	<hr/>5. Morckup comment 1 here 
-			      	<hr/>6. Morckup comment 1 here 
-			      	<hr/>7. Morckup comment 1 here 
+			      	<IssueHistory />
 			      </TabPane>
 			      <TabPane tab='Watchers' key="3">
 			      	<hr/>1. Lizhe

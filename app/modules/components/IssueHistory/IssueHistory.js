@@ -17,7 +17,7 @@ var callback = function(key){
 
 
 
-class IssueComments extends React.Component {
+class IssueHistories extends React.Component {
 	
 	constructor(props) {
 		super(props);
@@ -43,13 +43,13 @@ class IssueComments extends React.Component {
 	
 	render() {
 
-		const {commentsvalue} = this.props;  
-		if(commentsvalue._commentsdata==undefined){
-			commentsvalue._commentsdata = [];
+		const {historiesvalue} = this.props;  
+		if(historiesvalue._historiesdata==undefined){
+			historiesvalue._historiesdata = [];
 		}
 		
-		const listItems = commentsvalue._commentsdata.map((comments) =>   
-          <div><hr/>{comments.content}</div>  
+		const listItems = historiesvalue._historiesdata.map((history) =>   
+          <div><hr/>{history.operator} {history.action} {history.updated_time_formatted}</div>  
         );  
 		
 		return (
@@ -62,11 +62,11 @@ class IssueComments extends React.Component {
 };
 
 const handleGETHISTORIESDATA = {  
-	type:'GETCOMMENTSDATA'  
+	type:'GETHISTORIESDATA'  
 }  
 
 function mapStateToProps(state) {  
-    return { commentsvalue: state.commentsdata }  
+    return { historiesvalue: state.historiesdata }  
 }  
   
 function mapDispatchToProps(dispatch){  
@@ -74,7 +74,7 @@ function mapDispatchToProps(dispatch){
     }  
 }  
 
-IssueComments = connect(mapStateToProps, mapDispatchToProps)(IssueComments)  
+IssueHistories = connect(mapStateToProps, mapDispatchToProps)(IssueHistories)  
 
-export default IssueComments;
+export default IssueHistories;
 
