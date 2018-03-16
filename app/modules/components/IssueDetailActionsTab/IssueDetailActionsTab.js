@@ -13,6 +13,7 @@ import store from '../../App/Store.js';
 import "./IssueDetailActionsTab.css";
 import IssueComments from "../IssueComments/IssueComments.js";
 import IssueHistory from "../IssueHistory/IssueHistory.js";
+import IssueWatcher from "../IssueWatcher/IssueWatcher.js";
 
 var callback = function(key){
 	 
@@ -32,15 +33,6 @@ class IssueDetailActionsTab extends React.Component {
 	
 	render() {
 
-		const {commentsvalue} = this.props;  
-		if(commentsvalue._commentsdata==undefined){
-			commentsvalue._commentsdata = [];
-		}
-		
-		const listItems = commentsvalue._commentsdata.map((comments) =>   
-          <div><hr/>{comments.content}</div>  
-        );  
-		
 		return (
 				
 				<Tabs
@@ -56,7 +48,7 @@ class IssueDetailActionsTab extends React.Component {
 			      	<IssueHistory />
 			      </TabPane>
 			      <TabPane tab='Watchers' key="3">
-			      	<hr/>1. Lizhe
+			      	<IssueWatcher />
 			      </TabPane>
 			    </Tabs>
 			

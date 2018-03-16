@@ -17,14 +17,14 @@ var callback = function(key){
 
 
 
-class IssueComments extends React.Component {
+class IssueWatchers extends React.Component {
 	
 	constructor(props) {
 		super(props);
 	}
 	
 	componentDidMount() {
-		let url = 'http://localhost:8081/api/v1/postlogin/comments';
+		let url = 'http://localhost:8081/api/v1/postlogin/issuewatchers';
    	 	axios.get(url, {
 		    params: {
 		      issue_id:57
@@ -34,8 +34,8 @@ class IssueComments extends React.Component {
 		    }
 		  })
 		  .then(function (response) {
-			  handleGETCOMMENTSDATA.payload=response.data;
-			  store.dispatch(handleGETCOMMENTSDATA);
+			  handleGETWATCHERSDATA.payload=response.data;
+			  store.dispatch(handleGETWATCHERSDATA);
 		  }).catch(function (error) {
 			alert(error);
 		  });
@@ -43,13 +43,13 @@ class IssueComments extends React.Component {
 	
 	render() {
 
-		const {commentsvalue} = this.props;  
-		if(commentsvalue._commentsdata==undefined){
-			commentsvalue._commentsdata = [];
+		const {watchersvalue} = this.props;  
+		if(watchersvalue._watchersdata==undefined){
+			watchersvalue._watchersdata = [];
 		}
 		
-		const listItems = commentsvalue._commentsdata.map((comments) =>   
-          <div><hr/>{comments.content} {comments.updated_time_formatted}</div>  
+		const listItems = watchersvalue._watchersdata.map((watcher) =>   
+          <div><hr/>{watcher.name}</div>  
         );  
 		
 		return (
@@ -61,12 +61,12 @@ class IssueComments extends React.Component {
 	
 };
 
-const handleGETCOMMENTSDATA = {  
-	type:'GETCOMMENTSDATA'  
+const handleGETWATCHERSDATA = {  
+	type:'GETWATCHERSDATA'  
 }  
 
 function mapStateToProps(state) {  
-    return { commentsvalue: state.commentsdata }  
+    return { watchersvalue: state.watchersdata }  
 }  
   
 function mapDispatchToProps(dispatch){  
@@ -74,7 +74,7 @@ function mapDispatchToProps(dispatch){
     }  
 }  
 
-IssueComments = connect(mapStateToProps, mapDispatchToProps)(IssueComments)  
+IssueWatchers = connect(mapStateToProps, mapDispatchToProps)(IssueWatchers)  
 
-export default IssueComments;
+export default IssueWatchers;
 
