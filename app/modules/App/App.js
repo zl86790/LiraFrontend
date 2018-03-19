@@ -33,6 +33,7 @@ class App extends React.Component {
 					      <Route exact path='/public/' component={LoginPage}/>
 					      <Route exact path='/public/Dashboard.html' component={DashboardPage}/>
 					      <Route exact path='/public/IssueDetail.html' component={IssueDetailPage}/>
+					      <Route exact path='/public/CreateProject.html' component={CreateProjectPage}/>
 					      <Route exact path='/public/ShowProject.html' component={ShowProjectPage}/>
 					      <Redirect from='' to="/public/" />
 					    </Switch>
