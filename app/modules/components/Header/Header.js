@@ -24,7 +24,7 @@ class HeaderDiv extends React.Component {
 			            	<Link className="nav-link" to={'/public/Dashboard'}>Dashboard</Link>
 			            </li>
 			            <li className="nav-item">
-			              <Link className="nav-link" to={'/public/Projects'}>Projects</Link>
+			              <Link className="nav-link" to={'/public/ShowProject.html'}>Projects</Link>
 			            </li>
 			            <li className="nav-item">
 			              <a className="nav-link disabled" href="#">Issues</a>

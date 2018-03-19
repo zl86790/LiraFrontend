@@ -8,7 +8,8 @@ import Footer from '../components/Footer/Footer.js';
 import LoginPage from '../pages/LoginPage/LoginPage.js';
 import DashboardPage from '../pages/DashboardPage/DashboardPage.js';
 import IssueDetailPage from '../pages/IssueDetailPage/IssueDetailPage.js';
-
+import CreateProjectPage from '../pages/ProjectPage/CreateProjectPage.js';
+import ShowProjectPage from '../pages/ProjectPage/ShowProjectPage.js';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -32,6 +33,7 @@ class App extends React.Component {
 					      <Route exact path='/public/' component={LoginPage}/>
 					      <Route exact path='/public/Dashboard.html' component={DashboardPage}/>
 					      <Route exact path='/public/IssueDetail.html' component={IssueDetailPage}/>
+					      <Route exact path='/public/ShowProject.html' component={ShowProjectPage}/>
 					      <Redirect from='' to="/public/" />
 					    </Switch>
 					</div>
