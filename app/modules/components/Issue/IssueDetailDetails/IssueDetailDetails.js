@@ -10,8 +10,8 @@ import './IssueDetailDetails.css';
 import { Provider, connect } from 'react-redux';  
 import { createStore,combineReducers } from 'redux'
 import axios from 'axios';
-import Global from '../Global/Global.js';
-import store from '../../App/Store.js';
+import Global from '../../Global/Global.js';
+import store from '../../../App/Store.js';
 
 class IssueDetailDetails extends React.Component {
 	

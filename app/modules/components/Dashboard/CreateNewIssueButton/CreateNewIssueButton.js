@@ -3,11 +3,11 @@ import 'rc-dialog/assets/bootstrap.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Dialog from 'rc-dialog/lib/DialogWrap.js';
-import Global from '../Global/Global.js';
+import Global from '../../Global/Global.js';
 import AssignedToMeDiv from '../AssignedToMe/AssignedToMe.js';
 
 import axios from 'axios';
-import store from '../../App/Store.js';
+import store from '../../../App/Store.js';
 import './CreateNewIssueButton.css';
 import { BrowserRouter  as Router, Route, Link, browserHistory as history, Switch, withRouter } from "react-router-dom";
 

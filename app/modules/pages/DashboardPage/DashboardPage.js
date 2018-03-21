@@ -9,8 +9,8 @@ import { Provider, connect } from 'react-redux';
 import { createStore,combineReducers } from 'redux'
 import store from '../../App/Store.js';
 
-import AssignedToMeDiv from '../../components/AssignedToMe/AssignedToMe.js';
-import CreatenewIssueButton from '../../components/CreateNewIssueButton/CreateNewIssueButton.js';
+import AssignedToMeDiv from '../../components/Dashboard/AssignedToMe/AssignedToMe.js';
+import CreatenewIssueButton from '../../components/Dashboard/CreateNewIssueButton/CreateNewIssueButton.js';
 
 class DashboardPage extends React.Component {
 	render() {

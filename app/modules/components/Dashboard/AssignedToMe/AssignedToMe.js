@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import ReactTable from 'react-table';
-import Global from '../Global/Global.js';
+import Global from '../../Global/Global.js';
 import { BrowserRouter  as Router, Route, Link, browserHistory as history, Switch, withRouter } from "react-router-dom";
 
 import 'react-table/react-table.css'
@@ -12,7 +12,7 @@ import { Provider, connect } from 'react-redux';
 import { createStore,combineReducers } from 'redux'
 import axios from 'axios';
 
-import store from '../../App/Store.js';
+import store from '../../../App/Store.js';
 
 class AssignedToMe extends React.Component {
 

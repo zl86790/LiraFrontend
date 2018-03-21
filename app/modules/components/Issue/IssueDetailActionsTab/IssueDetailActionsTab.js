@@ -7,8 +7,7 @@ import ScrollableInkTabBar from 'rc-tabs/lib/ScrollableInkTabBar';
 import { Provider, connect } from 'react-redux';  
 import { createStore,combineReducers } from 'redux'
 import axios from 'axios';
-import Global from '../Global/Global.js';
-import store from '../../App/Store.js';
+import store from '../../../App/Store.js';
 
 import "./IssueDetailActionsTab.css";
 import IssueComments from "../IssueComments/IssueComments.js";

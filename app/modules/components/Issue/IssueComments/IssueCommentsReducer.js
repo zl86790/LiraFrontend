@@ -1,12 +1,12 @@
 
-import Global from '../Global/Global.js';
+import Global from '../../Global/Global.js';
 import axios from 'axios';
 //reducer
 export const reducer = (state = {}, action) => {
   switch (action.type) {
-    case 'GETISSUEDATA': 
+    case 'GETCOMMENTSDATA': 
     	 state = new Object();
-    	 state._data = action.payload;
+    	 state._commentsdata = action.payload;
     	 return state;
     default: return state;
   }

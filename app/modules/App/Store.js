@@ -1,9 +1,9 @@
 import {createStore, combineReducers, applyMiddleware} from 'redux';
-import {reducer as ass2medataReducer} from '../components/AssignedToMe/AssignedToMeReducer.js';
-import {reducer as issueDetailDetailsReducer} from '../components/IssueDetailDetails/IssueDetailDetailsReducer.js';
-import {reducer as issueCommentsReducer} from '../components/IssueComments/IssueCommentsReducer.js';
-import {reducer as issueHistoryReducer} from '../components/IssueHistory/IssueHistoryReducer.js';
-import {reducer as issueWatcherReducer} from '../components/IssueWatcher/IssueWatcherReducer.js';
+import {reducer as ass2medataReducer} from '../components/Dashboard/AssignedToMe/AssignedToMeReducer.js';
+import {reducer as issueDetailDetailsReducer} from '../components/Issue/IssueDetailDetails/IssueDetailDetailsReducer.js';
+import {reducer as issueCommentsReducer} from '../components/Issue/IssueComments/IssueCommentsReducer.js';
+import {reducer as issueHistoryReducer} from '../components/Issue/IssueHistory/IssueHistoryReducer.js';
+import {reducer as issueWatcherReducer} from '../components/Issue/IssueWatcher/IssueWatcherReducer.js';
 
 import thunk from 'redux-thunk';
 
