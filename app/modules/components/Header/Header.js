@@ -14,7 +14,7 @@ class HeaderDiv extends React.Component {
 				
 				<header>
 			      <nav className="navbar navbar-expand-md navbar-light bg-light fixed-top border-bottom box-shadow">
-			        <a className="navbar-brand" href="#">Lira</a>
+			        <a className="navbar-brand" href="/public/">Lira</a>
 			        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
 			          <span className="navbar-toggler-icon"></span>
 			        </button>

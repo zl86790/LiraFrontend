@@ -5,6 +5,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Global from '../Global/Global.js';
+import { BrowserRouter  as Router, Route, Link, browserHistory as history, Switch, withRouter } from "react-router-dom";
 
 class CreateProjectMid extends React.Component {
 	
@@ -27,6 +28,7 @@ class CreateProjectMid extends React.Component {
 	 			  }
 	 	  ).then(function (response) {
 	 		  alert("Create success");
+	 		 _this.props.history.push('/public/ShowProject.html');
 	 	  }).catch(function (error) {
 	 		 alert("create error"+error);
 	 	  });
@@ -82,4 +84,4 @@ class CreateProjectMid extends React.Component {
 	
 };
 
-export default CreateProjectMid;
+export default withRouter(CreateProjectMid);
