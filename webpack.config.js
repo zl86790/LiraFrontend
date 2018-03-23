@@ -3,6 +3,9 @@ module.exports = {
   entry:  {
 	    App: './app/modules/App/App.js',
   },
+  devServer:{
+	    historyApiFallback:true
+  },
   output: {
       path: __dirname + '/build',
       filename: '[name].js'
