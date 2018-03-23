@@ -3,6 +3,7 @@
  */
 
 import Header from '../components/Header/Header.js';
+import HeaderPrelogin from '../components/Header/HeaderPrelogin.js';
 import Footer from '../components/Footer/Footer.js';
 
 import LoginPage from '../pages/LoginPage/LoginPage.js';
@@ -27,7 +28,16 @@ class App extends React.Component {
 		return (
 				<Provider store={store}> 
 				<div>
-					<div id="headerDiv"><Header /></div>
+					<div id="headerDiv">
+						<Switch>
+							<Route exact path='/public/' component={HeaderPrelogin}/>
+							<Route exact path='/public/Dashboard.html' component={Header}/>
+						    <Route exact path='/public/IssueDetail.html' component={Header}/>
+						    <Route exact path='/public/CreateProject.html' component={Header}/>
+						    <Route exact path='/public/ShowProject.html' component={Header}/>
+							<Redirect from='' to="/public/" />
+						</Switch>
+					</div>
 					<div id="centerDiv" style={{padding:60}}>
 						<Switch>
 					      <Route exact path='/public/' component={LoginPage}/>
