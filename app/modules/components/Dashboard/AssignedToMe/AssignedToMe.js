@@ -21,7 +21,7 @@ class AssignedToMe extends React.Component {
 		this.state = {ass2medata: []};  
 	}
 	componentWillMount() {
-		let url = 'http://localhost:8081/api/v1/postlogin/issues';
+		let url = Global.serverpath+'/api/v1/postlogin/issues';
    	 	axios.get(url, {
 		    params: {
 		      

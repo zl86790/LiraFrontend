@@ -47,7 +47,7 @@ class CreateNewIssueButton extends React.Component {
 	  	issue.logged = 0;
 	 	
 	  var qs = require('qs');
- 	  axios.post('http://localhost:8081/api/v1/postlogin/issue', 
+ 	  axios.post(Global.serverpath+'/api/v1/postlogin/issue', 
  			  {
  		  			issue_key:"ODF-117",
 			 		name:"ODF",
@@ -76,7 +76,7 @@ class CreateNewIssueButton extends React.Component {
 	      _this.setState({
  	        visible: false,
  	      });
-	      let url = 'http://localhost:8081/api/v1/postlogin/issues';
+	      let url = Global.serverpath+'/api/v1/postlogin/issues';
 	   	 	axios.get(url, {
 			    params: {
 			      

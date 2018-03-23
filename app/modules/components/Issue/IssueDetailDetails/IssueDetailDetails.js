@@ -22,7 +22,7 @@ class IssueDetailDetails extends React.Component {
 	}
 	
 	componentDidMount() {
-		let url = 'http://localhost:8081/api/v1/postlogin/issue';
+		let url = Global.serverpath+'/api/v1/postlogin/issue';
    	 	axios.get(url, {
 		    params: {
 		      id:56

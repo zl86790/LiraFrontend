@@ -13,7 +13,7 @@ class LoginDiv extends React.Component {
 		var user = {userName:userName,passWord:passWord}
 		$.ajax({
 		    type: "POST", 
-		    url: "http://localhost:8081/api/v1/prelogin/login",
+		    url: Global.serverpath+"/api/v1/prelogin/login",
 		    data: JSON.stringify(user), 
 		    dataType: 'json',
 		    contentType: 'application/json',

@@ -24,7 +24,7 @@ class IssueWatchers extends React.Component {
 	}
 	
 	componentDidMount() {
-		let url = 'http://localhost:8081/api/v1/postlogin/issuewatchers';
+		let url = Global.serverpath+'/api/v1/postlogin/issuewatchers';
    	 	axios.get(url, {
 		    params: {
 		      issue_id:57

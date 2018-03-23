@@ -23,7 +23,7 @@ class ShowProjectMid extends React.Component {
 	}
 	
 	componentWillMount() {
-		let url = 'http://localhost:8081/api/v1/postlogin/projects';
+		let url = Global.serverpath+'/api/v1/postlogin/projects';
    	 	axios.get(url, {
 		    params: {
 		      

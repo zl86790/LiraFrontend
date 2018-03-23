@@ -11,7 +11,7 @@ class CreateProjectMid extends React.Component {
 	
 	createProject = () => {
 		  var _this = this;
-	 	  axios.post('http://localhost:8081/api/v1/postlogin/project',
+	 	  axios.post(Global.serverpath+'/api/v1/postlogin/project',
 	 			  {
 	 		  			name:'Project Name 1',
 	 		  			project_key:'key1',

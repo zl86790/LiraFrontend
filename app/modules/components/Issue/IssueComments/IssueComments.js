@@ -24,7 +24,7 @@ class IssueComments extends React.Component {
 	}
 	
 	componentDidMount() {
-		let url = 'http://localhost:8081/api/v1/postlogin/comments';
+		let url = Global.serverpath+'/api/v1/postlogin/comments';
    	 	axios.get(url, {
 		    params: {
 		      issue_id:57
