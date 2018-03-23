@@ -76,7 +76,7 @@ class AssignedToMe extends React.Component {
 					  	        // 'handleOriginal' function.
 					  	        if (handleOriginal) {
 					  	          alert(rowInfo.original.name);
-					  	          this.props.history.push('/public/IssueDetail.html');
+					  	          this.props.history.push('/IssueDetail.html');
 					  	        }
 					  	      }
 					  	    }

@@ -28,7 +28,7 @@ class CreateProjectMid extends React.Component {
 	 			  }
 	 	  ).then(function (response) {
 	 		  alert("Create success");
-	 		 _this.props.history.push('/public/ShowProject.html');
+	 		 _this.props.history.push('/ShowProject.html');
 	 	  }).catch(function (error) {
 	 		 alert("create error"+error);
 	 	  });

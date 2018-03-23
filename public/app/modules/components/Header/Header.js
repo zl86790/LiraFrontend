@@ -14,17 +14,20 @@ class HeaderDiv extends React.Component {
 				
 				<header>
 			      <nav className="navbar navbar-expand-md navbar-light bg-light fixed-top border-bottom box-shadow">
-			        <a className="navbar-brand" href="/public/">Lira</a>
+			        <a className="navbar-brand" href="/">Lira</a>
 			        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
 			          <span className="navbar-toggler-icon"></span>
 			        </button>
 			        <div className="collapse navbar-collapse" id="navbarCollapse">
 			          <ul className="navbar-nav mr-auto">
 			            <li className="nav-item active">
+			            	<Link className="nav-link" to={'/Dashboard.html'}>Dashboard</Link>
 			            </li>
 			            <li className="nav-item">
+			              <Link className="nav-link" to={'/ShowProject.html'}>Projects</Link>
 			            </li>
 			            <li className="nav-item">
+			              <a className="nav-link disabled" href="#">Issues</a>
 			            </li>
 			          </ul>
 			          <form className="form-inline mt-2 mt-md-0">

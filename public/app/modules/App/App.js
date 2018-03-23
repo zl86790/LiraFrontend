@@ -30,22 +30,22 @@ class App extends React.Component {
 				<div>
 					<div id="headerDiv">
 						<Switch>
-							<Route exact path='/public/' component={HeaderPrelogin}/>
-							<Route exact path='/public/Dashboard.html' component={Header}/>
-						    <Route exact path='/public/IssueDetail.html' component={Header}/>
-						    <Route exact path='/public/CreateProject.html' component={Header}/>
-						    <Route exact path='/public/ShowProject.html' component={Header}/>
-							<Redirect from='' to="/public/" />
+							<Route exact path='/' component={HeaderPrelogin}/>
+							<Route exact path='/Dashboard.html' component={Header}/>
+						    <Route exact path='/IssueDetail.html' component={Header}/>
+						    <Route exact path='/CreateProject.html' component={Header}/>
+						    <Route exact path='/ShowProject.html' component={Header}/>
+							<Redirect from='' to="/" />
 						</Switch>
 					</div>
 					<div id="centerDiv" style={{padding:60}}>
 						<Switch>
-					      <Route exact path='/public/' component={LoginPage}/>
-					      <Route exact path='/public/Dashboard.html' component={DashboardPage}/>
-					      <Route exact path='/public/IssueDetail.html' component={IssueDetailPage}/>
-					      <Route exact path='/public/CreateProject.html' component={CreateProjectPage}/>
-					      <Route exact path='/public/ShowProject.html' component={ShowProjectPage}/>
-					      <Redirect from='' to="/public/" />
+					      <Route exact path='/' component={LoginPage}/>
+					      <Route exact path='/Dashboard.html' component={DashboardPage}/>
+					      <Route exact path='/IssueDetail.html' component={IssueDetailPage}/>
+					      <Route exact path='/CreateProject.html' component={CreateProjectPage}/>
+					      <Route exact path='/ShowProject.html' component={ShowProjectPage}/>
+					      <Redirect from='' to="/" />
 					    </Switch>
 					</div>
 					<div id="footerDiv"><Footer /></div>

@@ -17,7 +17,7 @@ class ShowProjectLeft extends React.Component {
 	
 	
 	goCreateProject() {
-		this.props.history.push('/public/CreateProject.html');
+		this.props.history.push('/CreateProject.html');
 	}
 
 	render() {

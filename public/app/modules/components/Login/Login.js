@@ -20,7 +20,7 @@ class LoginDiv extends React.Component {
 		    success: function(data){ 
 		    	alert(JSON.stringify(data));
 		    	Global.tokenObject = data;
-		    	_this.props.history.push('/public/Dashboard.html');
+		    	_this.props.history.push('/Dashboard.html');
 		    },
 			error: function(data){ 
 		    	alert("login error");
@@ -32,7 +32,7 @@ class LoginDiv extends React.Component {
 		return (
 			
 			<form className="form-signin">
-				<img src={'/public/imgs/Lira.jpg'} alt="" width="72" height="72"/>
+				<img src={'imgs/Lira.jpg'} alt="" width="72" height="72"/>
 				<h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
 				<label htmlFor="inputEmail" className="sr-only">Email address</label> 
 				<input type="text" id="inputUserName" className="form-control" placeholder="User Name" required autoFocus ref="userName" defaultValue="admin"/>
