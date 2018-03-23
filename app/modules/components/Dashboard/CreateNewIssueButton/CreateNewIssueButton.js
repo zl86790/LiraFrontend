@@ -12,6 +12,25 @@ import './CreateNewIssueButton.css';
 import { BrowserRouter  as Router, Route, Link, browserHistory as history, Switch, withRouter } from "react-router-dom";
 
 class CreateNewIssueButton extends React.Component {
+	
+	componentWillMount() {
+		let url = Global.serverpath+'/api/v1/postlogin/sysparameters';
+	 	axios.get(url, {
+		    params: {
+		      module_key:'sys',
+		      value_key:'name'
+		    },
+		    headers: {
+		      "lira_token": Global.tokenObject.lira_token
+		    }
+		  })
+		  .then(function (response) {
+			  alert(JSON.stringify(response.data));
+		  }).catch(function (error) {
+			alert("load error");
+		  });
+	};
+	
   state = {
     visible: false,
     destroyOnClose: true,
