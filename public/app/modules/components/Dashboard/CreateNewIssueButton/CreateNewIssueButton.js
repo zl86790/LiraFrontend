@@ -11,25 +11,9 @@ import store from '../../../App/Store.js';
 import './CreateNewIssueButton.css';
 import { BrowserRouter  as Router, Route, Link, browserHistory as history, Switch, withRouter } from "react-router-dom";
 
+import IssueType from '../../Issue/IssueType/IssueType.js';
+
 class CreateNewIssueButton extends React.Component {
-	
-	componentWillMount() {
-		let url = Global.serverpath+'/api/v1/postlogin/sysparameters';
-	 	axios.get(url, {
-		    params: {
-		      module_key:'sys',
-		      value_key:'name'
-		    },
-		    headers: {
-		      "lira_token": Global.tokenObject.lira_token
-		    }
-		  })
-		  .then(function (response) {
-			  alert(JSON.stringify(response.data));
-		  }).catch(function (error) {
-			alert("load error");
-		  });
-	};
 	
   state = {
     visible: false,
@@ -159,7 +143,9 @@ class CreateNewIssueButton extends React.Component {
 	          <div className="create-new-issue-content" style={{paddingTop:45}}>Project1</div>
 	          
 	          <div className="create-new-issue-label" style={{}}>Issue Type:</div>
-	          <div className="create-new-issue-content" style={{}}>Bug</div>
+	          <div className="create-new-issue-content" style={{}}>
+	          	<IssueType />
+	          </div>
 	          
 	          <div className="create-new-issue-label" style={{}}>Name:</div>
 	          <div className="create-new-issue-content" style={{}}>
