@@ -12,6 +12,7 @@ import './CreateNewIssueButton.css';
 import { BrowserRouter  as Router, Route, Link, browserHistory as history, Switch, withRouter } from "react-router-dom";
 
 import IssueType from '../../Issue/IssueType/IssueType.js';
+import ProjectSelect from '../../Project/ProjectSelect.js';
 
 class CreateNewIssueButton extends React.Component {
 	
@@ -31,43 +32,28 @@ class CreateNewIssueButton extends React.Component {
   }
   onSave = () => {
 	  var _this = this;
-	  var issue = new Object();
-	  	issue.issue_key = "ODF-117";
-	  	issue.name = "Name";
-	  	issue.type = "Bug";
-	  	issue.summary= "Summary";
-	  	issue.priority = "High";
-	  	issue.labels = "Bug";
-	  	issue.status = "Open";
-	  	issue.description = "This is a mockup description";
-	  	issue.assignee = 1;
-	  	issue.reporter = 1;
-	  	issue.created_time = "2018-01-01";
-	  	issue.updated_time = "2018-01-01";
-	  	issue.resolved_time = "2018-01-01";
-	  	issue.estimated = 8;
-	  	issue.remaining = 8;
-	  	issue.logged = 0;
-	 	
 	  var qs = require('qs');
+	  console.log(_this.refs.projectSelectModule.refs);
+	  console.log(_this.refs.projectSelectModule.refs.project_id.value);
  	  axios.post(Global.serverpath+'/api/v1/postlogin/issue', 
  			  {
  		  			issue_key:"ODF-117",
-			 		name:"ODF",
-			 	  	type:"Bug",
-			 	  	summary:"Summary",
-			 	  	priority:"High",
-			 	  	labels:"Bug",
+ 		  			project_id:_this.refs.projectSelectModule.refs.project_id.value,
+			 		name:_this.refs.name.value,
+			 	  	type:_this.refs.issueTypeModule.refs.issueType.value,
+			 	  	summary:_this.refs.summary.value,
+			 	  	priority:_this.refs.priority.value,
+			 	  	labels:_this.refs.labels.value,
 			 	  	status:"Open",
-			 	  	description:"This is a mockup description",
-			 	  	assignee:1,
-			 	  	reporter:1,
-			 	  	created_time:"2018-01-01",
-			 	  	updated_time:"2018-01-01",
-			 	  	resolved_time:"2018-01-01",
-			 	  	estimated:8,
-			 	  	remaining:8,
-			 	  	logged:0
+			 	  	description:_this.refs.description.value,
+			 	  	assignee:_this.refs.assignee.value,
+			 	  	reporter:_this.refs.reporter.value,
+			 	  	created_time:new Date().toJSON(),
+			 	  	updated_time:new Date().toJSON(),
+			 	  	resolved_time:null,
+			 	  	estimated:_this.refs.estimated.value,
+			 	  	remaining:_this.refs.remaining.value,
+			 	  	logged:_this.refs.logged.value
  			  }, 
  			  {
 		 	    headers: {
@@ -129,7 +115,7 @@ class CreateNewIssueButton extends React.Component {
                 type="button"
                 className="btn btn-primary"
                 key="save"
-                onClick={this.onSave}
+                onClick={this.onSave.bind(this)}
               >
               Save changes
               </button>,
@@ -140,44 +126,64 @@ class CreateNewIssueButton extends React.Component {
          	  <h4>Overflowing text to show scroll behavior</h4>
 	          <br/>
 	          <div className="create-new-issue-label" style={{paddingTop:45}}>Project:</div>
-	          <div className="create-new-issue-content" style={{paddingTop:45}}>Project1</div>
+	          <div className="create-new-issue-content" style={{paddingTop:45}}>
+	          	<ProjectSelect ref="projectSelectModule"/>
+	          </div>
 	          
 	          <div className="create-new-issue-label" style={{}}>Issue Type:</div>
 	          <div className="create-new-issue-content" style={{}}>
-	          	<IssueType />
+	          	<IssueType ref="issueTypeModule"/>
 	          </div>
 	          
 	          <div className="create-new-issue-label" style={{}}>Name:</div>
 	          <div className="create-new-issue-content" style={{}}>
-	          	<input type="text" id="name" className="form-control" placeholder="Name" required autoFocus defaultValue=""/>
+	          	<input type="text" id="name" className="form-control" placeholder="Name" required autoFocus defaultValue="" ref="name"/>
+	          </div>
+	          	
+	          <div className="create-new-issue-label" style={{}}>Summary:</div>
+	          <div className="create-new-issue-content" style={{}}>
+	            <input type="text" id="summary" className="form-control" placeholder="Summary" required defaultValue="" ref="summary"/>
 	          </div>
           	
           	<div className="create-new-issue-label" style={{}}>Priority:</div>
             <div className="create-new-issue-content" style={{}}>
-            	<input type="text" id="priority" className="form-control" placeholder="Priority" required defaultValue=""/>
+            	<input type="text" id="priority" className="form-control" placeholder="Priority" required defaultValue="" ref="priority"/>
             </div>
             	
         	<div className="create-new-issue-label" style={{}}>Description:</div>
             <div className="create-new-issue-content" style={{}}>
-            	<input type="text" id="description" className="form-control" placeholder="Description" required defaultValue=""/>
+            	<input type="text" id="description" className="form-control" placeholder="Description" required defaultValue="" ref="description"/>
             </div>	
             
         	<div className="create-new-issue-label" style={{}}>Assignee:</div>
             <div className="create-new-issue-content" style={{}}>
-            	<input type="text" id="assignee" className="form-control" placeholder="Assignee" required defaultValue=""/>
+            	<input type="text" id="assignee" className="form-control" placeholder="Assignee" required defaultValue="" ref="assignee"/>
             </div>
             	
         	<div className="create-new-issue-label" style={{}}>Reporter:</div>
             <div className="create-new-issue-content" style={{}}>
-            	<input type="text" id="reporter" className="form-control" placeholder="Reporter" required defaultValue=""/>
+            	<input type="text" id="reporter" className="form-control" placeholder="Reporter" required defaultValue="" ref="reporter"/>
             </div>
                 	
         	<div className="create-new-issue-label" style={{}}>Labels:</div>
             <div className="create-new-issue-content" style={{}}>
-            	<input type="text" id="labels" className="form-control" placeholder="Labels" required defaultValue=""/>
+            	<input type="text" id="labels" className="form-control" placeholder="Labels" required defaultValue="" ref="labels"/>
+            </div>
+            	
+        	<div className="create-new-issue-label" style={{}}>Estimated:</div>
+            <div className="create-new-issue-content" style={{}}>
+            	<input type="text" id="estimated" className="form-control" placeholder="Estimated" required defaultValue="" ref="estimated"/>
+            </div>
+            
+        	<div className="create-new-issue-label" style={{}}>Remaining:</div>
+            <div className="create-new-issue-content" style={{}}>
+            	<input type="text" id="remaining" className="form-control" placeholder="Remaining" required defaultValue="" ref="remaining"/>
             </div>
             		
-            
+        	<div className="create-new-issue-label" style={{}}>Logged:</div>
+            <div className="create-new-issue-content" style={{}}>
+            	<input type="text" id="logged" className="form-control" placeholder="Logged" required defaultValue="" ref="logged"/>
+            </div>
          </div>
         </Dialog>
       );

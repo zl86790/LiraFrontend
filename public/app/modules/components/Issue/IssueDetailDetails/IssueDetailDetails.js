@@ -17,15 +17,19 @@ class IssueDetailDetails extends React.Component {
 	
 	constructor(props) {
 		super(props);
+		console.log(props);
+		console.log(this.props);
 		this.state = {openDetails: true};  
 		this.showDetails = this.showDetails.bind(this);
 	}
 	
 	componentDidMount() {
+		var _this = this;
 		let url = Global.serverpath+'/api/v1/postlogin/issue';
+		console.log(_this.props.location.state);
    	 	axios.get(url, {
 		    params: {
-		      id:56
+		      id:60
 		    },
 		    headers: {
 		      "lira_token": Global.tokenObject.lira_token

@@ -75,8 +75,13 @@ class AssignedToMe extends React.Component {
 					  	        // If you want to fire the original onClick handler, call the
 					  	        // 'handleOriginal' function.
 					  	        if (handleOriginal) {
-					  	          alert(rowInfo.original.name);
-					  	          this.props.history.push('/IssueDetail.html');
+					  	          alert(rowInfo.original.id);
+					  	          var data = {issueId:60};  
+						  	      var path = {  
+						  	        pathname:'/IssueDetail.html',  
+						  	        state:data,  
+						  	      }  
+					  	          this.props.history.push(path);
 					  	        }
 					  	      }
 					  	    }

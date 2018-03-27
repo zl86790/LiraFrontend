@@ -11,15 +11,21 @@ class CreateProjectMid extends React.Component {
 	
 	createProject = () => {
 		  var _this = this;
+		  let projectName = this.refs.projectName.value;
+		  let projectKey = this.refs.projectKey.value;
+		  let projectLeader = this.refs.projectLeader.value;
+		  let projectType = this.refs.projectType.value;
+		  let projectCategory = this.refs.projectCategory.value;
+		  let projectUrl = this.refs.projectUrl.value;
 	 	  axios.post(Global.serverpath+'/api/v1/postlogin/project',
 	 			  {
-	 		  			name:'Project Name 1',
-	 		  			project_key:'key1',
-	 		  			leader:'1',
-	 		  			type:'type1',
-	 		  			category:'category1',
-	 		  			url:'url1',
-	 		  			updated_time:'2018-1-1'
+	 		  			name:projectName,
+	 		  			project_key:projectKey,
+	 		  			leader:projectLeader,
+	 		  			type:projectType,
+	 		  			category:projectCategory,
+	 		  			url:projectUrl,
+	 		  			updated_time:new Date().toJSON()
 	 			  }, 
 	 			  {
 			 	    headers: {
