@@ -40,7 +40,7 @@ class IssueDates extends React.Component {
 					<Collapse isOpened={openIssueDates}>
 						<div style={{}}>
 					  		<div>Created: {value._data.created_time_formatted}</div>
-					  		<div>Updated: {value._data.Updated_time_formatted}</div>
+					  		<div>Updated: {value._data.updated_time_formatted}</div>
 					  		<div>Resolved: {value._data.resolved_time_formatted}</div>
 					  	</div>
 					</Collapse>
