@@ -13,12 +13,12 @@ import axios from 'axios';
 import Global from '../../Global/Global.js';
 import store from '../../../App/Store.js';
 
+import { BrowserRouter  as Router, Route, Link, browserHistory as history, Switch, withRouter } from "react-router-dom";
+
 class IssueDetailDetails extends React.Component {
 	
 	constructor(props) {
 		super(props);
-		console.log(props);
-		console.log(this.props);
 		this.state = {openDetails: true};  
 		this.showDetails = this.showDetails.bind(this);
 	}
@@ -26,10 +26,9 @@ class IssueDetailDetails extends React.Component {
 	componentDidMount() {
 		var _this = this;
 		let url = Global.serverpath+'/api/v1/postlogin/issue';
-		console.log(_this.props.location.state);
    	 	axios.get(url, {
 		    params: {
-		      id:60
+		      id:_this.props.location.state.issueId
 		    },
 		    headers: {
 		      "lira_token": Global.tokenObject.lira_token
@@ -99,4 +98,4 @@ function mapDispatchToProps(dispatch){
 
 IssueDetailDetails = connect(mapStateToProps, mapDispatchToProps)(IssueDetailDetails)  
 
-export default IssueDetailDetails;
+export default withRouter(IssueDetailDetails);
