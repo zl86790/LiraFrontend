@@ -5,6 +5,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Collapse from 'react-collapse';
 import './IssuePeople.css';
+import { Provider, connect } from 'react-redux';  
+import { createStore,combineReducers } from 'redux'
+import axios from 'axios';
+import Global from '../../Global/Global.js';
+import store from '../../../App/Store.js';
 
 class IssuePeople extends React.Component {
 	
@@ -19,6 +24,10 @@ class IssuePeople extends React.Component {
 	}
 
 	render() {
+		const {value} = this.props;
+		if(value._data==undefined){
+			value._data = new Object();
+		}
 		var openPeople = this.state.openPeople ? true : false;
 		return (
 			<div style={{textAlign:'left'}}>
@@ -28,8 +37,8 @@ class IssuePeople extends React.Component {
 				<div>
 					<Collapse isOpened={openPeople}>
 						<div style={{}}>
-					  		<div>Assignee: Lizhe</div>
-					  		<div>Reporter: Lizhe</div>
+					  		<div>Assignee: {value._data.assignee_name}</div>
+					  		<div>Reporter: {value._data.reporter_name}</div>
 					  	</div>
 					</Collapse>
 				</div>
@@ -39,5 +48,16 @@ class IssuePeople extends React.Component {
 	}
 	
 };
+
+function mapStateToProps(state) {  
+  return { value: state.issuedata }  
+}  
+
+function mapDispatchToProps(dispatch){  
+  return{  
+  }  
+}  
+
+IssuePeople = connect(mapStateToProps, mapDispatchToProps)(IssuePeople)
 
 export default IssuePeople;
