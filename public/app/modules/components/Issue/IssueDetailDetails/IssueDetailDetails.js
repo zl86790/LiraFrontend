@@ -23,24 +23,6 @@ class IssueDetailDetails extends React.Component {
 		this.showDetails = this.showDetails.bind(this);
 	}
 	
-	componentDidMount() {
-		var _this = this;
-		let url = Global.serverpath+'/api/v1/postlogin/issue';
-   	 	axios.get(url, {
-		    params: {
-		      id:_this.props.location.state.issueId
-		    },
-		    headers: {
-		      "lira_token": Global.tokenObject.lira_token
-		    }
-		  })
-		  .then(function (response) {
-			  handleGETISSUEDATA.payload=response.data;
-			  store.dispatch(handleGETISSUEDATA);
-		  }).catch(function (error) {
-			alert(error);
-		  });
-	}
 
 	showDetails(event) {
 		this.setState({openDetails: !this.state.openDetails});
@@ -80,10 +62,7 @@ class IssueDetailDetails extends React.Component {
 	
 };
 
-//action  
-const handleGETISSUEDATA = {  
-    type:'GETISSUEDATA'  
-}  
+ 
 
 
  

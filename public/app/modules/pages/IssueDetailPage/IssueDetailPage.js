@@ -15,13 +15,36 @@ import IssueDetailDetails from "../../components/Issue/IssueDetailDetails/IssueD
 import IssueDetailDescription from "../../components/Issue/IssueDetailDescription/IssueDetailDescription.js";
 import IssueDetailActionsTab from "../../components/Issue/IssueDetailActionsTab/IssueDetailActionsTab.js";
 
+import { Provider, connect } from 'react-redux';  
+import { createStore,combineReducers } from 'redux'
+import Global from '../../components/Global/Global.js';
+import store from '../../App/Store.js';
+import axios from 'axios';
 import './IssueDetailPage.css';
 
 class IssueDetail extends React.Component {
+	
+	componentDidMount() {
+		var _this = this;
+		let url = Global.serverpath+'/api/v1/postlogin/issue';
+   	 	axios.get(url, {
+		    params: {
+		      id:_this.props.location.state.issueId
+		    },
+		    headers: {
+		      "lira_token": Global.tokenObject.lira_token
+		    }
+		  })
+		  .then(function (response) {
+			  handleGETISSUEDATA.payload=response.data;
+			  store.dispatch(handleGETISSUEDATA);
+		  }).catch(function (error) {
+			alert(error);
+		  });
+	}
+	
 	render() {
-
 		return (
-				
 			<div>
 				<div id="centerDiv">
 					<div id="centerLeftDiv">
@@ -46,6 +69,25 @@ class IssueDetail extends React.Component {
 	}
 	
 };
+
+
+//action  
+const handleGETISSUEDATA = {  
+    type:'GETISSUEDATA'  
+}  
+
+
+ 
+function mapStateToProps(state) {  
+    return { value: state.issuedata }  
+}  
+  
+function mapDispatchToProps(dispatch){  
+    return{  
+    }  
+}  
+
+IssueDetail = connect(mapStateToProps, mapDispatchToProps)(IssueDetail)  
 
 export default IssueDetail;
 
