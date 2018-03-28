@@ -27,7 +27,7 @@ class AssignedToMe extends React.Component {
 		      
 		    },
 		    headers: {
-		      "lira_token": Global.tokenObject.lira_token
+		      "lira_token": Global.getCookie('lira_token')
 		    }
 		  })
 		  .then(function (response) {
@@ -47,7 +47,7 @@ class AssignedToMe extends React.Component {
 		    accessor: 'type' 
 		  }, {
 		    Header: 'Key',
-		    accessor: 'name'
+		    accessor: 'issue_key'
 		  }, {
 		    Header: 'Summary',
 		    accessor: 'summary'
@@ -78,7 +78,7 @@ class AssignedToMe extends React.Component {
 					  	          alert(rowInfo.original.id);
 					  	          var data = {issueId:60};  
 						  	      var path = {  
-						  	        pathname:'/IssueDetail.html',  
+						  	        pathname:'/IssueDetail',  
 						  	        state:data,  
 						  	      }  
 					  	          this.props.history.push(path);

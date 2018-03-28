@@ -21,10 +21,10 @@ class HeaderDiv extends React.Component {
 			        <div className="collapse navbar-collapse" id="navbarCollapse">
 			          <ul className="navbar-nav mr-auto">
 			            <li className="nav-item active">
-			            	<Link className="nav-link" to={'/Dashboard.html'}>Dashboard</Link>
+			            	<Link className="nav-link" to={'/Dashboard'}>Dashboard</Link>
 			            </li>
 			            <li className="nav-item">
-			              <Link className="nav-link" to={'/ShowProject.html'}>Projects</Link>
+			              <Link className="nav-link" to={'/ShowProject'}>Projects</Link>
 			            </li>
 			            <li className="nav-item">
 			              <a className="nav-link disabled" href="#">Issues</a>

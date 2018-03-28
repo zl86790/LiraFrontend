@@ -30,22 +30,22 @@ class App extends React.Component {
 				<div>
 					<div id="headerDiv">
 						<Switch>
-							<Route exact path='/' component={HeaderPrelogin}/>
-							<Route exact path='/Dashboard.html' component={Header}/>
-						    <Route exact path='/IssueDetail.html' component={Header}/>
-						    <Route exact path='/CreateProject.html' component={Header}/>
-						    <Route exact path='/ShowProject.html' component={Header}/>
-							<Redirect from='' to="/" />
+							<Route exact path='/home' component={HeaderPrelogin}/>
+							<Route exact path='/Dashboard' component={Header}/>
+						    <Route exact path='/IssueDetail' component={Header}/>
+						    <Route exact path='/CreateProject' component={Header}/>
+						    <Route exact path='/ShowProject' component={Header}/>
+							<Redirect from='' to="/home" />
 						</Switch>
 					</div>
 					<div id="centerDiv" style={{padding:60}}>
 						<Switch>
-					      <Route exact path='/' component={LoginPage}/>
-					      <Route exact path='/Dashboard.html' component={DashboardPage}/>
-					      <Route exact path='/IssueDetail.html' component={IssueDetailPage}/>
-					      <Route exact path='/CreateProject.html' component={CreateProjectPage}/>
-					      <Route exact path='/ShowProject.html' component={ShowProjectPage}/>
-					      <Redirect from='' to="/" />
+					      <Route exact path='/home' component={LoginPage}/>
+					      <Route exact path='/Dashboard' component={DashboardPage}/>
+					      <Route exact path='/IssueDetail' component={IssueDetailPage}/>
+					      <Route exact path='/CreateProject' component={CreateProjectPage}/>
+					      <Route exact path='/ShowProject' component={ShowProjectPage}/>
+					      <Redirect from='' to="/home" />
 					    </Switch>
 					</div>
 					<div id="footerDiv"><Footer /></div>
@@ -80,4 +80,6 @@ Date.prototype.Format = function (fmt) { //author: meizz
     if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
     return fmt;
 }
+
+
 

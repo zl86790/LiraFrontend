@@ -29,12 +29,12 @@ class CreateProjectMid extends React.Component {
 	 			  }, 
 	 			  {
 			 	    headers: {
-			 	    	"lira_token": Global.tokenObject.lira_token,
+			 	    	"lira_token": Global.getCookie('lira_token')
 			 	    }
 	 			  }
 	 	  ).then(function (response) {
 	 		  alert("Create success");
-	 		 _this.props.history.push('/ShowProject.html');
+	 		 _this.props.history.push('/ShowProject');
 	 	  }).catch(function (error) {
 	 		 alert("create error"+error);
 	 	  });

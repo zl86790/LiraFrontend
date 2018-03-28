@@ -24,7 +24,7 @@ class IssueType extends React.Component {
 		      value_key:'issue-type'
 		    },
 		    headers: {
-		      "lira_token": Global.tokenObject.lira_token
+		      "lira_token": Global.getCookie('lira_token')
 		    }
 		  })
 		  .then(function (response) {

@@ -6,6 +6,12 @@ import ReactDOM from 'react-dom';
 import Collapse from 'react-collapse';
 import './IssueTimeTrack.css';
 
+import { Provider, connect } from 'react-redux';  
+import { createStore,combineReducers } from 'redux'
+import axios from 'axios';
+import Global from '../../Global/Global.js';
+import store from '../../../App/Store.js';
+
 class IssueTimeTrack extends React.Component {
 	
 	constructor(props) {
@@ -19,6 +25,11 @@ class IssueTimeTrack extends React.Component {
 	}
 
 	render() {
+		const {value} = this.props;
+		if(value._data==undefined){
+			value._data = new Object();
+		}
+		
 		var openIssueTimeTrack = this.state.openIssueTimeTrack ? true : false;
 		return (
 			<div style={{textAlign:'left'}}>
@@ -28,9 +39,9 @@ class IssueTimeTrack extends React.Component {
 				<div>
 					<Collapse isOpened={openIssueTimeTrack}>
 						<div style={{}}>
-					  		<div>Estimated: 8h</div>
-					  		<div>Remaining: 8h</div>
-					  		<div>Logged: 0h</div>
+					  		<div>Estimated: {value._data.estimated}h</div>
+					  		<div>Remaining: {value._data.remaining}h</div>
+					  		<div>Logged: {value._data.logged}h</div>
 					  	</div>
 					</Collapse>
 				</div>
@@ -40,5 +51,16 @@ class IssueTimeTrack extends React.Component {
 	}
 	
 };
+
+function mapStateToProps(state) {  
+  return { value: state.issuedata }  
+}  
+
+function mapDispatchToProps(dispatch){  
+  return{  
+  }  
+}  
+
+IssueTimeTrack = connect(mapStateToProps, mapDispatchToProps)(IssueTimeTrack)  
 
 export default IssueTimeTrack;

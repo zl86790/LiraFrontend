@@ -19,8 +19,8 @@ class LoginDiv extends React.Component {
 		    contentType: 'application/json',
 		    success: function(data){ 
 		    	alert(JSON.stringify(data));
-		    	Global.tokenObject = data;
-		    	_this.props.history.push('/Dashboard.html');
+		    	Global.setCookie("lira_token",data.lira_token,1);
+		    	_this.props.history.push('/Dashboard');
 		    },
 			error: function(data){ 
 		    	alert("login error");

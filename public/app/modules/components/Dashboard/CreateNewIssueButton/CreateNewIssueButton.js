@@ -57,7 +57,7 @@ class CreateNewIssueButton extends React.Component {
  			  }, 
  			  {
 		 	    headers: {
-		 	    	"lira_token": Global.tokenObject.lira_token,
+		 	    	"lira_token": Global.getCookie('lira_token')
 		 	    }
  			  }
  	  ).then(function (response) {
@@ -71,7 +71,7 @@ class CreateNewIssueButton extends React.Component {
 			      
 			    },
 			    headers: {
-			      "lira_token": Global.tokenObject.lira_token
+			      "lira_token": Global.getCookie('lira_token')
 			    }
 			  })
 			  .then(function (response) {

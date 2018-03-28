@@ -32,7 +32,7 @@ class IssueDetail extends React.Component {
 		      id:_this.props.location.state.issueId
 		    },
 		    headers: {
-		      "lira_token": Global.tokenObject.lira_token
+		      "lira_token": Global.getCookie('lira_token')
 		    }
 		  })
 		  .then(function (response) {
