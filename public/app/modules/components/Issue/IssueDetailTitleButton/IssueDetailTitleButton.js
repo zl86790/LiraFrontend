@@ -11,7 +11,7 @@ class IssueDetailTitleButton extends React.Component {
 
 		return (
 				
-			<div>
+			<div className="row">
 				<a id="edit-issue" title="Edit this issue" className="iss-detail-ti-button" href="">Edit</a>
 				<a id="comment-issue" title="Comment this issue" className="iss-detail-ti-button" href="">Comment</a>
 				<a id="assign-issue" title="Assign this issue" className="iss-detail-ti-button" href="">Assign</a>

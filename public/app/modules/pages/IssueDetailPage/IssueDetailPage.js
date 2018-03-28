@@ -46,15 +46,15 @@ class IssueDetail extends React.Component {
 	render() {
 		return (
 			<div>
-				<div id="centerDiv">
-					<div id="centerLeftDiv">
+				<div className="row">
+					<div className="col-2">
 						<div style={{paddingTop:20}}>
 							<IssuePeople />
 							<IssueDates />
 							<IssueTimeTrack />
 						</div>
 					</div>
-					<div id="centerRightDiv">
+					<div className="col-8">
 						<IssueDetailTitle />
 						<IssueDetailTitleButton />
 						<IssueDetailDetails />

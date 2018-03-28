@@ -4,16 +4,3 @@
 	
 }
 
-#centerLeftDiv{
-	float:left;
-	width:20%;
-	height:500px;
-}
-
-#centerRightDiv{
-	float:left;
-	width:75%;
-	padding:20px;
-	border-left: 1px solid #e5e5e5;
-}
-

@@ -22,8 +22,8 @@ class IssueDetailTitle extends React.Component {
 		return (
 				
 			<div>
-				<div className="issue-detail-breadcrumbs-title">Optus Defects / {value._data.issue_key}</div>
-				<h1 className="issue-detail-title">{value._data.name}</h1>
+				<div className="row font-weight-normal">{value._data.project_name} / {value._data.issue_key}</div>
+				<h1 className="row font-weight-normal">{value._data.issue_name}</h1>
 			</div>
 			
 		)

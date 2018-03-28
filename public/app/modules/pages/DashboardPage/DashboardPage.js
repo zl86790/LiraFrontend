@@ -18,11 +18,11 @@ class DashboardPage extends React.Component {
 		return (
 				
 			<div>
-				<div id="centerDiv">
-					<div id="centerLeftDiv">
+				<div className="row">
+					<div className="col-2">
 						<CreatenewIssueButton />
 					</div>
-					<div id="centerRightDiv">
+					<div className="col-10">
 						<AssignedToMeDiv />
 					</div>
 				</div>
