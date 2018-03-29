@@ -18,11 +18,11 @@ class CreateProjectPage extends React.Component {
 		return (
 				
 			<div>
-				<div id="centerDiv">
-					<div id="centerLeftDiv">
+				<div className="row">
+					<div className="col-2">
 						<CreateProjectLeft />
 					</div>
-					<div id="centerRightDiv">
+					<div className="col-8">
 						<CreateProjectMid />
 					</div>
 				</div>

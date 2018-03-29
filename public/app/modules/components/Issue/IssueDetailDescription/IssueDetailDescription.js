@@ -10,6 +10,8 @@ import { createStore,combineReducers } from 'redux'
 import axios from 'axios';
 import store from '../../../App/Store.js';
 
+import SimditorTextarea from './IssueDescriptionSimditorTextarea.js';
+
 class IssueDetailDescription extends React.Component {
 	
 	constructor(props) {
@@ -37,9 +39,10 @@ class IssueDetailDescription extends React.Component {
 				<div>
 					<Collapse isOpened={openDescription}>
 						<div style={{height:200}}>
-						<div>{value._data.summary}</div>
-						<div>{value._data.description}</div>
+							<div>{value._data.summary}</div>
+							<div>{value._data.description}</div>
 					  	</div>
+					  	<div><SimditorTextarea id="description"/></div>
 					</Collapse>
 				</div>
 			</div>
