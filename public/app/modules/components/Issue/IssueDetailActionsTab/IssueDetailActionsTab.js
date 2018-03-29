@@ -14,6 +14,8 @@ import IssueComments from "../IssueComments/IssueComments.js";
 import IssueHistory from "../IssueHistory/IssueHistory.js";
 import IssueWatcher from "../IssueWatcher/IssueWatcher.js";
 
+import IssueCommentsSimditorTextarea from '../IssueComments/IssueCommentsSimditorTextarea.js';
+
 var callback = function(key){
 	 
 }
@@ -30,27 +32,54 @@ class IssueDetailActionsTab extends React.Component {
 		
 	}
 	
+	addComment(event) {
+		var _this = this;
+		var textareaValue = _this.refs.issueCommentsSimditorTextarea.refs.textarea.value
+		$.ajax({
+		    type: "POST", 
+		    url: Global.serverpath+"/api/v1/prelogin/login",
+		    data: JSON.stringify(user), 
+		    dataType: 'json',
+		    contentType: 'application/json',
+		    success: function(data){ 
+		    	alert(JSON.stringify(data));
+		    	Global.setCookie("lira_token",data.lira_token,1);
+		    	_this.props.history.push('/Dashboard');
+		    },
+			error: function(data){ 
+		    	alert("login error");
+		    }
+		});
+		
+	}
+	
 	render() {
 
 		return (
-				
-				<Tabs
-			      defaultActiveKey="1"
-			      onChange={callback}
-			      renderTabBar={()=><ScrollableInkTabBar />}
-			      renderTabContent={()=><TabContent />}
-			    >
-			      <TabPane tab='Comments' key="1">
-			      	<IssueComments />
-			      </TabPane>
-			      <TabPane tab='History' key="2">
-			      	<IssueHistory />
-			      </TabPane>
-			      <TabPane tab='Watchers' key="3">
-			      	<IssueWatcher />
-			      </TabPane>
-			    </Tabs>
-			
+				<div>
+					<div>
+						<Tabs
+					      defaultActiveKey="1"
+					      onChange={callback}
+					      renderTabBar={()=><ScrollableInkTabBar />}
+					      renderTabContent={()=><TabContent />}
+					    >
+					      <TabPane tab='Comments' key="1">
+					      	<IssueComments issue_id={this.props.issue_id}/>
+					      </TabPane>
+					      <TabPane tab='History' key="2">
+					      	<IssueHistory />
+					      </TabPane>
+					      <TabPane tab='Watchers' key="3">
+					      	<IssueWatcher />
+					      </TabPane>
+					    </Tabs>
+				    </div>
+			    	<div className="col-7 text-left" style={{paddingTop:15}}>
+			    		<IssueCommentsSimditorTextarea ref="issueCommentsSimditorTextarea"/>
+			    	</div>
+			    	<a id="add-comment" title="Add comment" class="iss-detail-ti-button" href="javascript:void(0);" onClick={this.addComment.bind(this)}>Add</a>
+			    </div>
 		)
 	}
 	

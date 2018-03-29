@@ -11,6 +11,7 @@ import Global from '../../Global/Global.js';
 import store from '../../../App/Store.js';
 
 
+
 var callback = function(key){
 	 
 }
@@ -27,7 +28,7 @@ class IssueComments extends React.Component {
 		let url = Global.serverpath+'/api/v1/postlogin/comments';
    	 	axios.get(url, {
 		    params: {
-		      issue_id:57
+		      issue_id:this.props.issue_id
 		    },
 		    headers: {
 		      "lira_token": Global.getCookie('lira_token')
@@ -55,7 +56,7 @@ class IssueComments extends React.Component {
 		return (
 				
 				<div>{listItems}</div>
-			
+				
 		)
 	}
 	
