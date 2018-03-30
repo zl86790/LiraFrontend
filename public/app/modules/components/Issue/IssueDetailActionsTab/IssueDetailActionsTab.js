@@ -14,6 +14,8 @@ import IssueComments from "../IssueComments/IssueComments.js";
 import IssueHistory from "../IssueHistory/IssueHistory.js";
 import IssueWatcher from "../IssueWatcher/IssueWatcher.js";
 
+import Global from '../../Global/Global.js';
+
 import IssueCommentsSimditorTextarea from '../IssueComments/IssueCommentsSimditorTextarea.js';
 
 var callback = function(key){
@@ -34,22 +36,37 @@ class IssueDetailActionsTab extends React.Component {
 	
 	addComment(event) {
 		var _this = this;
-		var textareaValue = _this.refs.issueCommentsSimditorTextarea.refs.textarea.value
-		$.ajax({
-		    type: "POST", 
-		    url: Global.serverpath+"/api/v1/prelogin/login",
-		    data: JSON.stringify(user), 
-		    dataType: 'json',
-		    contentType: 'application/json',
-		    success: function(data){ 
-		    	alert(JSON.stringify(data));
-		    	Global.setCookie("lira_token",data.lira_token,1);
-		    	_this.props.history.push('/Dashboard');
-		    },
-			error: function(data){ 
-		    	alert("login error");
-		    }
-		});
+		axios.post(Global.serverpath+'/api/v1/postlogin/comments', 
+	 			  {
+					content:_this.refs.issueCommentsSimditorTextarea.refs.textarea.value,
+					issue_id:this.props.issue_id,
+					user_id:1
+	 			  }, 
+	 			  {
+			 	    headers: {
+			 	    	"lira_token": Global.getCookie('lira_token')
+			 	    }
+	 			  }
+	 	  ).then(function (response) {
+	 		  alert("Create success");
+		      let url = Global.serverpath+'/api/v1/postlogin/comments';
+		   	 	axios.get(url, {
+				    params: {
+				      
+				    },
+				    headers: {
+				      "lira_token": Global.getCookie('lira_token')
+				    }
+				  })
+				  .then(function (response) {
+					  handleGETCOMMENTSDATA.payload=response.data;
+					  store.dispatch(handleGETCOMMENTSDATA);
+				  }).catch(function (error) {
+					alert("load error");
+				  });
+	 	  }).catch(function (error) {
+	 		 alert("create error"+error);
+	 	  });
 		
 	}
 	

@@ -50,7 +50,6 @@ class SimditorTextarea extends React.Component {
         this.editor.setValue(this.props.value);
         this.editor.on("valuechanged", (e, src) => {
             let html = this.editor.getValue();
-            console.log(html);
         });
     };
 
