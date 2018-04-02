@@ -48,19 +48,30 @@ class IssueComments extends React.Component {
 		if(commentsvalue._commentsdata==undefined){
 			commentsvalue._commentsdata = [];
 		}
-		
-		const listItems = commentsvalue._commentsdata.map((comments) =>   
-          <div><hr/>{comments.content} {comments.updated_time_formatted}</div>  
+		let listItemsHtml = "";
+		const listItems = commentsvalue._commentsdata.map(
+				(comments) => 
+				{
+					<div><hr/>{comments.content} {comments.updated_time_formatted}</div>;
+					listItemsHtml += "<div><hr/>"+comments.content+" "+comments.updated_time_formatted+"</div>";
+				}
         );  
-		
+		console.log(2);
+		console.log(listItemsHtml);
 		return (
-				
-				<div>{listItems}</div>
-				
+				<div dangerouslySetInnerHTML={createHTML(listItemsHtml)} />
 		)
 	}
 	
 };
+
+function createHTML(listItemsHtml) {
+  return {__html: listItemsHtml};
+}
+
+function MyComponent() {
+  return <div dangerouslySetInnerHTML={createMarkup()} />;
+}
 
 const handleGETCOMMENTSDATA = {  
 	type:'GETCOMMENTSDATA'  
