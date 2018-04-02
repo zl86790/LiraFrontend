@@ -53,7 +53,7 @@ class IssueComments extends React.Component {
 				(comments) => 
 				{
 					<div><hr/>{comments.content} {comments.updated_time_formatted}</div>;
-					listItemsHtml += "<div><hr/>"+comments.content+" "+comments.updated_time_formatted+"</div>";
+					listItemsHtml += "<div><hr/>"+comments.content+" "+comments.user_name+" "+comments.updated_time_formatted+"</div>";
 				}
         );  
 		console.log(2);
