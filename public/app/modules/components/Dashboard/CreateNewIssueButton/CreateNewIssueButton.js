@@ -13,6 +13,7 @@ import { BrowserRouter  as Router, Route, Link, browserHistory as history, Switc
 
 import IssueType from '../../Issue/IssueType/IssueType.js';
 import ProjectSelect from '../../Project/ProjectSelect.js';
+import ProjectUserAssignee from '../../User/ProjectUser/ProjectUserAssignee.js';
 
 class CreateNewIssueButton extends React.Component {
 	
@@ -37,7 +38,7 @@ class CreateNewIssueButton extends React.Component {
 	  console.log(_this.refs.projectSelectModule.refs.project_id.value);
  	  axios.post(Global.serverpath+'/api/v1/postlogin/issue', 
  			  {
- 		  			issue_key:"ODF-117",
+ 		  			issue_key:_this.refs.issue_key.value,
  		  			project_id:_this.refs.projectSelectModule.refs.project_id.value,
 			 		name:_this.refs.name.value,
 			 	  	type:_this.refs.issueTypeModule.refs.issueType.value,
@@ -135,6 +136,11 @@ class CreateNewIssueButton extends React.Component {
 	          	<IssueType ref="issueTypeModule"/>
 	          </div>
 	          
+	          <div className="create-new-issue-label" style={{}}>Issue Key:</div>
+	          <div className="create-new-issue-content" style={{}}>
+	          	<input type="text" id="issue_key" className="form-control" placeholder="Issue Key" required autoFocus defaultValue="" ref="issue_key"/>
+	          </div>
+	          	
 	          <div className="create-new-issue-label" style={{}}>Name:</div>
 	          <div className="create-new-issue-content" style={{}}>
 	          	<input type="text" id="name" className="form-control" placeholder="Name" required autoFocus defaultValue="" ref="name"/>
@@ -158,6 +164,7 @@ class CreateNewIssueButton extends React.Component {
         	<div className="create-new-issue-label" style={{}}>Assignee:</div>
             <div className="create-new-issue-content" style={{}}>
             	<input type="text" id="assignee" className="form-control" placeholder="Assignee" required defaultValue="" ref="assignee"/>
+            	<ProjectUserAssignee project_id='14'/>
             </div>
             	
         	<div className="create-new-issue-label" style={{}}>Reporter:</div>

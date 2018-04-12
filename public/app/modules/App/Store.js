@@ -5,6 +5,7 @@ import {reducer as issueCommentsReducer} from '../components/Issue/IssueComments
 import {reducer as issueHistoryReducer} from '../components/Issue/IssueHistory/IssueHistoryReducer.js';
 import {reducer as issueWatcherReducer} from '../components/Issue/IssueWatcher/IssueWatcherReducer.js';
 import {reducer as projectReducer} from '../components/Project/ProjectReducer.js';
+import {reducer as userReducer} from '../components/User/UserReducer.js';
 
 import thunk from 'redux-thunk';
 
@@ -14,7 +15,8 @@ const allCombineReducer = combineReducers({
 	commentsdata:issueCommentsReducer,
 	historiesdata:issueHistoryReducer,
 	watchersdata:issueWatcherReducer,
-	projectsdata:projectReducer
+	projectsdata:projectReducer,
+	userdata:userReducer
 })
 
 //store
