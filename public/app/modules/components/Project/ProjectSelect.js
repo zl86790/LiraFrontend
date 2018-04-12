@@ -7,6 +7,7 @@ import ReactDOM from 'react-dom';
 import Dialog from 'rc-dialog/lib/DialogWrap.js';
 import Global from '../Global/Global.js';
 import axios from 'axios';
+import {ProjectUserAssignee,doLogic} from '../User/ProjectUser/ProjectUserAssignee.js';
 
 class ProjectSelect extends React.Component {
 	
@@ -29,6 +30,7 @@ class ProjectSelect extends React.Component {
 			  _this.setState({
 				  projectList: response.data
 				});
+			  doLogic(_this.refs.project_id.value);
 		  }).catch(function (error) {
 			alert("load error"+JSON.stringify(error));
 		  });
@@ -49,7 +51,7 @@ class ProjectSelect extends React.Component {
 	render() {
 		const projectList = this.generateProjectListOptions();
 		return (
-			<select id="project_id" name="project_id" className="form-control" required ref="project_id">
+			<select id="project_id" name="project_id" className="form-control" required ref="project_id" onChange={this.props.onChange}>
           		{projectList}
           	</select>
 		)

@@ -13,10 +13,10 @@ import { BrowserRouter  as Router, Route, Link, browserHistory as history, Switc
 
 import IssueType from '../../Issue/IssueType/IssueType.js';
 import ProjectSelect from '../../Project/ProjectSelect.js';
-import ProjectUserAssignee from '../../User/ProjectUser/ProjectUserAssignee.js';
+import {ProjectUserAssignee,doLogic} from '../../User/ProjectUser/ProjectUserAssignee.js';
 
 class CreateNewIssueButton extends React.Component {
-	
+
   state = {
     visible: false,
     destroyOnClose: true,
@@ -25,6 +25,9 @@ class CreateNewIssueButton extends React.Component {
     this.setState({
       visible: true,
     });
+  }
+  onChange = () => {
+	  doLogic(this.refs.projectSelectModule.refs.project_id.value);
   }
   onClose = () => {
     this.setState({
@@ -92,6 +95,7 @@ class CreateNewIssueButton extends React.Component {
     });
   }
   render() {
+	  
     let dialog;
     if (this.state.visible || !this.state.destroyOnClose) {
       dialog = (
@@ -128,7 +132,7 @@ class CreateNewIssueButton extends React.Component {
 	          <br/>
 	          <div className="create-new-issue-label" style={{paddingTop:45}}>Project:</div>
 	          <div className="create-new-issue-content" style={{paddingTop:45}}>
-	          	<ProjectSelect ref="projectSelectModule"/>
+	          	<ProjectSelect ref="projectSelectModule" onChange={this.onChange.bind(this)}/>
 	          </div>
 	          
 	          <div className="create-new-issue-label" style={{}}>Issue Type:</div>
@@ -164,7 +168,7 @@ class CreateNewIssueButton extends React.Component {
         	<div className="create-new-issue-label" style={{}}>Assignee:</div>
             <div className="create-new-issue-content" style={{}}>
             	<input type="text" id="assignee" className="form-control" placeholder="Assignee" required defaultValue="" ref="assignee"/>
-            	<ProjectUserAssignee project_id='14'/>
+            	<ProjectUserAssignee />
             </div>
             	
         	<div className="create-new-issue-label" style={{}}>Reporter:</div>

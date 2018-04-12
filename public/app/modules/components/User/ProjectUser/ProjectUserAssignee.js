@@ -11,34 +11,13 @@ import { createStore,combineReducers } from 'redux'
 import axios from 'axios';
 import store from '../../../App/Store.js';
 
-class ProjectUser extends React.Component {
+class ProjectUserAssignee extends React.Component {
 	
 	constructor(props) {
 		super(props);
 		this.state = {assigneesList: []};  
 	}
 
-	componentWillMount() {
-		let url = Global.serverpath+'/api/v1/postlogin/users';
-		let _this = this;
-	 	axios.get(url, {
-		    params: {
-		    	project_id:_this.props.project_id,
-		    },
-		    headers: {
-		      "lira_token": Global.getCookie('lira_token')
-		    }
-		  })
-		  .then(function (response) {
-			  console.log(response.data);
-			  handleGETUserDATA.payload=response.data;
-			  store.dispatch(handleGETUserDATA);
-		  }).catch(function (error) {
-			alert("load error"+JSON.stringify(error));
-		  });
-	};
-	
-	
 	
 	render() {
 		const {value} = this.props;  
@@ -65,6 +44,26 @@ function mapDispatchToProps(dispatch){
     }  
 }
 
-ProjectUser = connect(mapStateToProps, mapDispatchToProps)(ProjectUser)  
+ProjectUserAssignee = connect(mapStateToProps, mapDispatchToProps)(ProjectUserAssignee)
 
-export default ProjectUser;
+const doLogic = function(project_id){
+	let url = Global.serverpath+'/api/v1/postlogin/users';
+	let _this = this;
+ 	axios.get(url, {
+	    params: {
+	    	project_id:project_id,
+	    },
+	    headers: {
+	      "lira_token": Global.getCookie('lira_token')
+	    }
+	  })
+	  .then(function (response) {
+		  console.log(response.data);
+		  handleGETUserDATA.payload=response.data;
+		  store.dispatch(handleGETUserDATA);
+	  }).catch(function (error) {
+		alert("load error"+JSON.stringify(error));
+	  });
+}
+
+export {ProjectUserAssignee,doLogic};
