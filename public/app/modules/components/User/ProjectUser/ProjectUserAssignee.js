@@ -22,7 +22,7 @@ class ProjectUserAssignee extends React.Component {
 	render() {
 		const {value} = this.props;  
 		return (
-			<select id="projectUserAssignee" name="projectUserAssignee" className="form-control" required ref="projectUserAssignee">
+			<select id="assignee_id" name="assignee_id" className="form-control" required ref="assignee_id">
           		{value._data}
           	</select>
 		)

@@ -76,7 +76,7 @@ class AssignedToMe extends React.Component {
 					  	        // 'handleOriginal' function.
 					  	        if (handleOriginal) {
 					  	          alert(rowInfo.original.id);
-					  	          var data = {issueId:60};  
+					  	          var data = {issueId:rowInfo.original.id};  
 						  	      var path = {  
 						  	        pathname:'/IssueDetail',  
 						  	        state:data,  

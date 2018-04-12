@@ -37,20 +37,18 @@ class CreateNewIssueButton extends React.Component {
   onSave = () => {
 	  var _this = this;
 	  var qs = require('qs');
-	  console.log(_this.refs.projectSelectModule.refs);
-	  console.log(_this.refs.projectSelectModule.refs.project_id.value);
  	  axios.post(Global.serverpath+'/api/v1/postlogin/issue', 
  			  {
  		  			issue_key:_this.refs.issue_key.value,
  		  			project_id:_this.refs.projectSelectModule.refs.project_id.value,
-			 		name:_this.refs.name.value,
+ 		  			issue_name:_this.refs.name.value,
 			 	  	type:_this.refs.issueTypeModule.refs.issueType.value,
 			 	  	summary:_this.refs.summary.value,
 			 	  	priority:_this.refs.priority.value,
 			 	  	labels:_this.refs.labels.value,
 			 	  	status:"Open",
 			 	  	description:_this.refs.description.value,
-			 	  	assignee:_this.refs.assignee.value,
+			 	  	assignee:document.getElementById("assignee_id").value,
 			 	  	reporter:_this.refs.reporter.value,
 			 	  	created_time:new Date().toJSON(),
 			 	  	updated_time:new Date().toJSON(),
@@ -167,8 +165,7 @@ class CreateNewIssueButton extends React.Component {
             
         	<div className="create-new-issue-label" style={{}}>Assignee:</div>
             <div className="create-new-issue-content" style={{}}>
-            	<input type="text" id="assignee" className="form-control" placeholder="Assignee" required defaultValue="" ref="assignee"/>
-            	<ProjectUserAssignee />
+            	<ProjectUserAssignee ref="projectUserAssignee" />
             </div>
             	
         	<div className="create-new-issue-label" style={{}}>Reporter:</div>
