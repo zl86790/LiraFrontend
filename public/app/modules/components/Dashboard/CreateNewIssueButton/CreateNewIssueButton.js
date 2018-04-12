@@ -14,6 +14,7 @@ import { BrowserRouter  as Router, Route, Link, browserHistory as history, Switc
 import IssueType from '../../Issue/IssueType/IssueType.js';
 import ProjectSelect from '../../Project/ProjectSelect.js';
 import {ProjectUserAssignee,doLogic} from '../../User/ProjectUser/ProjectUserAssignee.js';
+import {ProjectUserReporter} from '../../User/ProjectUser/ProjectUserReporter.js';
 
 class CreateNewIssueButton extends React.Component {
 
@@ -49,7 +50,7 @@ class CreateNewIssueButton extends React.Component {
 			 	  	status:"Open",
 			 	  	description:_this.refs.description.value,
 			 	  	assignee:document.getElementById("assignee_id").value,
-			 	  	reporter:_this.refs.reporter.value,
+			 	  	reporter:document.getElementById("reporter_id").value,
 			 	  	created_time:new Date().toJSON(),
 			 	  	updated_time:new Date().toJSON(),
 			 	  	resolved_time:null,
@@ -170,7 +171,7 @@ class CreateNewIssueButton extends React.Component {
             	
         	<div className="create-new-issue-label" style={{}}>Reporter:</div>
             <div className="create-new-issue-content" style={{}}>
-            	<input type="text" id="reporter" className="form-control" placeholder="Reporter" required defaultValue="" ref="reporter"/>
+            	<ProjectUserReporter />
             </div>
                 	
         	<div className="create-new-issue-label" style={{}}>Labels:</div>
