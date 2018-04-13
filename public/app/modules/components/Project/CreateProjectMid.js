@@ -6,9 +6,12 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Global from '../Global/Global.js';
 import { BrowserRouter  as Router, Route, Link, browserHistory as history, Switch, withRouter } from "react-router-dom";
+import {ProjectUserLeader,getAllUsers} from '../User/ProjectUser/ProjectUserLeader.js';
 
 class CreateProjectMid extends React.Component {
-	
+	componentWillMount() {
+		getAllUsers();
+	}
 	createProject = () => {
 		  var _this = this;
 		  let projectName = this.refs.projectName.value;
@@ -59,7 +62,7 @@ class CreateProjectMid extends React.Component {
                 </div>
 		      	
 		      	<label for="projectName">Project Leader</label>
-		      	<input type="text" className="form-control" id="projectLeader" placeholder="Project Leader" defaultValue="" required ref="projectLeader"/>
+		      	<ProjectUserLeader />
 		      	<div class="invalid-feedback">
 		      		Valid project leader is required.
                 </div>
