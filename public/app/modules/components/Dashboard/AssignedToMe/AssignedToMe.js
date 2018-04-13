@@ -60,6 +60,10 @@ class AssignedToMe extends React.Component {
 				  <div>
 				  	<div className="asstm-table-title">Assigned to me</div>
 				  	<ReactTable data={value._data} columns={columns} 
+				  	page={0} 
+				    pageSize={5}
+				  	loading={false}
+				  	showPageSizeOptions={false}
 					  	getTdProps={(state, rowInfo, column, instance) => {
 					  	    return {
 					  	      onClick: (e, handleOriginal) => {
@@ -86,6 +90,9 @@ class AssignedToMe extends React.Component {
 					  	      }
 					  	    }
 					  	  }}
+				  	onPageChange={(pageIndex) => {
+				  		alert(pageIndex);
+				  	}}
 				  	/>
 				  </div>
 		  );
