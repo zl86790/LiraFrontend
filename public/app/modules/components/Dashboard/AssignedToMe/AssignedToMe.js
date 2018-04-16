@@ -21,20 +21,45 @@ class AssignedToMe extends React.Component {
 		this.state = {ass2medata: []};  
 	}
 	componentWillMount() {
+		this.fetchData(0);
+	}
+	
+	fetchData(pageNumber){
 		let url = Global.serverpath+'/api/v1/postlogin/issues';
+		let _this = this;
    	 	axios.get(url, {
 		    params: {
-		      
+		      pageNumber:pageNumber,
+		      rowNumber:5
 		    },
 		    headers: {
 		      "lira_token": Global.getCookie('lira_token')
 		    }
 		  })
 		  .then(function (response) {
-			  handleGETDATA.payload=response.data;
-			  store.dispatch(handleGETDATA);
+			  handleGETDATA.payload.data=response.data;
+			  handleGETDATA.payload.pageNumber = pageNumber;
+			  _this.getTotalPage(5)
 		  }).catch(function (error) {
 			alert("load error");
+		  });
+	}
+	
+	getTotalPage(rowNumber) {
+		let url = Global.serverpath+'/api/v1/postlogin/issuespagenumber';
+   	 	axios.get(url, {
+		    params: {
+		    	rowNumber:rowNumber
+		    },
+		    headers: {
+		      "lira_token": Global.getCookie('lira_token')
+		    }
+		  })
+		  .then(function (response) {
+			  handleGETDATA.payload._pageCount=response.data;
+			  store.dispatch(handleGETDATA);
+		  }).catch(function (error) {
+			alert("load total page number error");
 		  });
 	}
 
@@ -60,8 +85,9 @@ class AssignedToMe extends React.Component {
 				  <div>
 				  	<div className="asstm-table-title">Assigned to me</div>
 				  	<ReactTable data={value._data} columns={columns} 
-				  	page={0} 
+				  	page={value.pageNumber} 
 				    pageSize={5}
+				  	pages={value._pageCount}
 				  	loading={false}
 				  	showPageSizeOptions={false}
 					  	getTdProps={(state, rowInfo, column, instance) => {
@@ -91,7 +117,7 @@ class AssignedToMe extends React.Component {
 					  	    }
 					  	  }}
 				  	onPageChange={(pageIndex) => {
-				  		alert(pageIndex);
+				  		this.fetchData(pageIndex)
 				  	}}
 				  	/>
 				  </div>
@@ -105,7 +131,8 @@ class AssignedToMe extends React.Component {
 
 //action  
 const handleGETDATA = {  
-    type:'GETDATA'  
+    type:'GETDATA',
+    payload:{}
 }  
 
 
