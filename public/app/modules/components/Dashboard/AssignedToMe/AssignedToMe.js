@@ -14,11 +14,19 @@ import axios from 'axios';
 
 import store from '../../../App/Store.js';
 
+import 'rc-pagination/assets/index.css';
+import Pagination from 'rc-pagination';
+
 class AssignedToMe extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.state = {ass2medata: []};  
+		this.state = {
+				current: 1,
+				ass2medata: []
+		}; 
+		
+		this.onPageChange = this.onPageChange.bind(this);
 	}
 	componentWillMount() {
 		this.fetchData(0);
@@ -39,28 +47,36 @@ class AssignedToMe extends React.Component {
 		  .then(function (response) {
 			  handleGETDATA.payload.data=response.data;
 			  handleGETDATA.payload.pageNumber = pageNumber;
-			  _this.getTotalPage(5)
+			  _this.getIssueCounts()
 		  }).catch(function (error) {
 			alert("load error");
 		  });
 	}
 	
-	getTotalPage(rowNumber) {
-		let url = Global.serverpath+'/api/v1/postlogin/issuespagenumber';
+	getIssueCounts() {
+		let url = Global.serverpath+'/api/v1/postlogin/issueCounts';
    	 	axios.get(url, {
 		    params: {
-		    	rowNumber:rowNumber
 		    },
 		    headers: {
 		      "lira_token": Global.getCookie('lira_token')
 		    }
 		  })
 		  .then(function (response) {
-			  handleGETDATA.payload._pageCount=response.data;
+			  handleGETDATA.payload.issueCounts=response.data;
 			  store.dispatch(handleGETDATA);
 		  }).catch(function (error) {
 			alert("load total page number error");
 		  });
+	}
+	
+	
+	
+	onPageChange(pageIndex){
+		this.fetchData(pageIndex-1);
+		this.setState({
+		      current: pageIndex,
+		    });
 	}
 
 	render() {
@@ -85,9 +101,10 @@ class AssignedToMe extends React.Component {
 				  <div>
 				  	<div className="asstm-table-title">Assigned to me</div>
 				  	<ReactTable data={value._data} columns={columns} 
-				  	page={value.pageNumber} 
+				  	page={0} 
 				    pageSize={5}
 				  	pages={value._pageCount}
+				  	showPagination={false}
 				  	loading={false}
 				  	showPageSizeOptions={false}
 					  	getTdProps={(state, rowInfo, column, instance) => {
@@ -117,9 +134,11 @@ class AssignedToMe extends React.Component {
 					  	    }
 					  	  }}
 				  	onPageChange={(pageIndex) => {
+				  		//此处pageindex是内存的第N页,如果非0则为空
 				  		this.fetchData(pageIndex)
 				  	}}
 				  	/>
+				  	<Pagination onChange={this.onPageChange} current={this.state.current} total={value.issueCounts} pageSize={5} style={{ marginTop: '30px' }}/>
 				  </div>
 		  );
 		 
