@@ -133,10 +133,6 @@ class AssignedToMe extends React.Component {
 					  	      }
 					  	    }
 					  	  }}
-				  	onPageChange={(pageIndex) => {
-				  		//此处pageindex是内存的第N页,如果非0则为空
-				  		this.fetchData(pageIndex)
-				  	}}
 				  	/>
 				  	<Pagination onChange={this.onPageChange} current={this.state.current} total={value.issueCounts} pageSize={5} style={{ marginTop: '30px' }}/>
 				  </div>

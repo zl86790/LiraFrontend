@@ -10,18 +10,34 @@ import { createStore,combineReducers } from 'redux'
 import axios from 'axios';
 import store from '../../../App/Store.js';
 
-import SimditorTextarea from './IssueDescriptionSimditorTextarea.js';
+import {SimditorTextarea} from './IssueDescriptionSimditorTextarea.js';
 
 class IssueDetailDescription extends React.Component {
 	
 	constructor(props) {
 		super(props);
-		this.state = {openDescription: true};  
+		this.state = {
+				openDescription: true,
+				descriptionEditDisplay: 'none',
+				descriptionDisplay: true
+		};  
 		this.showDescription = this.showDescription.bind(this);
+		this.clickDescription = this.clickDescription.bind(this);
 	}
 
 	showDescription(event) {
 		this.setState({openDescription: !this.state.openDescription});
+	}
+	
+	clickDescription(){
+		this.setState({
+			descriptionDisplay:'none',
+			descriptionEditDisplay:true
+		});
+		
+		console.log(this.props);
+		this.refs.descriptionEdit.setDesEditValue(this.props.value._data.summary);
+		this.refs.descriptionEdit.addDesEditValue(this.props.value._data.description);
 	}
 
 	render() {
@@ -38,11 +54,11 @@ class IssueDetailDescription extends React.Component {
 				<div style={{clear:'both'}} ></div>
 				<div>
 					<Collapse isOpened={openDescription}>
-						<div style={{height:200}}>
+						<div style={{height:200,display:this.state.descriptionDisplay}} onClick={this.clickDescription}>
 							<div>{value._data.summary}</div>
 							<div>{value._data.description}</div>
 					  	</div>
-					  	<div><SimditorTextarea id="description"/></div>
+					  	<div style={{display:this.state.descriptionEditDisplay}}><SimditorTextarea id="description" ref="descriptionEdit"/></div>
 					</Collapse>
 				</div>
 			</div>

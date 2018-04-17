@@ -13,9 +13,17 @@ class SimditorTextarea extends React.Component {
 	}
     componentDidMount = () => {
         this.initEditor();
-        this.editor.setValue("");
     };
-
+    
+    setDesEditValue = function(value){
+    	this.editor.setValue(value);
+    }
+    
+    addDesEditValue = function(value){
+    	let html = this.editor.getValue();
+    	this.editor.setValue(html+value);
+    }
+    
     initEditor = () => {
         let config = {
             placeholder: this.props.placeholder,
@@ -64,4 +72,4 @@ class SimditorTextarea extends React.Component {
     }
 }
 
-export default SimditorTextarea;
+export {SimditorTextarea};
