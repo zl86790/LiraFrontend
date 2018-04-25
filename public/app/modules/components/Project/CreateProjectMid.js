@@ -7,16 +7,24 @@ import axios from 'axios';
 import Global from '../Global/Global.js';
 import { BrowserRouter  as Router, Route, Link, browserHistory as history, Switch, withRouter } from "react-router-dom";
 import {ProjectUserLeader,getAllUsers} from '../User/ProjectUser/ProjectUserLeader.js';
+import FetchUsers from '../User/FetchUsers.js';
+
+import Select from 'react-select';
+import 'react-select/dist/react-select.css';
 
 class CreateProjectMid extends React.Component {
 	componentWillMount() {
-		getAllUsers();
+//		getAllUsers();
 	}
 	createProject = () => {
 		  var _this = this;
 		  let projectName = this.refs.projectName.value;
 		  let projectKey = this.refs.projectKey.value;
-		  let projectLeader = this.refs.projectLeader.value;
+		  let projectLeader = this.refs.projectLeader.state.value.id;
+		  console.log(this.refs.projectLeader);
+		  console.log(this.refs.projectLeader.state);
+		  console.log(this.refs.projectLeader.state.value);
+		  console.log(this.refs.projectLeader.state.value.fullName);
 		  let projectType = this.refs.projectType.value;
 		  let projectCategory = this.refs.projectCategory.value;
 		  let projectUrl = this.refs.projectUrl.value;
@@ -61,25 +69,25 @@ class CreateProjectMid extends React.Component {
 		      		Valid project key is required.
                 </div>
 		      	
-		      	<label for="projectName">Project Leader</label>
-		      	<ProjectUserLeader />
+		      	<label for="projectLeader">Project Leader</label>
+		      	<FetchUsers ref="projectLeader"/>
 		      	<div class="invalid-feedback">
 		      		Valid project leader is required.
                 </div>
 		      	
-		      	<label for="projectName">Project Type</label>
+		      	<label for="projectType">Project Type</label>
 		      	<input type="text" className="form-control" id="projectType" placeholder="Project Type" defaultValue="" required ref="projectType"/>
 		      	<div class="invalid-feedback">
 		      		Valid project type is required.
                 </div>
 		      	
-		      	<label for="projectName">Project Category</label>
+		      	<label for="projectCategory">Project Category</label>
 		      	<input type="text" className="form-control" id="projectCategory" placeholder="Project Category" defaultValue="" required ref="projectCategory"/>
 		      	<div class="invalid-feedback">
 		      		Valid project category is required.
                 </div>
 		      	
-		      	<label for="projectName">Project URL</label>
+		      	<label for="projectUrl">Project URL</label>
 		      	<input type="text" className="form-control" id="projectUrl" placeholder="Project URL" defaultValue="" required ref="projectUrl"/>
 		      	<div class="invalid-feedback">
 		      		Valid project url is required.
