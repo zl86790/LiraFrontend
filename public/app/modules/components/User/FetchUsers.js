@@ -34,34 +34,22 @@ const FetchUsers = createClass({
 			value: this.state.value ? this.state.value[0] : null
 		});
 	},
-	getUsers2 (input){
-		if (!input) {
-			return Promise.resolve({ options: [] });
-		}
-		let url = Global.serverpath+'/api/v1/postlogin/usersStartWith';
-		let _this = this;
-	 	axios.get(url, {
-		    params: {
-		    	project_id:14,
-		    	startWith:input
-		    },
-		    headers: {
-		      "lira_token": Global.getCookie('lira_token')
-		    }
-		  })
-		  .then((response) => response.data)
-		  .then((data) => {
-			  return { options: data };
-		  }).catch(function (error) {
-			  console.log(error);
-			  alert("load error"+JSON.stringify(error));
-		  });
-	},
 	getUsers (input) {
+		
+		
+		
 		if (!input) {
 			return Promise.resolve({ options: [] });
 		}
-		let url = Global.serverpath+'/api/v1/postlogin/usersStartWith?date='+new Date()+'&'+`startWith=${input}`;
+		
+		let url = "";
+		this.props.project_id = document.getElementById("project_id").value;
+		if(this.props.project_id==undefined){
+			url = Global.serverpath+'/api/v1/postlogin/usersStartWith?date='+new Date()+'&'+`startWith=${input}`;
+		}else{
+			url = Global.serverpath+'/api/v1/postlogin/usersStartWith?date='+new Date()+'&project_id='+this.props.project_id+'&'+`startWith=${input}`;
+		}
+		
 		return fetch(url, {
 			headers: {
 		        'lira_token': Global.getCookie('lira_token')

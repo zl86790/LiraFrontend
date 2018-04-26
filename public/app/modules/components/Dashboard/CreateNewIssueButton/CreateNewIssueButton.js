@@ -13,8 +13,8 @@ import { BrowserRouter  as Router, Route, Link, browserHistory as history, Switc
 
 import IssueType from '../../Issue/IssueType/IssueType.js';
 import ProjectSelect from '../../Project/ProjectSelect.js';
-import {ProjectUserAssignee,doLogic} from '../../User/ProjectUser/ProjectUserAssignee.js';
-import {ProjectUserReporter} from '../../User/ProjectUser/ProjectUserReporter.js';
+
+import FetchUsers from '../../User/FetchUsers.js';
 
 class CreateNewIssueButton extends React.Component {
 
@@ -28,7 +28,6 @@ class CreateNewIssueButton extends React.Component {
     });
   }
   onChange = () => {
-	  doLogic(this.refs.projectSelectModule.refs.project_id.value);
   }
   onClose = () => {
     this.setState({
@@ -49,8 +48,8 @@ class CreateNewIssueButton extends React.Component {
 			 	  	labels:_this.refs.labels.value,
 			 	  	status:"Open",
 			 	  	description:_this.refs.description.value,
-			 	  	assignee:document.getElementById("assignee_id").value,
-			 	  	reporter:document.getElementById("reporter_id").value,
+			 	  	assignee:this.refs.projectUserAssignee.state.value.id,
+			 	  	reporter:this.refs.projectUserReporter.state.value.id,
 			 	  	created_time:new Date().toJSON(),
 			 	  	updated_time:new Date().toJSON(),
 			 	  	resolved_time:null,
@@ -68,21 +67,7 @@ class CreateNewIssueButton extends React.Component {
 	      _this.setState({
  	        visible: false,
  	      });
-	      let url = Global.serverpath+'/api/v1/postlogin/issues';
-	   	 	axios.get(url, {
-			    params: {
-			      
-			    },
-			    headers: {
-			      "lira_token": Global.getCookie('lira_token')
-			    }
-			  })
-			  .then(function (response) {
-				  handleGETDATA.payload=response.data;
-				  store.dispatch(handleGETDATA);
-			  }).catch(function (error) {
-				alert("load error");
-			  });
+	      location.reload();
  	  }).catch(function (error) {
  		 alert("create error"+error);
  	  });
@@ -166,12 +151,12 @@ class CreateNewIssueButton extends React.Component {
             
         	<div className="create-new-issue-label" style={{}}>Assignee:</div>
             <div className="create-new-issue-content" style={{}}>
-            	<ProjectUserAssignee ref="projectUserAssignee" />
+            	<FetchUsers ref="projectUserAssignee" />
             </div>
             	
         	<div className="create-new-issue-label" style={{}}>Reporter:</div>
             <div className="create-new-issue-content" style={{}}>
-            	<ProjectUserReporter />
+            	<FetchUsers ref="projectUserReporter" />
             </div>
                 	
         	<div className="create-new-issue-label" style={{}}>Labels:</div>
