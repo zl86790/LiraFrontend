@@ -11,6 +11,7 @@ import DashboardPage from '../pages/DashboardPage/DashboardPage.js';
 import IssueDetailPage from '../pages/IssueDetailPage/IssueDetailPage.js';
 import CreateProjectPage from '../pages/ProjectPage/CreateProjectPage.js';
 import ShowProjectPage from '../pages/ProjectPage/ShowProjectPage.js';
+import IssueListPage from '../pages/IssueListPage/IssueListPage.js';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -35,6 +36,7 @@ class App extends React.Component {
 						    <Route exact path='/IssueDetail' component={Header}/>
 						    <Route exact path='/CreateProject' component={Header}/>
 						    <Route exact path='/ShowProject' component={Header}/>
+							<Route exact path='/IssueList' component={Header}/>
 							<Redirect from='' to="/home" />
 						</Switch>
 					</div>
@@ -45,6 +47,7 @@ class App extends React.Component {
 					      <Route exact path='/IssueDetail' component={IssueDetailPage}/>
 					      <Route exact path='/CreateProject' component={CreateProjectPage}/>
 					      <Route exact path='/ShowProject' component={ShowProjectPage}/>
+					      <Route exact path='/IssueList' component={IssueListPage}/>
 					      <Redirect from='' to="/home" />
 					    </Switch>
 					</div>

@@ -27,7 +27,7 @@ class HeaderDiv extends React.Component {
 			              <Link className="nav-link" to={'/ShowProject'}>Projects</Link>
 			            </li>
 			            <li className="nav-item">
-			              <a className="nav-link disabled" href="#">Issues</a>
+			              <a className="nav-link disabled" href="/IssueList">Issues</a>
 			            </li>
 			          </ul>
 			          <form className="form-inline mt-2 mt-md-0">
