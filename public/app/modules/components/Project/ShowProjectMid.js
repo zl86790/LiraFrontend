@@ -85,7 +85,13 @@ class ShowProjectMid extends React.Component {
 				  	        console.log('It was in this table instance:', instance)
 				  	 
 				  	        if (handleOriginal) {
-				  	          alert(rowInfo.original.name);
+				  	          alert(rowInfo.original.id);
+				  	          var data = {project_id:rowInfo.original.id};  
+					  	      var path = {  
+					  	        pathname:'/IssueList',  
+					  	        state:data,  
+					  	      }  
+				  	          this.props.history.push(path);
 				  	        }
 				  	      }
 				  	    }

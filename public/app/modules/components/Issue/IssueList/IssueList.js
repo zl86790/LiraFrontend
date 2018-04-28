@@ -32,10 +32,11 @@ class IssueList extends React.Component {
 	}
 	
 	fetchData(pageNumber){
-		let url = Global.serverpath+'/api/v1/postlogin/issues';
+		let url = Global.serverpath+'/api/v1/postlogin/issuesByCondition';
 		let _this = this;
    	 	axios.get(url, {
 		    params: {
+		      project_id:_this.props.project_id,
 		      pageNumber:pageNumber,
 		      rowNumber:10
 		    },
@@ -53,9 +54,11 @@ class IssueList extends React.Component {
 	}
 	
 	getIssueCounts() {
-		let url = Global.serverpath+'/api/v1/postlogin/issueCounts';
+		let url = Global.serverpath+'/api/v1/postlogin/issueCountsByCondition';
+		let _this = this;
    	 	axios.get(url, {
 		    params: {
+		    	project_id:_this.props.project_id
 		    },
 		    headers: {
 		      "lira_token": Global.getCookie('lira_token')

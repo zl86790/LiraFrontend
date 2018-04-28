@@ -13,7 +13,6 @@ import CreatenewIssueButton from '../../components/Dashboard/CreateNewIssueButto
 
 class IssueListPage extends React.Component {
 	render() {
-
 		return (
 				
 			<div>
@@ -22,7 +21,7 @@ class IssueListPage extends React.Component {
 						<CreatenewIssueButton />
 					</div>
 					<div className="col-10">
-						<IssueList />
+						<IssueList project_id={this.props.location.state.project_id}/>
 					</div>
 				</div>
 			</div>
