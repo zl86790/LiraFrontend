@@ -25,6 +25,10 @@ import './IssueDetailPage.css';
 class IssueDetail extends React.Component {
 	
 	componentDidMount() {
+		this.getIssueData();
+	}
+	
+	getIssueData(){
 		var _this = this;
 		let url = Global.serverpath+'/api/v1/postlogin/issue';
    	 	axios.get(url, {
@@ -58,7 +62,7 @@ class IssueDetail extends React.Component {
 						<IssueDetailTitle />
 						<IssueDetailTitleButton />
 						<IssueDetailDetails />
-						<IssueDetailDescription issue_id={this.props.location.state.issueId}/>
+						<IssueDetailDescription issue_id={this.props.location.state.issueId} refreshData={this.getIssueData.bind(this)}/>
 						<IssueDetailActionsTab issue_id={this.props.location.state.issueId}/>
 					</div>
 				</div>
