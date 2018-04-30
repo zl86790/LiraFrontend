@@ -58,7 +58,7 @@ class IssueDetail extends React.Component {
 						<IssueDetailTitle />
 						<IssueDetailTitleButton />
 						<IssueDetailDetails />
-						<IssueDetailDescription />
+						<IssueDetailDescription issue_id={this.props.location.state.issueId}/>
 						<IssueDetailActionsTab issue_id={this.props.location.state.issueId}/>
 					</div>
 				</div>

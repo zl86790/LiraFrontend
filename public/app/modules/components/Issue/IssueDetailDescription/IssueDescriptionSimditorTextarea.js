@@ -24,6 +24,10 @@ class SimditorTextarea extends React.Component {
     	this.editor.setValue(html+value);
     }
     
+    getValue = function(){
+    	return this.editor.getValue();
+    }
+    
     initEditor = () => {
         let config = {
             placeholder: this.props.placeholder,

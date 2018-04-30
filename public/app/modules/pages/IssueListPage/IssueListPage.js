@@ -12,6 +12,14 @@ import IssueList from '../../components/Issue/IssueList/IssueList.js';
 import CreatenewIssueButton from '../../components/Dashboard/CreateNewIssueButton/CreateNewIssueButton.js';
 
 class IssueListPage extends React.Component {
+	
+	constructor(props) {
+		super(props);
+		if(this.props.location.state==undefined){
+			this.props.location.state = {};
+		}
+	}
+	
 	render() {
 		return (
 				

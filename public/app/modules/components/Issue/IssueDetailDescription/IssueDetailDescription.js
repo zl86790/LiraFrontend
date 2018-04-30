@@ -9,7 +9,7 @@ import { Provider, connect } from 'react-redux';
 import { createStore,combineReducers } from 'redux'
 import axios from 'axios';
 import store from '../../../App/Store.js';
-
+import Global from '../../Global/Global.js';
 import {SimditorTextarea} from './IssueDescriptionSimditorTextarea.js';
 
 class IssueDetailDescription extends React.Component {
@@ -23,6 +23,8 @@ class IssueDetailDescription extends React.Component {
 		};  
 		this.showDescription = this.showDescription.bind(this);
 		this.clickDescription = this.clickDescription.bind(this);
+		this.blurDescription = this.blurDescription.bind(this);
+		
 	}
 
 	showDescription(event) {
@@ -36,8 +38,35 @@ class IssueDetailDescription extends React.Component {
 		});
 		
 		console.log(this.props);
-		this.refs.descriptionEdit.setDesEditValue(this.props.value._data.summary);
-		this.refs.descriptionEdit.addDesEditValue(this.props.value._data.description);
+		this.refs.descriptionEdit.setDesEditValue(this.props.value._data.description);
+	}
+	
+	blurDescription(){
+		var _this = this;
+		var descriptionValue = this.refs.descriptionEdit.getValue();
+		axios.post(Global.serverpath+'/api/v1/postlogin/updateIssue', 
+	 			  {
+	 		  			id:_this.props.issue_id,
+	 		  			description:descriptionValue
+	 			  }, 
+	 			  {
+			 	    headers: {
+			 	    	"lira_token": Global.getCookie('lira_token')
+			 	    }
+	 			  }
+	 	  ).then(function (response) {
+	 		  alert("Update success");
+	 		  _this.setState({
+	 			descriptionDisplay:true,
+	 			descriptionEditDisplay:'none'
+	 		  });
+		      location.reload();
+	 	  }).catch(function (error) {
+	 		 alert("Update error"+error);
+	 	  });
+		
+		
+		console.log("blurDescription");
 	}
 
 	render() {
@@ -54,11 +83,13 @@ class IssueDetailDescription extends React.Component {
 				<div style={{clear:'both'}} ></div>
 				<div>
 					<Collapse isOpened={openDescription}>
-						<div style={{height:200,display:this.state.descriptionDisplay}} onClick={this.clickDescription}>
-							<div>{value._data.summary}</div>
-							<div>{value._data.description}</div>
+						<div style={{height:200,display:this.state.descriptionDisplay}} onClick={this.clickDescription} >
+							<div dangerouslySetInnerHTML={createHTML(value._data.description)} />
 					  	</div>
-					  	<div style={{display:this.state.descriptionEditDisplay}}><SimditorTextarea id="description" ref="descriptionEdit"/></div>
+					  	<div style={{display:this.state.descriptionEditDisplay}}>
+					  		<SimditorTextarea id="description" ref="descriptionEdit"/>
+					  		<button type="button" onClick={this.blurDescription}>Save</button>
+					  	</div>
 					</Collapse>
 				</div>
 			</div>
@@ -67,6 +98,10 @@ class IssueDetailDescription extends React.Component {
 	}
 	
 };
+
+function createHTML(description) {
+  return {__html: description};
+}
 
 function mapStateToProps(state) {  
     return { value: state.issuedata }  

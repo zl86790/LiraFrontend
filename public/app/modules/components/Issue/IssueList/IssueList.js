@@ -34,6 +34,9 @@ class IssueList extends React.Component {
 	fetchData(pageNumber){
 		let url = Global.serverpath+'/api/v1/postlogin/issuesByCondition';
 		let _this = this;
+		if(_this.props==undefined){
+			_this.props = {};
+		}
    	 	axios.get(url, {
 		    params: {
 		      project_id:_this.props.project_id,
