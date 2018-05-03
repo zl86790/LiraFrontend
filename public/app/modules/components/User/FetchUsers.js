@@ -43,8 +43,10 @@ const FetchUsers = createClass({
 		}
 		
 		let url = "";
-		this.props.project_id = document.getElementById("project_id").value;
-		if(this.props.project_id==undefined){
+		if(document.getElementById("project_id")!=null){
+			this.props.project_id = document.getElementById("project_id").value;
+		}
+		if(this.props.project_id==undefined || this.props.project_id==null){
 			url = Global.serverpath+'/api/v1/postlogin/usersStartWith?date='+new Date()+'&'+`startWith=${input}`;
 		}else{
 			url = Global.serverpath+'/api/v1/postlogin/usersStartWith?date='+new Date()+'&project_id='+this.props.project_id+'&'+`startWith=${input}`;

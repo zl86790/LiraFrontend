@@ -61,7 +61,7 @@ class IssueDetail extends React.Component {
 					<div className="col-8">
 						<IssueDetailTitle />
 						<IssueDetailTitleButton />
-						<IssueDetailDetails />
+						<IssueDetailDetails issue_id={this.props.location.state.issueId} getIssueData={this.getIssueData.bind(this)}/>
 						<IssueDetailDescription issue_id={this.props.location.state.issueId} refreshData={this.getIssueData.bind(this)}/>
 						<IssueDetailActionsTab issue_id={this.props.location.state.issueId}/>
 					</div>

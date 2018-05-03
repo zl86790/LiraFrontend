@@ -12,6 +12,7 @@ import { createStore,combineReducers } from 'redux'
 import axios from 'axios';
 import Global from '../../Global/Global.js';
 import store from '../../../App/Store.js';
+import IssueType from '../IssueType/IssueType.js';
 
 import { BrowserRouter  as Router, Route, Link, browserHistory as history, Switch, withRouter } from "react-router-dom";
 
@@ -19,8 +20,55 @@ class IssueDetailDetails extends React.Component {
 	
 	constructor(props) {
 		super(props);
-		this.state = {openDetails: true};  
+		this.state = {
+				openDetails: true,
+				issueTypeEditDisplay: 'none',
+				issueTypeDisplay: true	
+			};  
 		this.showDetails = this.showDetails.bind(this);
+		this.clickIssueType = this.clickIssueType.bind(this);
+		this.blurIssueType = this.blurIssueType.bind(this);
+	}
+	
+	
+	
+	clickIssueType(){
+		this.setState({
+			issueTypeDisplay:'none',
+			issueTypeEditDisplay:true
+		});
+		setTimeout("document.querySelector('#issueType').focus()",500)
+		console.log(this.props.value._data.type);
+		this.refs.issueType.refs.issueType.value = this.props.value._data.type;
+		this.oldValueOfIssueType = this.props.value._data.type;
+	}
+	
+	blurIssueType(){
+		if(this.refs.issueType.refs.issueType.value!=this.oldValueOfIssueType){
+			console.log("changed");
+			var _this = this;
+			var typeValue = this.refs.issueType.refs.issueType.value;
+			axios.post(Global.serverpath+'/api/v1/postlogin/updateIssue', 
+		 			  {
+		 		  			id:_this.props.issue_id,
+		 		  			type:typeValue
+		 			  }, 
+		 			  {
+				 	    headers: {
+				 	    	"lira_token": Global.getCookie('lira_token')
+				 	    }
+		 			  }
+		 	  ).then(function (response) {
+		 		  alert("Update success");
+		 		  _this.setState({
+		 			issueTypeDisplay:true,
+		 			issueTypeEditDisplay:'none'
+		 		 });
+		 		 _this.props.getIssueData();
+		 	  }).catch(function (error) {
+		 		 alert("Update error"+error);
+		 	  });
+		}
 	}
 	
 
@@ -45,7 +93,10 @@ class IssueDetailDetails extends React.Component {
 					<Collapse isOpened={openDetails}>
 						<div style={{height:40}}>
 					  		<div className="lira-detail-label">Type:</div>
-					  		<div className="lira-detail-content">{value._data.type}</div>
+					  		<div className="lira-detail-content">
+					  			<div style={{display:this.state.issueTypeDisplay}} onClick={this.clickIssueType}>{value._data.type}</div>
+					  			<div style={{display:this.state.issueTypeEditDisplay}} onBlur={this.blurIssueType}><IssueType ref="issueType"/></div>
+					  		</div>
 					  		<div className="lira-detail-label">Status:</div>
 					  		<div className="lira-detail-content">{value._data.status}</div>
 					  		<div className="lira-detail-label">Priority:</div>
@@ -63,7 +114,9 @@ class IssueDetailDetails extends React.Component {
 };
 
  
-
+const handleGETISSUEDATA = {  
+    type:'GETISSUEDATA'  
+}  
 
  
 function mapStateToProps(state) {  

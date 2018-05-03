@@ -24,7 +24,7 @@ class IssueDetailDescription extends React.Component {
 		this.showDescription = this.showDescription.bind(this);
 		this.clickDescription = this.clickDescription.bind(this);
 		this.blurDescription = this.blurDescription.bind(this);
-		
+		this.cancelEditDescription = this.cancelEditDescription.bind(this);
 	}
 
 	showDescription(event) {
@@ -40,7 +40,12 @@ class IssueDetailDescription extends React.Component {
 		console.log(this.props);
 		this.refs.descriptionEdit.setDesEditValue(this.props.value._data.description);
 	}
-	
+	cancelEditDescription(){
+		this.setState({
+			descriptionDisplay:true,
+			descriptionEditDisplay:'none'
+		});
+	}
 	blurDescription(){
 		var _this = this;
 		var descriptionValue = this.refs.descriptionEdit.getValue();
@@ -90,6 +95,7 @@ class IssueDetailDescription extends React.Component {
 					  	<div style={{display:this.state.descriptionEditDisplay}}>
 					  		<SimditorTextarea id="description" ref="descriptionEdit"/>
 					  		<button type="button" onClick={this.blurDescription}>Save</button>
+					  		<button type="button" onClick={this.cancelEditDescription}>Cancel</button>
 					  	</div>
 					</Collapse>
 				</div>
