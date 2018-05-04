@@ -13,6 +13,7 @@ import axios from 'axios';
 import Global from '../../Global/Global.js';
 import store from '../../../App/Store.js';
 import IssueType from '../IssueType/IssueType.js';
+import LabelSelect from '../../common/LabelSelect/LabelSelect.js';
 
 import { BrowserRouter  as Router, Route, Link, browserHistory as history, Switch, withRouter } from "react-router-dom";
 
@@ -21,13 +22,15 @@ class IssueDetailDetails extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-				openDetails: true,
-				issueTypeEditDisplay: 'none',
-				issueTypeDisplay: true	
-			};  
+			openDetails: true,
+			issueTypeEditDisplay: 'none',
+			issueTypeDisplay: true	
+		};  
 		this.showDetails = this.showDetails.bind(this);
 		this.clickIssueType = this.clickIssueType.bind(this);
 		this.blurIssueType = this.blurIssueType.bind(this);
+		this.blurIssueStatus = this.blurIssueStatus.bind(this);
+		
 	}
 	
 	
@@ -70,7 +73,31 @@ class IssueDetailDetails extends React.Component {
 		 	  });
 		}
 	}
-	
+	blurIssueStatus(){
+		console.log("call back for blur issue status");
+		var _this = this;
+		var value = this.refs.issueStatus.refs.issueStatus.value;
+		axios.post(Global.serverpath+'/api/v1/postlogin/updateIssue', 
+	 			  {
+	 		  			id:_this.props.issue_id,
+	 		  			status:value
+	 			  }, 
+	 			  {
+			 	    headers: {
+			 	    	"lira_token": Global.getCookie('lira_token')
+			 	    }
+	 			  }
+	 	  ).then(function (response) {
+	 		  alert("Update success");
+	 		  _this.setState({
+	 			issueTypeDisplay:true,
+	 			issueTypeEditDisplay:'none'
+	 		 });
+	 		 _this.props.getIssueData();
+	 	  }).catch(function (error) {
+	 		 alert("Update error"+error);
+	 	  });
+	}
 
 	showDetails(event) {
 		this.setState({openDetails: !this.state.openDetails});
@@ -82,7 +109,7 @@ class IssueDetailDetails extends React.Component {
 		if(value._data==undefined){
 			value._data = new Object();
 		}
-		
+		const statusOptions = [{"id":2,"module_key":"lira-issue","value_key":"issue-type","value_content":"Open"},{"id":3,"module_key":"lira-issue","value_key":"issue-type","value_content":"Closed"}]
 		var openDetails = this.state.openDetails ? true : false;
 		return (
 			<div className="issueDetailDetailsDiv">
@@ -98,7 +125,7 @@ class IssueDetailDetails extends React.Component {
 					  			<div style={{display:this.state.issueTypeEditDisplay}} onBlur={this.blurIssueType}><IssueType ref="issueType"/></div>
 					  		</div>
 					  		<div className="lira-detail-label">Status:</div>
-					  		<div className="lira-detail-content">{value._data.status}</div>
+					  		<div className="lira-detail-content"><LabelSelect selectId="status" loadByDb="true" options={statusOptions} module_key="lira-issue" value_key="issue-status" ref="issueStatus" selectRef="issueStatus" onChagedCallBack={this.blurIssueStatus} initValue={value._data.status}/></div>
 					  		<div className="lira-detail-label">Priority:</div>
 					  		<div className="lira-detail-content">{value._data.priority}</div>
 					  		<div className="lira-detail-label">Labels:</div>
