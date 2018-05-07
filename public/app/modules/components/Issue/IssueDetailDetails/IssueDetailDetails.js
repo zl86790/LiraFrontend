@@ -30,6 +30,7 @@ class IssueDetailDetails extends React.Component {
 		this.clickIssueType = this.clickIssueType.bind(this);
 		this.blurIssueType = this.blurIssueType.bind(this);
 		this.blurIssueStatus = this.blurIssueStatus.bind(this);
+		this.blurIssuePriority = this.blurIssuePriority.bind(this);
 		
 	}
 	
@@ -98,6 +99,32 @@ class IssueDetailDetails extends React.Component {
 	 		 alert("Update error"+error);
 	 	  });
 	}
+	
+	blurIssuePriority(){
+		console.log("call back for blur issue priority");
+		var _this = this;
+		var value = this.refs.issuePriority.refs.issuePriority.value;
+		axios.post(Global.serverpath+'/api/v1/postlogin/updateIssue', 
+	 			  {
+	 		  			id:_this.props.issue_id,
+	 		  			priority:value
+	 			  }, 
+	 			  {
+			 	    headers: {
+			 	    	"lira_token": Global.getCookie('lira_token')
+			 	    }
+	 			  }
+	 	  ).then(function (response) {
+	 		  alert("Update success");
+	 		  _this.setState({
+	 			issueTypeDisplay:true,
+	 			issueTypeEditDisplay:'none'
+	 		 });
+	 		 _this.props.getIssueData();
+	 	  }).catch(function (error) {
+	 		 alert("Update error"+error);
+	 	  });
+	}
 
 	showDetails(event) {
 		this.setState({openDetails: !this.state.openDetails});
@@ -121,13 +148,11 @@ class IssueDetailDetails extends React.Component {
 						<div style={{height:40}}>
 					  		<div className="lira-detail-label">Type:</div>
 					  		<div className="lira-detail-content">
-					  			<div style={{display:this.state.issueTypeDisplay}} onClick={this.clickIssueType}>{value._data.type}</div>
-					  			<div style={{display:this.state.issueTypeEditDisplay}} onBlur={this.blurIssueType}><IssueType ref="issueType"/></div>
-					  		</div>
+					  		<LabelSelect selectId="type" loadByDb="true" module_key ="lira-issue" value_key="issue-type" ref="issueType" selectRef="issueType" onChagedCallBack={this.blurIssueType} initValue={value._data.type}/></div>
 					  		<div className="lira-detail-label">Status:</div>
 					  		<div className="lira-detail-content"><LabelSelect selectId="status" loadByDb="true" options={statusOptions} module_key="lira-issue" value_key="issue-status" ref="issueStatus" selectRef="issueStatus" onChagedCallBack={this.blurIssueStatus} initValue={value._data.status}/></div>
 					  		<div className="lira-detail-label">Priority:</div>
-					  		<div className="lira-detail-content">{value._data.priority}</div>
+					  		<div className="lira-detail-content"><LabelSelect selectId="priority" loadByDb="true" module_key="lira-issue" value_key="issue-priority" ref="issuePriority" selectRef="issuePriority" onChagedCallBack={this.blurIssuePriority} initValue={value._data.priority}/></div>
 					  		<div className="lira-detail-label">Labels:</div>
 					  		<div className="lira-detail-content">{value._data.labels}</div>
 					  	</div>
