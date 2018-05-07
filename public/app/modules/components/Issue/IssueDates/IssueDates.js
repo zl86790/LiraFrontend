@@ -10,6 +10,7 @@ import { createStore,combineReducers } from 'redux'
 import axios from 'axios';
 import Global from '../../Global/Global.js';
 import store from '../../../App/Store.js';
+import LabelDatePicker from "../../common/LabelDatePicker/LabelDatePicker.js";
 
 class IssueDates extends React.Component {
 	
@@ -40,7 +41,7 @@ class IssueDates extends React.Component {
 					<Collapse isOpened={openIssueDates}>
 						<div style={{}}>
 					  		<div>Created: {value._data.created_time_formatted}</div>
-					  		<div>Updated: {value._data.updated_time_formatted}</div>
+					  		<div>Updated: <LabelDatePicker initValue={value._data.updated_time_formatted} pickerId="updateDate" pickerName="updateDate" pickerRef="updateDate"/></div>
 					  		<div>Resolved: {value._data.resolved_time_formatted}</div>
 					  	</div>
 					</Collapse>

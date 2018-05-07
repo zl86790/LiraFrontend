@@ -71,7 +71,7 @@ class LabelSelect extends React.Component {
 		});
 		document.querySelector("#"+this.props.selectId).value = this.props.initValue;
 		this.oldValue = document.querySelector("#"+this.props.selectId).value;
-		setTimeout("document.querySelector('#"+this.props.selectId+"').focus()",500)
+		setTimeout("document.querySelector('#"+this.props.selectId+"').focus()",1)
 	}
 	
 	blurSelect(){
