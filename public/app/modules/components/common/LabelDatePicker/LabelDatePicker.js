@@ -41,6 +41,10 @@ class LabelDatePicker extends React.Component {
 //			showPicker:'none'
 //		  });
 //	  }
+	  this.setState({
+			showLabel:true,
+			showPicker:'none'
+		});
   }
  
   handleChange(date) {

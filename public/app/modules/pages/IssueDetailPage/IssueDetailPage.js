@@ -41,6 +41,7 @@ class IssueDetail extends React.Component {
 		    }
 		  })
 		  .then(function (response) {
+			  console.log(response);
 			  handleGETISSUEDATA.payload=response.data;
 			  store.dispatch(handleGETISSUEDATA);
 		  }).catch(function (error) {
