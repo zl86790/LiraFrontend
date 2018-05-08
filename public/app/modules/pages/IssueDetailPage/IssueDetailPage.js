@@ -54,7 +54,7 @@ class IssueDetail extends React.Component {
 					<div className="col-2">
 						<div style={{paddingTop:20}}>
 							<IssuePeople />
-							<IssueDates />
+							<IssueDates refreshData={this.getIssueData.bind(this)}/>
 							<IssueTimeTrack />
 						</div>
 					</div>

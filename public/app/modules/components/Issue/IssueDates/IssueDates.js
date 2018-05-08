@@ -18,10 +18,16 @@ class IssueDates extends React.Component {
 		super(props);
 		this.state = {openIssueDates: true};
 		this.showIssueDates = this.showIssueDates.bind(this);
+		this.changeUpdateDate = this.changeUpdateDate.bind(this);
 	}
 
 	showIssueDates(event) {
 		this.setState({openIssueDates: !this.state.openIssueDates});
+	}
+	
+	changeUpdateDate(){
+		console.log("changeUpdateDate");
+		this.props.refreshData();
 	}
 
 	render() {
@@ -41,7 +47,7 @@ class IssueDates extends React.Component {
 					<Collapse isOpened={openIssueDates}>
 						<div style={{}}>
 					  		<div>Created: {value._data.created_time_formatted}</div>
-					  		<div>Updated: <LabelDatePicker initValue={value._data.updated_time_formatted} pickerId="updateDate" pickerName="updateDate" pickerRef="updateDate"/></div>
+					  		<div>Updated: <LabelDatePicker initValue={value._data.updated_time_formatted} pickerId="updateDate" pickerName="updateDate" pickerRef="updateDate" callBackFunction={this.changeUpdateDate}/></div>
 					  		<div>Resolved: {value._data.resolved_time_formatted}</div>
 					  	</div>
 					</Collapse>
