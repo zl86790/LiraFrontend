@@ -32,26 +32,26 @@ class LabelDatePicker extends React.Component {
   }
   
   blurPicker(){
-	  let oldValue = this.props.initValue;
-	  let newValue = document.querySelector('#'+this.props.pickerId).value;
-	  console.log(oldValue+ ":::"+ newValue);
-	  if(oldValue==newValue){
-		  this.setState({
-			showLabel:true,
-			showPicker:'none'
-		  });
-	  }
+//	  let oldValue = this.props.initValue;
+//	  let newValue = document.querySelector('#'+this.props.pickerId).value;
+//	  console.log(oldValue+ ":::"+ newValue);
+//	  if(oldValue==newValue){
+//		  this.setState({
+//			showLabel:true,
+//			showPicker:'none'
+//		  });
+//	  }
   }
  
   handleChange(date) {
     this.setState({
     	dpvalue: date
     });
-    this.props.callBackFunction();
+    this.props.callBackFunction(date);
     this.setState({
 		showLabel:true,
 		showPicker:'none'
-	  });
+	});
   }
  
   render() {

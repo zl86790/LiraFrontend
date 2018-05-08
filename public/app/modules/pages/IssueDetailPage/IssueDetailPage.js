@@ -29,6 +29,7 @@ class IssueDetail extends React.Component {
 	}
 	
 	getIssueData(){
+		console.log("getissuedata")
 		var _this = this;
 		let url = Global.serverpath+'/api/v1/postlogin/issue';
    	 	axios.get(url, {
@@ -54,7 +55,7 @@ class IssueDetail extends React.Component {
 					<div className="col-2">
 						<div style={{paddingTop:20}}>
 							<IssuePeople />
-							<IssueDates refreshData={this.getIssueData.bind(this)}/>
+							<IssueDates issue_id={this.props.location.state.issueId} refreshData={this.getIssueData.bind(this)}/>
 							<IssueTimeTrack />
 						</div>
 					</div>

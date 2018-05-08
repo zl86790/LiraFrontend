@@ -11,6 +11,7 @@ import axios from 'axios';
 import Global from '../../Global/Global.js';
 import store from '../../../App/Store.js';
 import LabelDatePicker from "../../common/LabelDatePicker/LabelDatePicker.js";
+import { BrowserRouter  as Router, Route, Link, browserHistory as history, Switch, withRouter } from "react-router-dom";
 
 class IssueDates extends React.Component {
 	
@@ -25,10 +26,31 @@ class IssueDates extends React.Component {
 		this.setState({openIssueDates: !this.state.openIssueDates});
 	}
 	
-	changeUpdateDate(){
+	changeUpdateDate(date){
 		console.log("changeUpdateDate");
+		var _this = this;
+		var updateValue = date;
+		console.log(date)
+		console.log(this.refs.updateDate.refs.updateDate)
+		axios.post(Global.serverpath+'/api/v1/postlogin/updateIssue', 
+	 			  {
+	 		  			id:_this.props.issue_id,
+	 		  			updated_time_input_str:updateValue
+	 			  }, 
+	 			  {
+			 	    headers: {
+			 	    	"lira_token": Global.getCookie('lira_token')
+			 	    }
+	 			  }
+	 	  ).then(function (response) {
+	 		  alert("Update success");
+	 	  }).catch(function (error) {
+	 		 alert("Update error"+error);
+	 	  });
 		this.props.refreshData();
 	}
+	
+	
 
 	render() {
 	
@@ -47,7 +69,7 @@ class IssueDates extends React.Component {
 					<Collapse isOpened={openIssueDates}>
 						<div style={{}}>
 					  		<div>Created: {value._data.created_time_formatted}</div>
-					  		<div>Updated: <LabelDatePicker initValue={value._data.updated_time_formatted} pickerId="updateDate" pickerName="updateDate" pickerRef="updateDate" callBackFunction={this.changeUpdateDate}/></div>
+					  		<div>Updated: <LabelDatePicker initValue={value._data.updated_time_formatted} pickerId="updateDate" pickerName="updateDate" ref="updateDate" pickerRef="updateDate" callBackFunction={this.changeUpdateDate}/></div>
 					  		<div>Resolved: {value._data.resolved_time_formatted}</div>
 					  	</div>
 					</Collapse>
@@ -71,4 +93,4 @@ function mapDispatchToProps(dispatch){
 
 IssueDates = connect(mapStateToProps, mapDispatchToProps)(IssueDates)  
 
-export default IssueDates;
+export default withRouter(IssueDates);
