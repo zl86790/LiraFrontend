@@ -20,12 +20,55 @@ class IssueDates extends React.Component {
 		this.state = {openIssueDates: true};
 		this.showIssueDates = this.showIssueDates.bind(this);
 		this.changeUpdateDate = this.changeUpdateDate.bind(this);
+		this.changeResolvedTime = this.changeResolvedTime.bind(this);
+		this.changeCreatedTime = this.changeCreatedTime.bind(this);
 	}
 
 	showIssueDates(event) {
 		this.setState({openIssueDates: !this.state.openIssueDates});
 	}
-	
+	changeCreatedTime(date){
+		var _this = this;
+		var updateValue = date;
+		axios.post(Global.serverpath+'/api/v1/postlogin/updateIssue', 
+	 			  {
+	 		  			id:_this.props.issue_id,
+	 		  			created_time:updateValue
+	 			  }, 
+	 			  {
+			 	    headers: {
+			 	    	"lira_token": Global.getCookie('lira_token')
+			 	    }
+	 			  }
+	 	  ).then(function (response) {
+	 		 _this.props.refreshData();
+	 		 alert("Update success");
+	 	  }).catch(function (error) {
+	 		 alert("Update error"+error);
+	 	  });
+	}
+	changeResolvedTime(date){
+		var _this = this;
+		var updateValue = date;
+		console.log(date)
+		console.log(this.refs.updateDate.refs.updateDate)
+		axios.post(Global.serverpath+'/api/v1/postlogin/updateIssue', 
+	 			  {
+	 		  			id:_this.props.issue_id,
+	 		  			resolved_time:updateValue
+	 			  }, 
+	 			  {
+			 	    headers: {
+			 	    	"lira_token": Global.getCookie('lira_token')
+			 	    }
+	 			  }
+	 	  ).then(function (response) {
+	 		 _this.props.refreshData();
+	 		 alert("Update success");
+	 	  }).catch(function (error) {
+	 		 alert("Update error"+error);
+	 	  });
+	}
 	changeUpdateDate(date){
 		console.log("changeUpdateDate");
 		var _this = this;
@@ -35,7 +78,7 @@ class IssueDates extends React.Component {
 		axios.post(Global.serverpath+'/api/v1/postlogin/updateIssue', 
 	 			  {
 	 		  			id:_this.props.issue_id,
-	 		  			updated_time_input_str:updateValue
+	 		  			updated_time:updateValue
 	 			  }, 
 	 			  {
 			 	    headers: {
@@ -43,11 +86,12 @@ class IssueDates extends React.Component {
 			 	    }
 	 			  }
 	 	  ).then(function (response) {
-	 		  alert("Update success");
+	 		 _this.props.refreshData();
+	 		 alert("Update success");
 	 	  }).catch(function (error) {
 	 		 alert("Update error"+error);
 	 	  });
-		this.props.refreshData();
+		
 	}
 	
 	
@@ -68,9 +112,9 @@ class IssueDates extends React.Component {
 				<div>
 					<Collapse isOpened={openIssueDates}>
 						<div style={{}}>
-					  		<div>Created: {value._data.created_time_formatted}</div>
+					  		<div>Created: <LabelDatePicker initValue={value._data.created_time_formatted} pickerId="created_time" pickerName="created_time" ref="created_time" pickerRef="created_time" callBackFunction={this.changeCreatedTime}/></div>
 					  		<div>Updated: <LabelDatePicker initValue={value._data.updated_time_formatted} pickerId="updateDate" pickerName="updateDate" ref="updateDate" pickerRef="updateDate" callBackFunction={this.changeUpdateDate}/></div>
-					  		<div>Resolved: {value._data.resolved_time_formatted}</div>
+					  		<div>Resolved: <LabelDatePicker initValue={value._data.resolved_time_formatted} pickerId="resolved_time" pickerName="resolved_time" ref="resolved_time" pickerRef="resolved_time" callBackFunction={this.changeResolvedTime}/></div>
 					  	</div>
 					</Collapse>
 				</div>
