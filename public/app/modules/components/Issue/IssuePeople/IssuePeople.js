@@ -10,6 +10,7 @@ import { createStore,combineReducers } from 'redux'
 import axios from 'axios';
 import Global from '../../Global/Global.js';
 import store from '../../../App/Store.js';
+import LabelFetchUser from "../../common/LabelFetchUser/LabelFetchUser.js";
 
 class IssuePeople extends React.Component {
 	
@@ -37,7 +38,7 @@ class IssuePeople extends React.Component {
 				<div>
 					<Collapse isOpened={openPeople}>
 						<div style={{}}>
-					  		<div>Assignee: {value._data.assignee_name}</div>
+					  		<div>Assignee: {value._data.assignee_name}<LabelFetchUser initValue={value._data.assignee_name} fuId="assigneeFetcher" issue_id={this.props.issue_id}/></div>
 					  		<div>Reporter: {value._data.reporter_name}</div>
 					  	</div>
 					</Collapse>

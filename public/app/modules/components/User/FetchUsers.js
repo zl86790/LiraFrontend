@@ -35,9 +35,6 @@ const FetchUsers = createClass({
 		});
 	},
 	getUsers (input) {
-		
-		
-		
 		if (!input) {
 			return Promise.resolve({ options: [] });
 		}
