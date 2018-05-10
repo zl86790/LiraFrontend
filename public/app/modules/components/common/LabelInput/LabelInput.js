@@ -25,6 +25,7 @@ class LabelInput extends React.Component {
 			showInput:true
 		});
 		document.querySelector("#"+this.props.inputId).value = this.props.initValue;
+		this.oldValue = this.props.initValue;
 		setTimeout("document.querySelector('#"+this.props.inputId+"').focus()",1)
 	}
 	
@@ -35,7 +36,10 @@ class LabelInput extends React.Component {
 			showInput:'none'
 		});
 		let value = document.querySelector("#"+this.props.inputId).value
-		this.props.callBackFunction(value)
+		if(this.oldValue!=value){
+			this.props.callBackFunction(value)
+		}
+		
 	}
     
     render() {
@@ -44,7 +48,7 @@ class LabelInput extends React.Component {
 				<div className="">
 	  				<div style={{display:this.state.showLabel}} onClick={this.clickLabel}>{this.props.initValue}</div>
 	  				<div style={{display:this.state.showInput}} onBlur={this.blurInput}>
-		  				<input id={this.props.inputId} name={this.props.inputName} className="form-control" required ref={this.props.inputRef} style={{width:1000}} />
+		  				<input id={this.props.inputId} name={this.props.inputName} className="form-control" required ref={this.props.inputRef} style={this.props.mystyle} />
 	  				</div>
 	  			</div>
 		)

@@ -57,7 +57,7 @@ class IssueDetailTitle extends React.Component {
 				
 			<div>
 				<div className="row font-weight-normal">{value._data.project_name} / {value._data.issue_key}</div>
-				<h1 className="row font-weight-normal"><LabelInput initValue={value._data.issue_name} inputId="issueName" inputName="issueName" ref="issueName" inputRef="issueName" callBackFunction={this.blurLabelInput}/></h1>
+				<h1 className="row font-weight-normal"><LabelInput initValue={value._data.issue_name} inputId="issueName" inputName="issueName" ref="issueName" inputRef="issueName" callBackFunction={this.blurLabelInput} mystyle={{width:1000}}/></h1>
 			</div>
 			
 		)
