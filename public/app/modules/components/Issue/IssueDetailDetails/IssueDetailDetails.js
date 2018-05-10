@@ -68,7 +68,7 @@ class IssueDetailDetails extends React.Component {
 		 			issueTypeDisplay:true,
 		 			issueTypeEditDisplay:'none'
 		 		 });
-		 		 _this.props.getIssueData();
+		 		 _this.props.refreshData();
 		 	  }).catch(function (error) {
 		 		 alert("Update error"+error);
 		 	  });
@@ -94,7 +94,7 @@ class IssueDetailDetails extends React.Component {
 	 			issueTypeDisplay:true,
 	 			issueTypeEditDisplay:'none'
 	 		 });
-	 		 _this.props.getIssueData();
+	 		 _this.props.refreshData();
 	 	  }).catch(function (error) {
 	 		 alert("Update error"+error);
 	 	  });
@@ -120,7 +120,7 @@ class IssueDetailDetails extends React.Component {
 	 			issueTypeDisplay:true,
 	 			issueTypeEditDisplay:'none'
 	 		 });
-	 		 _this.props.getIssueData();
+	 		 _this.props.refreshData();
 	 	  }).catch(function (error) {
 	 		 alert("Update error"+error);
 	 	  });

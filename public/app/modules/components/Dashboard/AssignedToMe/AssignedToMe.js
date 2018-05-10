@@ -90,8 +90,8 @@ class AssignedToMe extends React.Component {
 		    Header: 'Key',
 		    accessor: 'issue_key'
 		  }, {
-		    Header: 'Summary',
-		    accessor: 'summary'
+		    Header: 'Name',
+		    accessor: 'issue_name'
 		  }, {
 			  Header: 'Priority',
 			  accessor: 'priority'
