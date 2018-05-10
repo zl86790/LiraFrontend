@@ -18,10 +18,33 @@ class IssuePeople extends React.Component {
 		super(props);
 		this.state = {openPeople: true};  
 		this.showPeople = this.showPeople.bind(this);
+		this.changeAssignee = this.changeAssignee.bind(this);
 	}
 
 	showPeople(event) {
 		this.setState({openPeople: !this.state.openPeople});
+	}
+	
+	changeAssignee(value){
+		var _this = this;
+		console.log(value);
+		var updateValue = value.id;
+		axios.post(Global.serverpath+'/api/v1/postlogin/updateIssue', 
+	 			  {
+	 		  			id:_this.props.issue_id,
+	 		  			assignee:updateValue
+	 			  }, 
+	 			  {
+			 	    headers: {
+			 	    	"lira_token": Global.getCookie('lira_token')
+			 	    }
+	 			  }
+	 	  ).then(function (response) {
+	 		 _this.props.refreshData();
+	 		 alert("Update success");
+	 	  }).catch(function (error) {
+	 		 alert("Update error"+error);
+	 	  });
 	}
 
 	render() {
@@ -38,7 +61,7 @@ class IssuePeople extends React.Component {
 				<div>
 					<Collapse isOpened={openPeople}>
 						<div style={{}}>
-					  		<div>Assignee: {value._data.assignee_name}<LabelFetchUser initValue={value._data.assignee_name} fuId="assigneeFetcher" issue_id={this.props.issue_id}/></div>
+					  		<div>Assignee: <LabelFetchUser initValue={value._data.assignee_name} fuId="assigneeFetcher" issue_id={this.props.issue_id} ref="assigneeFetcher" callBackFunction={this.changeAssignee}/></div>
 					  		<div>Reporter: {value._data.reporter_name}</div>
 					  	</div>
 					</Collapse>

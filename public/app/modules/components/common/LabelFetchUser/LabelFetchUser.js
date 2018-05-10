@@ -39,6 +39,7 @@ class LabelFetchUser extends React.Component {
 		this.setState({
 			value: value,
 		});
+		this.props.callBackFunction(value);
 	}
 	gotoUser (value, event) {
 		window.open(value.html_url);
