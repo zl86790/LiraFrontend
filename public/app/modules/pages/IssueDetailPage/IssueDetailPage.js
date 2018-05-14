@@ -21,15 +21,19 @@ import Global from '../../components/Global/Global.js';
 import store from '../../App/Store.js';
 import axios from 'axios';
 import './IssueDetailPage.css';
+import IssueAddWatcher from '../../components/Issue/IssueWatcher/IssueAddWatcher.js'
 
 class IssueDetail extends React.Component {
-	
+	constructor(props) {
+		super(props);
+	}
 	componentDidMount() {
 		this.getIssueData();
 	}
 	
 	getIssueData(){
 		console.log("getissuedata")
+		console.log(this.refs);
 		var _this = this;
 		let url = Global.serverpath+'/api/v1/postlogin/issue';
    	 	axios.get(url, {
@@ -62,10 +66,13 @@ class IssueDetail extends React.Component {
 					</div>
 					<div className="col-8">
 						<IssueDetailTitle issue_id={this.props.location.state.issueId} refreshData={this.getIssueData.bind(this)}/>
-						<IssueDetailTitleButton />
+						<IssueDetailTitleButton ref="IssueDetailTitleButton"/>
 						<IssueDetailDetails issue_id={this.props.location.state.issueId} refreshData={this.getIssueData.bind(this)}/>
 						<IssueDetailDescription issue_id={this.props.location.state.issueId} refreshData={this.getIssueData.bind(this)}/>
-						<IssueDetailActionsTab issue_id={this.props.location.state.issueId}/>
+						<IssueDetailActionsTab issue_id={this.props.location.state.issueId} ref="idat" />
+					</div>
+					<div className="col-2">
+						<IssueAddWatcher issue_id={this.props.location.state.issueId} />
 					</div>
 				</div>
 			</div>

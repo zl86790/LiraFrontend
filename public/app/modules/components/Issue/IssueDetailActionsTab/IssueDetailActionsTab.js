@@ -15,7 +15,7 @@ import IssueHistory from "../IssueHistory/IssueHistory.js";
 import IssueWatcher from "../IssueWatcher/IssueWatcher.js";
 
 import Global from '../../Global/Global.js';
-
+import { BrowserRouter  as Router, Route, Link, browserHistory as history, Switch, withRouter } from "react-router-dom";
 import IssueCommentsSimditorTextarea from '../IssueComments/IssueCommentsSimditorTextarea.js';
 
 var callback = function(key){
@@ -88,7 +88,7 @@ class IssueDetailActionsTab extends React.Component {
 					      	<IssueHistory />
 					      </TabPane>
 					      <TabPane tab='Watchers' key="3">
-					      	<IssueWatcher />
+					      	<IssueWatcher issue_id={this.props.issue_id} ref="IssueWatcher"/>
 					      </TabPane>
 					    </Tabs>
 				    </div>
@@ -117,5 +117,5 @@ function mapDispatchToProps(dispatch){
 
 IssueDetailActionsTab = connect(mapStateToProps, mapDispatchToProps)(IssueDetailActionsTab)  
 
-export default IssueDetailActionsTab;
+export default withRouter(IssueDetailActionsTab);
 
