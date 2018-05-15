@@ -28,10 +28,20 @@ class IssueDetailActionsTab extends React.Component {
 	
 	constructor(props) {
 		super(props);
+		this.state = {
+		}; 
+		this.setIssueWatcher = this.setIssueWatcher.bind(this);
 	}
 	
 	componentDidMount() {
-		
+	}
+	
+	setIssueWatcher(ref){
+		this.setState({
+			iw:ref
+		});
+		console.log(ref);
+		console.log(this.state);
 	}
 	
 	addComment(event) {
@@ -88,7 +98,7 @@ class IssueDetailActionsTab extends React.Component {
 					      	<IssueHistory />
 					      </TabPane>
 					      <TabPane tab='Watchers' key="3">
-					      	<IssueWatcher issue_id={this.props.issue_id} ref="IssueWatcher"/>
+					      	<IssueWatcher issue_id={this.props.issue_id}/>
 					      </TabPane>
 					    </Tabs>
 				    </div>
@@ -117,5 +127,5 @@ function mapDispatchToProps(dispatch){
 
 IssueDetailActionsTab = connect(mapStateToProps, mapDispatchToProps)(IssueDetailActionsTab)  
 
-export default withRouter(IssueDetailActionsTab);
+export default IssueDetailActionsTab;
 

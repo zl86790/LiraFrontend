@@ -22,8 +22,9 @@ import store from '../../App/Store.js';
 import axios from 'axios';
 import './IssueDetailPage.css';
 import IssueAddWatcher from '../../components/Issue/IssueWatcher/IssueAddWatcher.js'
+import { BrowserRouter  as Router, Route, Link, browserHistory as history, Switch, withRouter } from "react-router-dom";
 
-class IssueDetail extends React.Component {
+class IssueDetailPage extends React.Component {
 	constructor(props) {
 		super(props);
 	}
@@ -100,7 +101,7 @@ function mapDispatchToProps(dispatch){
     }  
 }  
 
-IssueDetail = connect(mapStateToProps, mapDispatchToProps)(IssueDetail)  
+IssueDetailPage = connect(mapStateToProps, mapDispatchToProps)(IssueDetailPage)  
 
-export default IssueDetail;
+export default withRouter(IssueDetailPage);
 

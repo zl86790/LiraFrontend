@@ -5,7 +5,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './IssueDetailTitleButton.css';
-
+import { BrowserRouter  as Router, Route, Link, browserHistory as history, Switch, withRouter } from "react-router-dom";
 class IssueDetailTitleButton extends React.Component {
 	render() {
 

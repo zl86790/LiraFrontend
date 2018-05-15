@@ -25,9 +25,10 @@ class IssueWatchers extends React.Component {
 	
 	componentDidMount() {
 		let url = Global.serverpath+'/api/v1/postlogin/issuewatchers';
+		var _this = this;
    	 	axios.get(url, {
 		    params: {
-		      issue_id:57
+		      issue_id:_this.props.issue_id
 		    },
 		    headers: {
 		      "lira_token": Global.getCookie('lira_token')
