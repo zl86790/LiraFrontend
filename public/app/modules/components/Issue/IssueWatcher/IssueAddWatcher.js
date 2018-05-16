@@ -22,6 +22,38 @@ class IssueAddWatcher extends React.Component {
 		this.stopwatch = this.stopwatch.bind(this);
 	}
 	
+	componentWillMount() {
+		let url = Global.serverpath+'/api/v1/postlogin/watchstatus';
+		var _this = this;
+		axios.get(url, {
+		    params: {
+		    	issue_id: _this.props.issue_id
+		    },
+		    headers: {
+		      "lira_token": Global.getCookie('lira_token')
+		    }
+		  })
+		  .then(function (response) {
+			  console.log(response.data);
+			  var count = Boolean(response.data);
+			  if(count==true){
+				  console.log("goto true")
+				  _this.setState({
+			 			showStartWatching:'none',
+						showStopWatching:true
+				  });
+			  }else{
+				  console.log("goto false")
+				  _this.setState({
+			 			showStartWatching:true,
+						showStopWatching:'none'
+				  });
+			  }
+		  }).catch(function (error) {
+			alert("load error"+JSON.stringify(error));
+		  });
+	}
+	
 	startwatch(){
 		var _this = this;
 		axios.post(Global.serverpath+'/api/v1/postlogin/issuewatcher', 
