@@ -50,8 +50,6 @@ class IssueDates extends React.Component {
 	changeResolvedTime(date){
 		var _this = this;
 		var updateValue = date;
-		console.log(date)
-		console.log(this.refs.updateDate.refs.updateDate)
 		axios.post(Global.serverpath+'/api/v1/postlogin/updateIssue', 
 	 			  {
 	 		  			id:_this.props.issue_id,
@@ -70,11 +68,8 @@ class IssueDates extends React.Component {
 	 	  });
 	}
 	changeUpdateDate(date){
-		console.log("changeUpdateDate");
 		var _this = this;
 		var updateValue = date;
-		console.log(date)
-		console.log(this.refs.updateDate.refs.updateDate)
 		axios.post(Global.serverpath+'/api/v1/postlogin/updateIssue', 
 	 			  {
 	 		  			id:_this.props.issue_id,

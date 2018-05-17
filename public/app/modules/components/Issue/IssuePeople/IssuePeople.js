@@ -11,7 +11,7 @@ import axios from 'axios';
 import Global from '../../Global/Global.js';
 import store from '../../../App/Store.js';
 import LabelFetchUser from "../../common/LabelFetchUser/LabelFetchUser.js";
-
+import IssueAssignToMe from '../../Issue/IssueAssignToMe/IssueAssignToMe.js'
 class IssuePeople extends React.Component {
 	
 	constructor(props) {
@@ -85,6 +85,7 @@ class IssuePeople extends React.Component {
 					<Collapse isOpened={openPeople}>
 						<div style={{}}>
 					  		<div>Assignee: <LabelFetchUser initValue={value._data.assignee_name} fuId="assigneeFetcher" issue_id={this.props.issue_id} ref="assigneeFetcher" callBackFunction={this.changeAssignee}/></div>
+					  		<div><IssueAssignToMe issue_id={this.props.issue_id} refreshData={this.props.refreshData} assignee_name={value._data.assignee_name}/></div>
 					  		<div>Reporter: <LabelFetchUser initValue={value._data.reporter_name} fuId="reporterFetcher" issue_id={this.props.issue_id} ref="reporterFetcher" callBackFunction={this.changeReporter}/></div>
 					  	</div>
 					</Collapse>
