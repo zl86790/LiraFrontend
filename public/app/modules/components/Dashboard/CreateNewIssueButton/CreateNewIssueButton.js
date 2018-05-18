@@ -15,7 +15,7 @@ import IssueType from '../../Issue/IssueType/IssueType.js';
 import ProjectSelect from '../../Project/ProjectSelect.js';
 
 import FetchUsers from '../../User/FetchUsers.js';
-
+import DbSelect from '../../common/Select/DbSelect.js';
 class CreateNewIssueButton extends React.Component {
 
   state = {
@@ -44,7 +44,7 @@ class CreateNewIssueButton extends React.Component {
  		  			issue_name:_this.refs.name.value,
 			 	  	type:_this.refs.issueTypeModule.refs.issueType.value,
 			 	  	summary:_this.refs.summary.value,
-			 	  	priority:_this.refs.priority.value,
+			 	  	priority:_this.refs.issuePriority.refs.issuePriority.value,
 			 	  	labels:_this.refs.labels.value,
 			 	  	status:"Open",
 			 	  	description:_this.refs.description.value,
@@ -141,7 +141,7 @@ class CreateNewIssueButton extends React.Component {
           	
           	<div className="create-new-issue-label" style={{}}>Priority:</div>
             <div className="create-new-issue-content" style={{}}>
-            	<input type="text" id="priority" className="form-control" placeholder="Priority" required defaultValue="" ref="priority"/>
+            	<DbSelect selectId="priority" loadByDb="true" module_key="lira-issue" value_key="issue-priority" ref="issuePriority" selectRef="issuePriority"/>
             </div>
             	
         	<div className="create-new-issue-label" style={{}}>Description:</div>
