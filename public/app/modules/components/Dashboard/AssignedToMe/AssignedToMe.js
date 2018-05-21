@@ -17,6 +17,8 @@ import store from '../../../App/Store.js';
 import 'rc-pagination/assets/index.css';
 import Pagination from 'rc-pagination';
 
+import MyIssuesChat from '../../charts/MyIssuesChat.js';
+
 class AssignedToMe extends React.Component {
 
 	constructor(props) {
@@ -135,6 +137,7 @@ class AssignedToMe extends React.Component {
 					  	  }}
 				  	/>
 				  	<Pagination onChange={this.onPageChange} current={this.state.current} total={value.issueCounts} pageSize={5} style={{ marginTop: '30px' }}/>
+				  	<MyIssuesChat />	
 				  </div>
 		  );
 		 
