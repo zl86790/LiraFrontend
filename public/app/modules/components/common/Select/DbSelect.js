@@ -71,7 +71,7 @@ class DbSelect extends React.Component {
 				<div className="lira-detail-content">
 	  				<div style={{display:this.state.selectDisplay}}>{this.props.initValue}</div>
 	  				<div style={{display:this.state.selectEditDisplay}}>
-		  				<select id={this.props.selectId} name={this.props.selectName} className="form-control" required ref={this.props.selectRef} style={{width:100}}>
+		  				<select id={this.props.selectId} name={this.props.selectName} className="form-control" required ref={this.props.selectRef} style={{width:100}} onChange={(e)=>this.props.onChangeCallBack(e.target)}>
 		  					{ops}
 			          	</select>
 	  				</div>

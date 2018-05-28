@@ -12,21 +12,14 @@ import store from '../../App/Store.js';
 import AssignedToMeDiv from '../../components/Dashboard/AssignedToMe/AssignedToMe.js';
 import CreatenewIssueButton from '../../components/Dashboard/CreateNewIssueButton/CreateNewIssueButton.js';
 
+import DashboardContainer from './DashboardContainer'
+
 class DashboardPage extends React.Component {
 	render() {
 
 		return (
 				
-			<div>
-				<div className="row">
-					<div className="col-2">
-						<CreatenewIssueButton />
-					</div>
-					<div className="col-10">
-						<AssignedToMeDiv />
-					</div>
-				</div>
-			</div>
+			<DashboardContainer />
 			
 		)
 	}

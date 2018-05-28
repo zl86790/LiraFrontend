@@ -21,6 +21,11 @@ const FetchUsers = createClass({
 		this.setState({
 			value: value,
 		});
+		let target={
+			id: this.props.keyInState,
+			value: value.id,
+		};
+		this.props.onChangeCallBack(target);
 	},
 	switchToMulti () {
 		this.setState({

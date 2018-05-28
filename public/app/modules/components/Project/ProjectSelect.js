@@ -51,7 +51,7 @@ class ProjectSelect extends React.Component {
 	render() {
 		const projectList = this.generateProjectListOptions();
 		return (
-			<select id="project_id" name="project_id" className="form-control" required ref="project_id" onChange={this.props.onChange}>
+			<select id="project_id" name="project_id" className="form-control" required ref="project_id" onChange={(e)=>this.props.onChangeCallBack(e.target)}>
           		{projectList}
           	</select>
 		)

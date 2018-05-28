@@ -51,7 +51,7 @@ class IssueType extends React.Component {
 	render() {
 		const issueTypes = this.generateIssueTypeOptions();
 		return (
-			<select id="issueType" name="issueType" className="form-control" required ref="issueType">
+			<select id="issueType" name="issueType" className="form-control" required ref="issueType" onChange={(e)=>this.props.onChangeCallBack(e.target)}>
           		{issueTypes}
           	</select>
 		)
