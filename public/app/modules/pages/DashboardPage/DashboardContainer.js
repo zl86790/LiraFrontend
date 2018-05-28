@@ -25,12 +25,6 @@ class DashboardContainer extends React.Component {
 	    destroyOnClose: true,
 	};
 	
-	onClose = () => {
-	    this.setState({
-	      visible: false,
-	    });
-	}
-	
 	onClick = () => {
 		this.setState({
 	      visible: true,

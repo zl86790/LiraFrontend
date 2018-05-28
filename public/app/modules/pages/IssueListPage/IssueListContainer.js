@@ -25,11 +25,72 @@ class IssueListContainer extends React.Component {
 				issuelistdata: []
 		}; 
 		this.onPageChange = this.onPageChange.bind(this);
+		this.setContainerState = this.setContainerState.bind(this);
 	}
 	
 	componentWillMount() {
 		this.fetchData(0);
 	}
+	
+	onClick = () => {
+		this.setState({
+	      visible: true,
+	    });
+	}
+	
+	onClose = () => {
+	    this.setState({
+	      visible: false,
+	    });
+	}
+	
+	setContainerState(target){
+		let key=target.id;
+		let value=target.value;
+		this.setState({
+			[key]:value
+		})
+		console.log(this.state);
+	}
+	
+	onSave = () => {
+		  var _this = this;
+		  var qs = require('qs');
+	 	  axios.post(Global.serverpath+'/api/v1/postlogin/issue', 
+	 			  {
+	 		  			project_id:_this.state.project_id,
+	 		  			issue_name:_this.state.name,
+				 	  	type:_this.state.issueType,
+				 	  	summary:_this.state.summary,
+				 	  	priority:_this.state.priority,
+				 	  	labels:_this.state.labels,
+				 	  	status:"Open",
+				 	  	description:_this.state.description,
+				 	  	assignee:_this.state.assignee,
+				 	  	reporter:this.state.reporter,
+				 	  	created_time:new Date().toJSON(),
+				 	  	updated_time:new Date().toJSON(),
+				 	  	resolved_time:null,
+				 	  	estimated:_this.state.estimated,
+				 	  	remaining:_this.state.remaining,
+				 	  	logged:_this.state.logged
+	 			  }, 
+	 			  {
+			 	    headers: {
+			 	    	"lira_token": Global.getCookie('lira_token')
+			 	    }
+	 			  }
+	 	  ).then(function (response) {
+	 		  alert("Create success");
+		      _this.setState({
+	 	        visible: false,
+	 	      });
+		      location.reload();
+	 	  }).catch(function (error) {
+	 		 alert("create error"+error);
+	 	  });
+	    
+	  }
 	
 	fetchData(pageNumber){
 		let url = Global.serverpath+'/api/v1/postlogin/issuesByCondition';
@@ -105,7 +166,7 @@ class IssueListContainer extends React.Component {
 			<div>
 				<div className="row">
 					<div className="col-2">
-						<CreatenewIssueButton />
+					<CreatenewIssueButton onClick={this.onClick} visible={this.state.visible} onClose={this.onClose} onSave={this.onSave} onChangeCallBack={this.setContainerState}/>
 					</div>
 					<div className="col-10">
 						<IssueList 
